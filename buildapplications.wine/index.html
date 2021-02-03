@@ -1,0 +1,1969 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="/img/favicon-128.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>Buildapplications.wine - abcdesktopio.github.io</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#build-abcdesktop-docker-image-for-windows-using-wine" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="abcdesktopio.github.io" class="md-header-nav__button md-logo" aria-label="abcdesktopio.github.io">
+      
+  <img src="/img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            abcdesktopio.github.io
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Buildapplications.wine
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/abcdesktopio/docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="abcdesktopio.github.io" class="md-nav__button md-logo" aria-label="abcdesktopio.github.io">
+      
+  <img src="/img/logo.svg" alt="logo">
+
+    </a>
+    abcdesktopio.github.io
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/abcdesktopio/docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" >
+    
+    <label class="md-nav__link" for="nav-1">
+      About
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="About" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon"></span>
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../about/howreadthisdoc/" class="md-nav__link">
+      How to read this documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../about/howtodolabsexercices/" class="md-nav__link">
+      How to do labs and exercices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../about/version/" class="md-nav__link">
+      Version
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../about/opensource/" class="md-nav__link">
+      Open source
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../about/authors/" class="md-nav__link">
+      Authors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../about/related_projets/" class="md-nav__link">
+      Related projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../requirements/" class="md-nav__link">
+      Requirements
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../overview/" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    
+    <label class="md-nav__link" for="nav-5">
+      GUI apps on Docker
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="GUI apps on Docker" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        GUI apps on Docker
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guiappsoddocker/" class="md-nav__link">
+      Run GUI apps on Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/vnc/" class="md-nav__link">
+      Hands-on with VNC client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/novnc/" class="md-nav__link">
+      Hands-on with no-VNC HTML5
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+    
+    <label class="md-nav__link" for="nav-6">
+      Architecture
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Architecture" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../architecture/" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2" >
+    
+    <label class="md-nav__link" for="nav-6-2">
+      Core
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Core" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        <span class="md-nav__icon md-icon"></span>
+        Core
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../core/nginx/" class="md-nav__link">
+      Nginx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../core/pyos/" class="md-nav__link">
+      Pyos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../core/mongodb/" class="md-nav__link">
+      Mongodb
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../core/memcached/" class="md-nav__link">
+      Memcached
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../core/speedtest/" class="md-nav__link">
+      Speedtest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../core/ocuser/" class="md-nav__link">
+      User
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3" >
+    
+    <label class="md-nav__link" for="nav-6-3">
+      Services
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Services" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        <span class="md-nav__icon md-icon"></span>
+        Services
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../services/spawner-service/" class="md-nav__link">
+      Spawner-service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../services/file-service/" class="md-nav__link">
+      File-service
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+    
+    <label class="md-nav__link" for="nav-7">
+      Setup guide
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Setup guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Setup guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1" >
+    
+    <label class="md-nav__link" for="nav-7-1">
+      Docker (Non-cluster)
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Docker (Non-cluster)" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        <span class="md-nav__icon md-icon"></span>
+        Docker (Non-cluster)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/dockermode/" class="md-nav__link">
+      Setup abcdesktop for Docker
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2" >
+    
+    <label class="md-nav__link" for="nav-7-2">
+      Kubernetes
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Kubernetes" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        <span class="md-nav__icon md-icon"></span>
+        Kubernetes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-2-1" type="checkbox" id="nav-7-2-1" >
+    
+    <label class="md-nav__link" for="nav-7-2-1">
+      Requirements
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Requirements" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Requirements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/k8slinuxinstallation/" class="md-nav__link">
+      Kubernetes on GNU/Linux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/k8smacosinstallation/" class="md-nav__link">
+      Kubernetes on MacOS/X
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/k8swindows10installation/" class="md-nav__link">
+      Kubernetes on Windows 10
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/kubernetesmode/" class="md-nav__link">
+      Setup Kubernetes for GNU/Linux only
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/kubernetes_abcdesktop/" class="md-nav__link">
+      Setup abcdesktop for Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/kubernetes_abcdesktop_applications/" class="md-nav__link">
+      Setup applications for abcdesktop
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3" >
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Kubernetes add-ons
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Kubernetes add-ons" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        <span class="md-nav__icon md-icon"></span>
+        Kubernetes add-ons
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/kubernetes_networkpolicies/" class="md-nav__link">
+      Setup Network policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/kubernetes_flexvolume/" class="md-nav__link">
+      Setup CIFS Volume
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/secure_dockerd/" class="md-nav__link">
+      Secure Dockerd
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/kubernetes_secure_etcd/" class="md-nav__link">
+      Secure Etcd
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+    
+    <label class="md-nav__link" for="nav-8">
+      Applications Containers
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Applications Containers" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Applications Containers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../applications/list/" class="md-nav__link">
+      List of all applications ready to use
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../applications/" class="md-nav__link">
+      Application image format
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../buildapplicationsgnulinux/" class="md-nav__link">
+      Build your own abcdesktop GNU/Linux Image
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
+    
+    <label class="md-nav__link" for="nav-9">
+      Configuration Guide
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Configuration Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon"></span>
+        Configuration Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/editconfig/" class="md-nav__link">
+      Edit your configuration file
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/stack/" class="md-nav__link">
+      Stack mode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-3" type="checkbox" id="nav-9-3" >
+    
+    <label class="md-nav__link" for="nav-9-3">
+      Authentification
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Authentification" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-3">
+        <span class="md-nav__icon md-icon"></span>
+        Authentification
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/authentification/" class="md-nav__link">
+      config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-3-2" type="checkbox" id="nav-9-3-2" >
+    
+    <label class="md-nav__link" for="nav-9-3-2">
+      explicit
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="explicit" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        explicit
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/authexplicit/" class="md-nav__link">
+      Directory services
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/authexplicit-ldap/" class="md-nav__link">
+      LDAP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/authexplicit-activedirectory/" class="md-nav__link">
+      Active Directory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/authimplicit/" class="md-nav__link">
+      implicit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/authexternal/" class="md-nav__link">
+      external
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/desktop/" class="md-nav__link">
+      Desktop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/frontjs/" class="md-nav__link">
+      Front
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/language/" class="md-nav__link">
+      Languages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-7" type="checkbox" id="nav-9-7" >
+    
+    <label class="md-nav__link" for="nav-9-7">
+      Logging
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Logging" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-7">
+        <span class="md-nav__icon md-icon"></span>
+        Logging
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/logging/" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/syslog/" class="md-nav__link">
+      Syslog
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-8" type="checkbox" id="nav-9-8" >
+    
+    <label class="md-nav__link" for="nav-9-8">
+      Controllers
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Controllers" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-8">
+        <span class="md-nav__icon md-icon"></span>
+        Controllers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/controllers/" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/controllers/manager/" class="md-nav__link">
+      Manager
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-9" type="checkbox" id="nav-9-9" >
+    
+    <label class="md-nav__link" for="nav-9-9">
+      WebRTC
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="WebRTC" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-9">
+        <span class="md-nav__icon md-icon"></span>
+        WebRTC
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/webrtc.md" class="md-nav__link">
+      Pulseaudio
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
+    
+    <label class="md-nav__link" for="nav-10">
+      How-to
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="How-to" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon"></span>
+        How-to
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../config/sudo-kubernetes/" class="md-nav__link">
+      Get a root access inside a container
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../common/docker_macvlan/" class="md-nav__link">
+      Routing local subnet using macvlan or ipvlan network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/retrieve_all_images.md" class="md-nav__link">
+      Get all docker application image for abcdesktop
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#winehq-embedded-in-octemplategtkwine50" class="md-nav__link">
+    WineHQ embedded in oc.template.gtk.wine.50
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-the-odconfig-configuration-file" class="md-nav__link">
+    Change the od.config configuration file
+  </a>
+  
+    <nav class="md-nav" aria-label="Change the od.config configuration file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-homedirectorytype-option" class="md-nav__link">
+    The homedirectorytype option
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-a-new-windows-putty-inside-a-docker-container" class="md-nav__link">
+    Build a new windows putty inside a docker container
+  </a>
+  
+    <nav class="md-nav" aria-label="Build a new windows putty inside a docker container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-the-octemplategtkwineputty-image-template" class="md-nav__link">
+    Build the oc.template.gtk.wine.putty image template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-your-new-applications-image-for-the-putty" class="md-nav__link">
+    Build your new applications image for the putty
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/abcdesktopio/docs/edit/master/docs/buildapplications.wine.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="build-abcdesktop-docker-image-for-windows-using-wine">Build abcdesktop docker image for Windows using Wine</h1>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Read the chapter <a href="config/editconfig/">Edit your configuration file in docker mode</a> is mandatory</li>
+<li>Read the chapter <a href="../applications/">Build abcdesktop docker image</a> is mandatory.</li>
+<li>Read the chapter <a href="../runapplications.wine/">Run docker image for Windows using Wine</a> is mandatory.</li>
+<li>Run a daemon <code>sshd</code> on your host</li>
+</ul>
+<h2 id="winehq-embedded-in-octemplategtkwine50">WineHQ embedded in oc.template.gtk.wine.50</h2>
+<p>To run Windows applications abcdesktop use WineHQ. A dedicated image template source is ready to use as source of others Windows applications. This template is named <code>abcdesktopio:oc.template.gtk.wine.50</code></p>
+<p>Start pulling this template image, if you don't have already done in the previous exercice : </p>
+<pre><code>docker pull abcdesktopio:oc.template.gtk.wine.50
+</code></pre>
+<h2 id="change-the-odconfig-configuration-file">Change the od.config configuration file</h2>
+<h3 id="the-homedirectorytype-option">The <code>homedirectorytype</code> option</h3>
+<p>To share the home directory <code>/home/balloon</code>volume data between containers, set the <code>desktop.homedirectorytype</code> to <code>'volume'</code> in your od.config file.</p>
+<p>Edit your own <code>od.config</code> file as described in the chapter <a href="config/editconfig/">Edit your configuration file in docker mode</a>, and make sure that <code>desktop.homedirectorytype</code> is set to <code>'volume'</code></p>
+<pre><code>desktop.homedirectorytype: 'volume' 
+</code></pre>
+<p>If need, run the <code>docker-compose restart</code> command in your abcdesktop directory where the <code>od.config</code> and the <code>docker-compose.yml</code> are located. </p>
+<pre><code>docker-compose restart
+</code></pre>
+<h2 id="build-a-new-windows-putty-inside-a-docker-container">Build a new windows putty inside a docker container</h2>
+<blockquote>
+<p>In this exercice we are going to install and run putty.exe for Windows inside a docker container for abcdesktop.</p>
+</blockquote>
+<p>PuTTY is an SSH and telnet client, developed originally by Simon Tatham for the Windows platform. </p>
+<p>Start an OpenDekstop session. You can use an authenticated session using an authentication provider <code>external</code> or <code>explicit</code>, or you can do this exercice using Anonymous Authentification also know as the authentication provider <code>implicit</code>.</p>
+<blockquote>
+<p>In this exercice we choose an Anonymous authentification, <strong>DO NOT CLOSE YOUR WEB BROWSER</strong>, you should not be able de reconnect with the same user context, and have to restart this exercice again.</p>
+</blockquote>
+<p><img alt="user loggin as Anonymous " src="img/wine-login-auth.png" /></p>
+<p>Login using the <code>Anonymous</code> authentification provider.</p>
+<p><img alt="user logged as Anonymous done" src="img/wine-login-auth-done.png" /></p>
+<p>Open a terminal window and run the command </p>
+<pre><code>docker ps --filter ancestor=abcdesktopio:oc.user.18.04
+</code></pre>
+<p>The option <code>--filter ancestor=abcdesktopio:oc.user.18.04</code> ask to filter only container with the image <code>ancestor</code> set to value <code>abcdesktopio:oc.user.18.04</code>.</p>
+<p>You should read the container with the image named abcdesktop/oio:oc.user.18.04 </p>
+<pre><code>docker ps --filter ancestor=abcdesktop/oio:oc.user.18.04
+CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS              PORTS                                                                              NAMES
+5719b77d3f2a        abcdesktop/oio:oc.user.18.04   &quot;/composer/docker-en…&quot;   27 seconds ago      Up 25 seconds       4714/tcp, 6081/tcp, 29780-29781/tcp, 29783-29784/tcp, 29786/tcp, 55556-55557/tcp   57be1e5b-0b14-4c05-ae79-75e9a03c77be
+</code></pre>
+<p>Read the values <code>CONTAINER ID</code> and <code>NAMES</code></p>
+<blockquote>
+<p>Note: If you read more than one entry, stop and remove all the oc.user containers, running the command <code>docker stop</code> and <code>docker rm</code>. Then restart an OpenDekstop session.</p>
+</blockquote>
+<p>Run a <code>docker inspect -f "{{ .HostConfig.Binds }}"</code> and add your <code>CONTAINER ID</code> as parameter.</p>
+<pre><code>docker inspect -f &quot;{{ .HostConfig.Binds }}&quot; CONTAINER_ID
+</code></pre>
+<p>where CONTAINER_ID is your own container id.</p>
+<p>For example</p>
+<pre><code>docker inspect -f &quot;{{ .HostConfig.Binds }}&quot; 5719b77d3f2a
+</code></pre>
+<p>You should read the volume name starting by the prefix <code>tmp-</code> and by the prefix <code>home-</code> with your uuid concatened</p>
+<pre><code>[tmp-57be1e5b-0b14-4c05-ae79-75e9a03c77be:/tmp home-57be1e5b-0b14-4c05-ae79-75e9a03c77be:/home/balloon]
+</code></pre>
+<p>We are using the <code>/tmp</code> volume and the <code>/home/balloon</code> volume of your container.</p>
+<blockquote>
+<p>If your are using an anonymous authentification, the name of your container id is formated as an uuid, for example <code>a32deda7-324f-4ee4-9e51-51c1aaf66bcf</code>. The name of the <code>tmp</code> volume is  <code>tmp-a32deda7-324f-4ee4-9e51-51c1aaf66bcf</code> and the name of <code>tmp</code> volume is  <code>home-a32deda7-324f-4ee4-9e51-51c1aaf66bcf</code> </p>
+<p>If your are using an LDAP authentification, the name of your container id is a string equal to the username, for example <code>hermes</code>. The name of the <code>tmp</code> volume is  <code>tmp-hermes</code>  and the name of <code>tmp</code> volume is  <code>home-hermes</code>.</p>
+</blockquote>
+<p>Replace in the command the string <code>TMP_VOLUMENAME</code> by your own tmp volume name. </p>
+<p>Replace in the command the string <code>HOME_VOLUMENAME</code> by your own home volume name. </p>
+<pre><code>docker run -it -v TMP_VOLUMENAME:/tmp  -v HOME_VOLUMENAME:/home/balloon --user balloon abcdesktopio:oc.template.gtk.wine.50 bash
+</code></pre>
+<p>For example with the <code>hermes</code> user:</p>
+<pre><code class="language-bash">docker run -it -v tmp-hermes:/tmp -v home-hermes:/home/balloon  --user balloon opabcdesktopio:oc.template.gtk.wine.50 bash 
+</code></pre>
+<p>For example with an anonymous user:</p>
+<pre><code class="language-bash">docker run -it -v tmp-a32deda7-324f-4ee4-9e51-51c1aaf66bcf:/tmp -v home-a32deda7-324f-4ee4-9e51-51c1aaf66bcf:/home/balloon --user balloon abcdesktopio:oc.template.gtk.wine.50 bash 
+</code></pre>
+<p>Great, you have started a new docker container. The oc.user containter and your new container are sharing the same volume mounted as <code>/tmp</code>. You get a prompt inside the new docker container.</p>
+<pre><code class="language-bash">To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.
+See &quot;man sudo_root&quot; for details.
+
+balloon@721263d5dece:~$ 
+</code></pre>
+<p>Run the command <code>ls -la .cache</code> in the <code>/home/balloon</code> directory</p>
+<pre><code class="language-bash">lrwxrwxrwx 1 balloon balloon 16 Mar 25 07:19 .cache -&gt; /composer/.cache
+</code></pre>
+<p>Go to the .cache directory</p>
+<pre><code class="language-bash">cd .cache
+</code></pre>
+<p>and run the <code>ls -la</code> command </p>
+<pre><code class="language-bash">root@0c6cae1641d2:/home/balloon/.cache# ls -la
+total 12
+drwxr-xr-x 1 balloon balloon 4096 Mar 23 22:42 .
+drwxr-xr-x 1 root    root    4096 Mar 23 22:42 ..
+drwxr-xr-x 2 root    root    4096 Mar 23 22:42 wine
+</code></pre>
+<p>This data of the <code>/home/balloon/.cache</code> is local to the container's image <code>abcdesktopio:oc.template.gtk.wine.50</code> and does not exist in the oc.user image. This data of the <code>/home/balloon/.cache</code> only exists in your container instance.</p>
+<p>Set the <code>DISPLAY</code> environment variable to <code>:0.0</code></p>
+<pre><code>balloon@721263d5dece:~$ export DISPLAY=:0.0
+</code></pre>
+<p>And now download putty.exe from the web site https://www.putty.org/.</p>
+<pre><code>balloon@8e48719ae72f:~$ wget https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe
+</code></pre>
+<p>And now start the <code>putty.exe</code> with wine, with the command <code>wine putty.exe</code></p>
+<pre><code>balloon@5719b77d3f2a:~$ wine putty.exe
+</code></pre>
+<p>After few seconds you should read on the standard error</p>
+<pre><code>wine: created the configuration directory '/home/balloon/.wine'
+0012:err:ole:marshal_object couldn't get IPSFactory buffer for interface {00000131-0000-0000-c000-000000000046}
+0012:err:ole:marshal_object couldn't get IPSFactory buffer for interface {6d5140c1-7436-11ce-8034-00aa006009fa}
+0012:err:ole:StdMarshalImpl_MarshalInterface Failed to create ifstub, hres=0x80004002
+0012:err:ole:CoMarshalInterface Failed to marshal the interface {6d5140c1-7436-11ce-8034-00aa006009fa}, 80004002
+0012:err:ole:get_local_server_stream Failed: 80004002
+0014:err:ole:marshal_object couldn't get IPSFactory buffer for interface {00000131-0000-0000-c000-000000000046}
+0014:err:ole:marshal_object couldn't get IPSFactory buffer for interface {6d5140c1-7436-11ce-8034-00aa006009fa}
+0014:err:ole:StdMarshalImpl_MarshalInterface Failed to create ifstub, hres=0x80004002
+0014:err:ole:CoMarshalInterface Failed to marshal the interface {6d5140c1-7436-11ce-8034-00aa006009fa}, 80004002
+0014:err:ole:get_local_server_stream Failed: 80004002
+0017:fixme:ntdll:NtLockFile I/O completion on lock not implemented yet
+0017:fixme:ntdll:NtQuerySystemInformation info_class SYSTEM_PERFORMANCE_INFORMATION
+0017:err:mscoree:LoadLibraryShim error reading registry key for installroot
+0017:err:mscoree:LoadLibraryShim error reading registry key for installroot
+0017:err:mscoree:LoadLibraryShim error reading registry key for installroot
+0017:err:mscoree:LoadLibraryShim error reading registry key for installroot
+0019:fixme:ntdll:NtLockFile I/O completion on lock not implemented yet
+0019:fixme:ntdll:NtQuerySystemInformation info_class SYSTEM_PERFORMANCE_INFORMATION
+0019:err:mscoree:LoadLibraryShim error reading registry key for installroot
+0019:err:mscoree:LoadLibraryShim error reading registry key for installroot
+0019:err:mscoree:LoadLibraryShim error reading registry key for installroot
+0019:err:mscoree:LoadLibraryShim error reading registry key for installroot
+0019:fixme:msi:internal_ui_handler internal UI not implemented for message 0x0b000000 (UI level = 5)
+0019:fixme:msi:internal_ui_handler internal UI not implemented for message 0x0b000000 (UI level = 5)
+0017:fixme:msi:internal_ui_handler internal UI not implemented for message 0x0b000000 (UI level = 1)
+0017:fixme:msi:internal_ui_handler internal UI not implemented for message 0x0b000000 (UI level = 1)
+001d:fixme:ntdll:NtLockFile I/O completion on lock not implemented yet
+001d:fixme:ntdll:NtQuerySystemInformation info_class SYSTEM_PERFORMANCE_INFORMATION
+001d:fixme:msi:internal_ui_handler internal UI not implemented for message 0x0b000000 (UI level = 1)
+001d:fixme:msi:internal_ui_handler internal UI not implemented for message 0x0b000000 (UI level = 1)
+0010:err:winediag:SECUR32_initNTLMSP ntlm_auth was not found or is outdated. Make sure that ntlm_auth &gt;= 3.0.25 is in your path. Usually, you can find it in the winbind package of your distribution.
+0010:fixme:dwmapi:DwmIsCompositionEnabled 05E3DD14
+001f:fixme:iphlpapi:NotifyIpInterfaceChange (family 0, callback 0x25bf537, context 0x2a3838, init_notify 0, handle 0x6c3fcd8): stub
+0010:fixme:ntdll:NtQuerySystemInformation info_class SYSTEM_PERFORMANCE_INFORMATION
+wine: configuration in L&quot;/home/balloon/.wine&quot; has been updated.
+0009:fixme:shcore:SetCurrentProcessExplicitAppUserModelID L&quot;SimonTatham.PuTTY&quot;: stub
+0009:err:winediag:SECUR32_initNTLMSP ntlm_auth was not found or is outdated. Make sure that ntlm_auth &gt;= 3.0.25 is in your path. Usually, you can find it in the winbind package of your distribution.
+</code></pre>
+<p>On the abcdesktop display, Wine shows a windows message <code>wine: created the configuration directory '/home/balloon/.wine'</code></p>
+<p><img alt="wine is starting" src="img/wine-putty-install.png" /></p>
+<p>After few seconds, Putty is running :</p>
+<p><img alt="Putty is running" src="../img/putty-running.png" /></p>
+<p>You can use this Putty Windows application to connect to another host using <code>ssh</code> or <code>telnet</code> protocol. </p>
+<p>The application Putty is opened and is running in the background. 
+At the right corner, write in the search bar the keyword <code>shell</code>
+Click on the <code>Web Shell</code> icon, a new Terminal WebShell is now opened :</p>
+<p><img alt="abcdesktop terminal web shell icon" src="img/wine-terminal-webshell.png" /></p>
+<p>Run the command to list each X11 windows and get the WMClass name.</p>
+<pre><code class="language-bash">wmctrl -lx 
+</code></pre>
+<p><img alt="abcdesktop terminal web shell icon" src="img/wine-terminal-wmctrl.png" /></p>
+<p>Read the WM_CLASS of the Putty Wine application: <code>putty.exe.Wine</code></p>
+<p>Then exit the <code>web shell</code> and quit on the Putty application. 
+Wine has created a configuration directory in the default directory <code>.wine</code>. </p>
+<h3 id="build-the-octemplategtkwineputty-image-template">Build the oc.template.gtk.wine.putty image template</h3>
+<p>Create two directory putty on desktop directory, for example in your home directory</p>
+<pre><code class="language-bash">cd
+mkdir opendekstop
+mkdir opendekstop/putty
+mkdir opendekstop/putty/icons
+</code></pre>
+<p>You are going to create your first abcdesktop image template file. This file's content is the .wine directory execution environement.</p>
+<p>Create a file <code>oc.template.gtk.wine.putty</code>, and add the content </p>
+<pre><code class="language-Dockerfile">FROM abcdesktopio:oc.template.gtk.wine.50
+RUN mkdir -p /composer/wineprefix/putty 
+RUN mkdir -p /composer/bin
+RUN chown $BUSER:$BUSER /composer/wineprefix/putty
+RUN wget -O /composer/bin/putty.exe http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+USER $BUSER
+ENV LC_ALL=C
+ENV WINEPREFIX=/composer/wineprefix/putty/.wine
+ENV WINEARCH=win32
+RUN wineboot -i
+RUN mv .cache/fontconfig /composer/.cache
+</code></pre>
+<p>Build your docker image template file.
+Run the <code>docker build</code> command</p>
+<pre><code class="language-bash">docker build -t oc.template.gtk.wine.putty -f oc.template.gtk.wine.putty .
+</code></pre>
+<p>You should read on standard output:</p>
+<pre><code>Sending build context to Docker daemon  872.1MB
+Step 1/11 : FROM abcdesktopio:oc.template.gtk.wine.50
+ ---&gt; d17a88d3444b
+Step 2/11 : RUN mkdir -p /composer/wineprefix/putty
+ ---&gt; Running in 0d37be27165e
+Removing intermediate container 0d37be27165e
+ ---&gt; f2cd049a27ab
+Step 3/11 : RUN mkdir -p /composer/bin
+ ---&gt; Running in 32a7a9e3b5a3
+Removing intermediate container 32a7a9e3b5a3
+ ---&gt; 63f0cf999dab
+Step 4/11 : RUN chown $BUSER:$BUSER /composer/wineprefix/putty
+ ---&gt; Running in 57bb77a3b4ed
+Removing intermediate container 57bb77a3b4ed
+ ---&gt; 57b61fb92cc1
+Step 5/11 : RUN wget -O /composer/bin/putty.exe http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+ ---&gt; Running in 2e92d93dc509
+--2020-03-29 11:48:49--  http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+Resolving the.earth.li (the.earth.li)... 93.93.131.124, 2a00:1098:86:4d:c0ff:ee:15:900d
+Connecting to the.earth.li (the.earth.li)|93.93.131.124|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe [following]
+--2020-03-29 11:48:49--  https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe
+Connecting to the.earth.li (the.earth.li)|93.93.131.124|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://the.earth.li/~sgtatham/putty/0.73/w32/putty.exe [following]
+--2020-03-29 11:48:49--  https://the.earth.li/~sgtatham/putty/0.73/w32/putty.exe
+Reusing existing connection to the.earth.li:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 1096080 (1.0M) [application/x-msdos-program]
+Saving to: '/composer/bin/putty.exe'
+
+     0K .......... .......... .......... .......... ..........  4% 1.38M 1s
+    50K .......... .......... .......... .......... ..........  9% 2.47M 1s
+   100K .......... .......... .......... .......... .......... 14% 13.7M 0s
+   150K .......... .......... .......... .......... .......... 18% 2.63M 0s
+   200K .......... .......... .......... .......... .......... 23% 6.61M 0s
+   250K .......... .......... .......... .......... .......... 28% 4.04M 0s
+   300K .......... .......... .......... .......... .......... 32% 6.26M 0s
+   350K .......... .......... .......... .......... .......... 37% 3.79M 0s
+   400K .......... .......... .......... .......... .......... 42% 1.24M 0s
+   450K .......... .......... .......... .......... .......... 46% 7.33M 0s
+   500K .......... .......... .......... .......... .......... 51% 5.85M 0s
+   550K .......... .......... .......... .......... .......... 56% 4.25M 0s
+   600K .......... .......... .......... .......... .......... 60% 8.49M 0s
+   650K .......... .......... .......... .......... .......... 65% 3.75M 0s
+   700K .......... .......... .......... .......... .......... 70% 20.6M 0s
+   750K .......... .......... .......... .......... .......... 74% 2.92M 0s
+   800K .......... .......... .......... .......... .......... 79% 18.8M 0s
+   850K .......... .......... .......... .......... .......... 84% 2.90M 0s
+   900K .......... .......... .......... .......... .......... 88% 16.3M 0s
+   950K .......... .......... .......... .......... .......... 93% 4.27M 0s
+  1000K .......... .......... .......... .......... .......... 98% 9.93M 0s
+  1050K .......... ..........                                 100%  106M=0.3s
+
+2020-03-29 11:48:49 (4.02 MB/s) - '/composer/bin/putty.exe' saved [1096080/1096080]
+
+Removing intermediate container 2e92d93dc509
+ ---&gt; a345c9aef5e9
+Step 6/11 : USER $BUSER
+ ---&gt; Running in 8e411fba7e76
+Removing intermediate container 8e411fba7e76
+ ---&gt; 05a809d4fc5f
+Step 7/11 : ENV LC_ALL=C
+ ---&gt; Running in 0c866bf9a6dd
+Removing intermediate container 0c866bf9a6dd
+ ---&gt; 70eab5b35730
+Step 8/11 : ENV WINEPREFIX=/composer/wineprefix/putty/.wine
+ ---&gt; Running in 91933a7da5c4
+Removing intermediate container 91933a7da5c4
+ ---&gt; bf23db87e10e
+Step 9/11 : ENV WINEARCH=win32
+ ---&gt; Running in d5e42e05c594
+Removing intermediate container d5e42e05c594
+ ---&gt; b6e7a569f2d5
+Step 10/11 : RUN wineboot -i
+ ---&gt; Running in 032a7e3ff345
+wine: created the configuration directory '/composer/wineprefix/putty/.wine'
+0012:err:ole:marshal_object couldn't get IPSFactory buffer for interface {00000131-0000-0000-c000-000000000046}
+0012:err:ole:marshal_object couldn't get IPSFactory buffer for interface {6d5140c1-7436-11ce-8034-00aa006009fa}
+0012:err:ole:StdMarshalImpl_MarshalInterface Failed to create ifstub, hres=0x80004002
+0012:err:ole:CoMarshalInterface Failed to marshal the interface {6d5140c1-7436-11ce-8034-00aa006009fa}, 80004002
+0012:err:ole:get_local_server_stream Failed: 80004002
+0010:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+0010:err:winediag:nodrv_CreateWindow Make sure that your X server is running and that $DISPLAY is set correctly.
+0014:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+0014:err:winediag:nodrv_CreateWindow Make sure that your X server is running and that $DISPLAY is set correctly.
+0014:err:ole:apartment_createwindowifneeded CreateWindow failed with error 0
+0014:err:ole:apartment_createwindowifneeded CreateWindow failed with error 0
+0014:err:ole:marshal_object couldn't get IPSFactory buffer for interface {00000131-0000-0000-c000-000000000046}
+0014:err:ole:apartment_createwindowifneeded CreateWindow failed with error 14007
+0014:err:ole:StdMarshalImpl_MarshalInterface Failed to create ifstub, hres=0x800736b7
+0014:err:ole:CoMarshalInterface Failed to marshal the interface {6d5140c1-7436-11ce-8034-00aa006009fa}, 800736b7
+0014:err:ole:get_local_server_stream Failed: 800736b7
+000b:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+000b:err:winediag:nodrv_CreateWindow Make sure that your X server is running and that $DISPLAY is set correctly.
+0016:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+0016:err:winediag:nodrv_CreateWindow Make sure that your X server is running and that $DISPLAY is set correctly.
+0018:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+0018:err:winediag:nodrv_CreateWindow Make sure that your X server is running and that $DISPLAY is set correctly.
+Could not find Wine Gecko. HTML rendering will be disabled.
+wine: configuration in L&quot;/composer/wineprefix/putty/.wine&quot; has been updated.
+Removing intermediate container 032a7e3ff345
+ ---&gt; 6e5a94bb720b
+Step 11/11 : RUN mv .cache/fontconfig /composer/.cache
+ ---&gt; Running in aa4c4dc5dd54
+Removing intermediate container aa4c4dc5dd54
+ ---&gt; ebf87d0220d5
+Successfully built ebf87d0220d5
+Successfully tagged oc.template.gtk.wine.putty:latest
+</code></pre>
+<p>Great, you have built the new <code>oc.template.gtk.wine.putty</code> template image. Now, we have to build the putty image using this template</p>
+<h3 id="build-your-new-applications-image-for-the-putty">Build your new applications image for the putty</h3>
+<p>Find a icon on svg format for the putty applications.
+You can use this one <a href="https://upload.wikimedia.org/wikipedia/commons/6/6f/Octicons-terminal.svg">Octicons-terminal.svg</a>, or another svg image file. Save your svg image in the <code>abcdesktop/io/putty/icons</code> directory.</p>
+<p>Create a new applist.json file, in your <code>abcdesktop/io/putty</code> directory and add the content into:</p>
+<pre><code>[
+  {
+    &quot;args&quot;: &quot;/composer/bin/putty.exe&quot;,
+    &quot;cat&quot;: &quot;utilities&quot;,
+    &quot;debpackage&quot;: &quot;&quot;,
+    &quot;icon&quot;: &quot;putty.svg&quot;,
+    &quot;keyword&quot;: &quot;putty,ssh&quot;,
+    &quot;launch&quot;: &quot;putty.exe.Wine&quot;,
+    &quot;name&quot;: &quot;Putty&quot;,
+    &quot;displayname&quot;: &quot;Putty&quot;,
+    &quot;path&quot;: &quot;/usr/bin/wine&quot;,
+    &quot;template&quot;: &quot;oc.template.gtk.wine.putty&quot;
+  }
+]
+</code></pre>
+<blockquote>
+<p>Use your <code>own oc.template.gtk.wine.putty</code> image as template source, do not use the default docker abcdesktop/io.io template source.</p>
+</blockquote>
+<p>To build your new image, download the <a href="/https://raw.githubusercontent.com/abcdesktop/ioio/oc.apps/master/make.js?token=AO25BQMPS3K4GXIGWRQ3QNC6WJXWE">make.js</a> script file. <code>make.js</code> is located in the <code>oc.apps</code> repository. Look at <a href="https://github.com/abcdesktop/ioio/oc.apps">https://github.com/abcdesktop/ioio/oc.apps</a> if you can not download this file.</p>
+<p><code>make.js</code> is a nodejs javascript file. Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript.</p>
+<blockquote>
+<p>If you don't have already nodejs installed on your system, go to the website <a href="https://nodejs.org/en/download/">nodejs download website</a> and follow the instructions to install nodejs.</p>
+</blockquote>
+<p>In the build directory, you should have </p>
+<pre><code>drwxr-xr-x   5 devuser  staff   160      Mar 11 15:15 .
+drwxr-xr-x+ 31 devuser  staff   992      Mar 11 15:15 ..
+-rw-r--r--   1 devuser  staff   265      Mar 25 15:15 applist.json
+drwxr-xr-x   3 devuser  staff    96      Mar 25 15:02 icons
+-rw-r--r--   1 devuser  staff  8036      Mar 25 15:12 make.js
+-rw-r--r--   1 devuser  staff   359      Mar 25 15:29 oc.template.gtk.wine.putty
+-rw-r--r--   1 devuser  staff  872069120 Mar 25 15:37 putty.tar
+
+./icons:
+total 8
+drwxr-xr-x  3 devuser  staff    96 Mar 11 15:02 .
+drwxr-xr-x  5 devuser  staff   160 Mar 11 15:15 ..
+-rw-r--r--  1 devuser  staff  1909 Oct 31  2015 putty.svg
+</code></pre>
+<p>Run the command make.js</p>
+<pre><code>node make.js
+</code></pre>
+<p>You should get the output </p>
+<pre><code>{
+  args: '/composer/bin/putty.exe',
+  cat: 'utilities',
+  debpackage: '',
+  icon: 'putty.svg',
+  keyword: 'putty,ssh',
+  launch: 'putty.exe.Wine',
+  name: 'Putty',
+  displayname: 'Putty',
+  path: '/usr/bin/wine',
+  template: 'oc.template.gtk.wine.putty'
+}
+Building putty.exe.Wine
+{
+  args: '/composer/bin/putty.exe',
+  cat: 'utilities',
+  debpackage: '',
+  icon: 'putty.svg',
+  keyword: 'putty,ssh',
+  launch: 'putty.exe.Wine',
+  name: 'Putty',
+  displayname: 'Putty',
+  path: '/usr/bin/wine',
+  template: 'oc.template.gtk.wine.putty'
+}
+Building documentation putty.exe.Wine
+        - 'Putty'   : 'putty.md'
+</code></pre>
+<p>The <code>make.js</code> has built a new DockerFile <code>putty.d</code> for you.</p>
+<pre><code>FROM oc.template.gtk.wine.putty
+ENV BUSER balloon
+LABEL oc.icon=&quot;putty.svg&quot;
+LABEL oc.icondata=&quot;PHN2ZyBoZWlnaHQ9IjEwMjQiIHdpZHRoPSI4OTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTTgzMSAxMjdINjNjLTM1LjM1IDAtNjQgMjguNjUtNjQgNjR2NjQwYzAgMzUuMzUgMjguNjUgNjQgNjQgNjRoNzY4YzM1LjM1IDAgNjQtMjguNjUgNjQtNjRWMTkxQzg5NSAxNTUuNjQ5OTk5OTk5OTk5OTggODY2LjM1IDEyNyA4MzEgMTI3ek0xMjcgNTc1bDEyOC0xMjhMMTI3IDMxOWw2NC02NCAxOTIgMTkyTDE5MSA2MzkgMTI3IDU3NXpNNjM5IDYzOUgzODN2LTY0aDI1NlY2Mzl6IiAvPgo8L3N2Zz4K&quot;
+LABEL oc.keyword=&quot;putty,ssh&quot;
+LABEL oc.cat=&quot;utilities&quot;
+LABEL oc.launch=&quot;putty.exe.Wine&quot;
+LABEL oc.template=&quot;oc.template.gtk.wine.putty&quot;
+ENV ARGS=&quot;/composer/bin/putty.exe&quot;
+LABEL oc.name=&quot;Putty&quot;
+LABEL oc.displayname=&quot;Putty&quot;
+LABEL oc.path=&quot;/usr/bin/wine&quot;
+LABEL oc.type=app
+RUN cd /usr/share/icons   &amp;&amp; /composer/safelinks.sh
+RUN cd /usr/share/pixmaps &amp;&amp; /composer/safelinks.sh
+WORKDIR /home/balloon
+USER balloon
+ENV APPNAME &quot;Putty&quot;
+ENV APPBIN &quot;/usr/bin/wine&quot;
+LABEL oc.args=&quot;/composer/bin/putty.exe&quot;
+ENV APP &quot;/usr/bin/wine&quot;
+</code></pre>
+<p>Build your putty image, with the docker build command </p>
+<pre><code>docker build -t putty.d -f putty.d .
+</code></pre>
+<p>The API server does not know that you have built your new 2048 application.
+You have to send a message to the API server, to update the API Server images cache list.</p>
+<p>Using your web browser or a curl command, call a http request to notify the API Server</p>
+<pre><code>http://localhost/API/manager/buildapplist
+</code></pre>
+<p>This http request return a json object, with all docker images details :</p>
+<p><img alt="update app list" src="img/wine-updateapp-list.png" /></p>
+<p>Reloead your web browser connected on the abcdesktop/io.io website, and log your again as anonymous.</p>
+<p>In the search area, type <code>putty</code>. Click on the <code>Putty</code> Application.</p>
+<p><img alt="search putty" src="img/wine-search-putty.png" /></p>
+<p>Wine is starting your <code>Putty</code> application :</p>
+<p><img alt="putty running" src="img/wine-putty.png" /></p>
+<p>Great, you have build a template abcdesktop/io image for <code>Putty</code>, build the application image <code>Putty</code>. You can push this image to your own private docker registry.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
