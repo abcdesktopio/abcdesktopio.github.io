@@ -1486,7 +1486,14 @@
                 <h1 id="dock-configuration-in-odconfig">dock configuration in od.config</h1>
 <h1 id="menu-setting">Menu Setting</h1>
 <p>The menu can be changed using the dictionnary object <code>menuconfig</code></p>
-<pre><code>menuconfig              : { 'settings': True, 'appstore': True, 'screenshot':True, 'download': True, 'logout': True, 'disconnect': True }
+<pre><code>menuconfig : {
+                    'settings'  : True, 
+                    'appstore'  : True, 
+                    'screenshot'    : True, 
+                    'download'  : True, 
+                    'logout'        : True, 
+                    'disconnect'    : True 
+}
 </code></pre>
 <h1 id="default-dock-config">default dock config</h1>
 <p>The dock session in od.config file describe the default docker in abcdesktop.io.
