@@ -1428,19 +1428,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../common/docker_macvlan/" class="md-nav__link">
-      Routing local subnet using macvlan or ipvlan network
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
     <a href="../../setup/retrieve_all_images/" class="md-nav__link">
       Get all docker application image for abcdesktop
     </a>
@@ -1539,6 +1526,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pre-run-command" class="md-nav__link">
+    Pre run command
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1557,7 +1551,7 @@
                 
                 
                 <h1 id="chrome">chrome</h1>
-<p><img src='icons/google-chrome.svg' height='64px' width='64px'></p>
+<p><img alt="google-chrome.svg" src="/applications/icons/google-chrome.svg" style="height:64px;width:64px" /></p>
 <h2 id="inherite-from">inherite from</h2>
 <p><a href="../abcdesktopio/oc.template.gtk/">abcdesktopio/oc.template.gtk</a></p>
 <h2 id="use-ubuntu-package">use ubuntu package</h2>
@@ -1576,6 +1570,10 @@
 <p>"html;xml"</p>
 <h2 id="share-size">Share size</h2>
 <p>"2gb"</p>
+<h2 id="pre-run-command">Pre run command</h2>
+<pre><code>
+RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes  wget  &amp;&amp; apt-get clean,RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -,RUN echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
+</code></pre>
                 
               
               

@@ -1428,19 +1428,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../common/docker_macvlan/" class="md-nav__link">
-      Routing local subnet using macvlan or ipvlan network
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
     <a href="../../setup/retrieve_all_images/" class="md-nav__link">
       Get all docker application image for abcdesktop
     </a>
@@ -1511,6 +1498,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pre-run-command" class="md-nav__link">
+    Pre run command
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1529,7 +1523,7 @@
                 
                 
                 <h1 id="atom">Atom</h1>
-<p><img src='icons/atom.svg' height='64px' width='64px'></p>
+<p><img alt="atom.svg" src="/applications/icons/atom.svg" style="height:64px;width:64px" /></p>
 <h2 id="inherite-from">inherite from</h2>
 <p><a href="../abcdesktopio/oc.template.gtk/">abcdesktopio/oc.template.gtk</a></p>
 <h2 id="use-ubuntu-package">use ubuntu package</h2>
@@ -1540,6 +1534,10 @@
 <p>"Atom"</p>
 <h2 id="path">path</h2>
 <p>"/usr/bin/atom"</p>
+<h2 id="pre-run-command">Pre run command</h2>
+<pre><code>
+RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes wget &amp;&amp; apt-get clean,RUN apt-get update &amp;&amp; apt-get install                          --yes libxss1 &amp;&amp; apt-get clean,RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add -,RUN echo &quot;deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main&quot; &gt; /etc/apt/sources.list.d/atom.list,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes $(apt-cache search aspell- | awk '{print $1 }') &amp;&amp; rm -rf /var/lib/apt/lists/*
+</code></pre>
                 
               
               

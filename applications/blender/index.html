@@ -1428,19 +1428,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../common/docker_macvlan/" class="md-nav__link">
-      Routing local subnet using macvlan or ipvlan network
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
     <a href="../../setup/retrieve_all_images/" class="md-nav__link">
       Get all docker application image for abcdesktop
     </a>
@@ -1511,6 +1498,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pre-run-command" class="md-nav__link">
+    Pre run command
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1529,7 +1523,7 @@
                 
                 
                 <h1 id="blender">blender</h1>
-<p><img src='icons/blender.svg' height='64px' width='64px'></p>
+<p><img alt="blender.svg" src="/applications/icons/blender.svg" style="height:64px;width:64px" /></p>
 <h2 id="inherite-from">inherite from</h2>
 <p><a href="../abcdesktopio/oc.template.gtk/">abcdesktopio/oc.template.gtk</a></p>
 <h2 id="display-name">Display name</h2>
@@ -1540,6 +1534,10 @@
 <p>"application/x-blender"</p>
 <h2 id="file-extensions">File extensions</h2>
 <p>"blend,obj,fbx,3ds,ply,stl"</p>
+<h2 id="pre-run-command">Pre run command</h2>
+<pre><code>
+RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes xz-utils wget &amp;&amp; apt-get clean,RUN apt-get update &amp;&amp; apt-get install                          --yes libx11-6 libxi6 libxxf86vm1 libxfixes3 libxrender1 libgl1 &amp;&amp; apt-get clean,RUN wget -O /tmp/blender.tar.xz https://download.blender.org/release/Blender2.90/blender-2.90.0-linux64.tar.xz &amp;&amp; xz -d /tmp/blender.tar.xz &amp;&amp; cd /usr/local &amp;&amp; tar -xvf /tmp/blender.tar &amp;&amp; rm -rf /tmp/blender.tar
+</code></pre>
                 
               
               

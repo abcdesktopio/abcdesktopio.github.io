@@ -1428,19 +1428,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../common/docker_macvlan/" class="md-nav__link">
-      Routing local subnet using macvlan or ipvlan network
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
     <a href="../../setup/retrieve_all_images/" class="md-nav__link">
       Get all docker application image for abcdesktop
     </a>
@@ -1539,6 +1526,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pre-run-command" class="md-nav__link">
+    Pre run command
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1557,7 +1551,7 @@
                 
                 
                 <h1 id="firefox">Firefox</h1>
-<p><img src='icons/firefox.svg' height='64px' width='64px'></p>
+<p><img alt="firefox.svg" src="/applications/icons/firefox.svg" style="height:64px;width:64px" /></p>
 <h2 id="inherite-from">inherite from</h2>
 <p><a href="../abcdesktopio/oc.template.gtk/">abcdesktopio/oc.template.gtk</a></p>
 <h2 id="display-name">Display name</h2>
@@ -1576,6 +1570,10 @@
 <p>"2gb"</p>
 <h2 id="memory-size">Memory size</h2>
 <p>"16gb"</p>
+<h2 id="pre-run-command">Pre run command</h2>
+<pre><code>
+RUN DEBIAN_FRONTEND=noninteractive echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-xfree86-nonfree &amp;&amp; apt-get clean,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes winbind firefox $(apt-cache search firefox-locale | awk '{print $1 }') &amp;&amp; apt-get clean,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes flashplugin-installer ubuntu-restricted-extras libavc1394-0 &amp;&amp; apt-get clean,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes libasound2-plugins libgail-common libgtk2.0-bin chromium-codecs-ffmpeg-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi libavcodec-extra &amp;&amp; apt-get clean,COPY composer/init.d/init.firefox /composer/init.d/init.firefox,COPY policies.json /usr/lib/firefox/distribution,COPY /ntlm_auth /usr/bin/ntlm_auth.desktop,RUN chown root:root /usr/bin/ntlm_auth.desktop &amp;&amp; chmod 111 /usr/bin/ntlm_auth.desktop,ENV NSS_SDB_USE_CACHE=yes
+</code></pre>
                 
               
               

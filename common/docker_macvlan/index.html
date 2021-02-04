@@ -14,7 +14,7 @@
     
     
       
-        <title>Routing local subnet using macvlan or ipvlan network - abcdesktopio.github.io</title>
+        <title>Using docker network for an application - abcdesktopio.github.io</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-docker-macvlan-network" class="md-skip">
+        <a href="#using-docker-network-for-an-application" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Routing local subnet using macvlan or ipvlan network
+              Using docker network for an application
             
           </span>
         </div>
@@ -1389,14 +1389,12 @@
       
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
     
     <label class="md-nav__link" for="nav-10">
       How-to
@@ -1420,64 +1418,6 @@
     <a href="../../config/sudo-kubernetes/" class="md-nav__link">
       Get a root access inside a container
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Routing local subnet using macvlan or ipvlan network
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      Routing local subnet using macvlan or ipvlan network
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-do-i-attach-the-abcdesktop-users-container-directly-to-my-local-network" class="md-nav__link">
-    How do I attach the abcdesktop user's container directly to my local network?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#edit-the-docker-composeyml-file" class="md-nav__link">
-    Edit the docker-compose.yml file
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1524,15 +1464,57 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-do-i-attach-the-abcdesktop-users-container-directly-to-my-local-network" class="md-nav__link">
-    How do I attach the abcdesktop user's container directly to my local network?
+  <a href="#requirements" class="md-nav__link">
+    Requirements
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#edit-the-docker-composeyml-file" class="md-nav__link">
-    Edit the docker-compose.yml file
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dedicated-network" class="md-nav__link">
+    Create a dedicated network
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-rules" class="md-nav__link">
+    Applications rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag-the-user-auth" class="md-nav__link">
+    Tag the user auth
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-attach-the-abcdesktop-users-container-directly-to-my-local-network" class="md-nav__link">
+    How do I attach the abcdesktop user's container directly to my local network?
   </a>
   
 </li>
@@ -1554,59 +1536,46 @@
                   </a>
                 
                 
-                <h1 id="using-docker-macvlan-network">Using docker macvlan network</h1>
+                <h1 id="using-docker-network-for-an-application">Using docker network for an application</h1>
+<h2 id="requirements">Requirements</h2>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Use a dedicated network for an application. For example bind the application Firefox to a dedicated docker network. 
+This network can be a macvlan, ipvlan or an SRIOV network</li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<p>When abcdesktop create a docker container, abcdesktop can set a dedicated network for this container.</p>
+<h2 id="create-a-dedicated-network">Create a dedicated network</h2>
+<p>On your worker nodes :
+* create a dedicated network interface to brige the new network interface </p>
+<p>You have to choose a nework driver for example macvlan, ipvlan </p>
+<p>Example :</p>
+<p>Create a network abcnetfirefox with the driver macvlan and bridge the network interface eno1 with the vlan 123 </p>
+<pre><code class="language-bash">docker network create -d macvlan --subnet=192.168.8.0/24 --gateway=192.168.8.1 --ip-range=192.168.8.64/27 -o parent=eno1.123 abcnetfirefox
+</code></pre>
+<p>Make sure that's you can reach the default gateway and the dns server for container.
+In this example, just start a busybox to :
+* ping the default gateway
+* run nslookup to query www.google.com ip address</p>
+<pre><code class="language-bash">docker --remove --network abcnetfirefox busybox ping 192.168.8.1
+docker --remove --network abcnetfirefox busybox nslookup www.google.com
+</code></pre>
+<h2 id="applications-rules">Applications rules</h2>
+<p>Update your applist.json file and add a specific rule into the firefox application description </p>
+<p>Specific rules entry</p>
+<pre><code>&quot;rules&quot;: { &quot;homedir&quot;: { &quot;default&quot;: true, &quot;ship&quot;: true }, 
+           &quot;network&quot;: { &quot;default&quot;: false, 
+                        &quot;internet&quot;: { &quot;name&quot;: &quot;abcnetfirefox&quot;, &quot;dns&quot;: [ &quot;8.8.8.8&quot; ] } } },
+</code></pre>
+<p>In this example, if the current user toekn contains the tag label <code>internet</code> when the firefox application use <code>abcnetfirefox</code> and the dns <code>8.8.8.8</code></p>
+<p>Build and update your new firefox application</p>
+<p>Update you pyos </p>
+<h2 id="tag-the-user-auth">Tag the user auth</h2>
+<p>Add a tag 'internet' to the user auth provider</p>
+<h2 id="_1"></h2>
 <h2 id="how-do-i-attach-the-abcdesktop-users-container-directly-to-my-local-network">How do I attach the abcdesktop user's container directly to my local network?</h2>
 <p>This article come from <a href="https://blog.oddbit.com/post/2018-03-12-using-docker-macvlan-networks/">using-docker-macvlan-networks</a></p>
-<p>One possible answer to that question is the macvlan network type, which lets you create “clones” of a physical interface on your host and use that to attach containers directly to your local network. </p>
-<p>On my local network, my DHCP server will not assign any addresses before 192.168.8.100. I have decided to assign to Docker the subset 192.168.8.64/27, which is a range of 32 address starting at 192.168.8.64 and ending at 192.168.8.95. The corresponding docker network create command would be:</p>
-<pre><code class="language-bash">docker network create -d macvlan --subnet=192.168.8.0/24 --gateway=192.168.8.1 --ip-range=192.168.8.64/27 -o parent=eno1 abcdesktop_netuser
-</code></pre>
-<p>Now it is possible to create containers attached to my local network without worrying about the possibility of ip address conflicts.</p>
-<h2 id="edit-the-docker-composeyml-file">Edit the docker-compose.yml file</h2>
-<p>Change the networks description in the default docker-compose.yml file.</p>
-<p>Edit the networks section. The complete docker-compose.yml file is now :</p>
-<pre><code class="language-yaml">version: '3'
-services:
-  pyos:
-    depends_on:
-      - memcached
-      - mongodb
-    image: 'abcdesktopio:oc.pyos'
-    networks:
-      - netback
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-  speedtest:
-    image: 'abcdesktopio:oc.speedtest'
-    networks:
-      - netback
-  nginx:
-    depends_on:
-      - memcached
-      - pyos
-    image: 'abcdesktopio:oc.nginx'
-    ports:
-      - '80:80'
-      - '443:443'
-    networks:
-      - abcdesktop_netuser
-      - netback
-  memcached:
-    image: memcached
-    networks:
-      - netback
-  mongodb:
-    image: mongo
-    networks:
-      - netback
-networks:
-  abcdesktop_netuser:
-    external: true
-  netback:
-    internal: true
-</code></pre>
-<p>Run the docker-compose with the new <code>docker-compose.yml</code> file</p>
-<pre><code>docker-compose -p abcdesktop up
+<pre><code class="language-bash">docker network create -d macvlan --subnet=192.168.8.0/24 --gateway=192.168.8.1 --ip-range=192.168.8.64/27 -o parent=eno1 abcdesktop_firefox
 </code></pre>
                 
               
@@ -1622,41 +1591,6 @@ networks:
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../../config/sudo-kubernetes/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Get a root access inside a container
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../../setup/retrieve_all_images/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Get all docker application image for abcdesktop
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
