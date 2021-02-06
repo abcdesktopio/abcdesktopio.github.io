@@ -14,7 +14,7 @@
     
     
       
-        <title>Using docker network for an application - abcdesktopio.github.io</title>
+        <title>Bind a specific docker network for an application - abcdesktopio.github.io</title>
       
     
     
@@ -89,7 +89,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Using docker network for an application
+              Bind a specific docker network for an application
             
           </span>
         </div>
@@ -1389,12 +1389,14 @@
       
 
 
+  
+
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
     
     <label class="md-nav__link" for="nav-10">
       How-to
@@ -1431,6 +1433,152 @@
     <a href="../../setup/retrieve_all_images/" class="md-nav__link">
       Get all docker application image for abcdesktop
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Bind a specific docker network for an application
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Bind a specific docker network for an application
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dedicated-network-for-your-application" class="md-nav__link">
+    Create a dedicated network for your application
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a dedicated network for your application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-rules" class="md-nav__link">
+    Applications rules
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edit-the-applistjson-file" class="md-nav__link">
+    Edit the applist.json file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-tag-the-user-auth" class="md-nav__link">
+    Add tag the user auth
+  </a>
+  
+    <nav class="md-nav" aria-label="Add tag the user auth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-authprovider-in-odconfig-file" class="md-nav__link">
+    Update authprovider in od.config file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-philip-j-fry-user-context" class="md-nav__link">
+    Use the Philip J. Fry user context.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-hubert-j-farnsworth-user-context" class="md-nav__link">
+    Use the `Hubert J. Farnsworth user context.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-network-for-hubert-j-farnsworth" class="md-nav__link">
+    Enable network for `Hubert J. Farnsworth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1967,6 +2115,27 @@ curl http://$MY_FQDN/API/manager/buildapplist
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../setup/retrieve_all_images/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Get all docker application image for abcdesktop
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
