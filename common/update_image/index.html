@@ -14,7 +14,7 @@
     
     
       
-        <title>Update and custom front end image - abcdesktopio.github.io</title>
+        <title>Update and custom portail front end image - abcdesktopio.github.io</title>
       
     
     
@@ -89,7 +89,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Update and custom front end image
+              Update and custom portail front end image
             
           </span>
         </div>
@@ -1402,12 +1402,14 @@
       
 
 
+  
+
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
     
     <label class="md-nav__link" for="nav-10">
       How-to
@@ -1465,11 +1467,158 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../update_image.md" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Update and custom portail front end image
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Update and custom portail front end image
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-images" class="md-nav__link">
+    Build images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-ocnginx-image" class="md-nav__link">
+    Update oc.nginx image
+  </a>
+  
+    <nav class="md-nav" aria-label="Update oc.nginx image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-default-ocnginx-images" class="md-nav__link">
+    Download default oc.nginx images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locate-project-and-ui-files" class="md-nav__link">
+    Locate project and ui files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-uijson-file" class="md-nav__link">
+    Update ui.json file
+  </a>
+  
+    <nav class="md-nav" aria-label="Update ui.json file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colors-dictionary-entries" class="md-nav__link">
+    Colors dictionary entries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-dockerfile-to-build-changes" class="md-nav__link">
+    Create a new Dockerfile to build changes
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a new Dockerfile to build changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-uijson" class="md-nav__link">
+    Download the ui.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-uijson-with-your-own-values" class="md-nav__link">
+    Update the ui.json with your own values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-you-dockerfile" class="md-nav__link">
+    Write you Dockerfile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-build" class="md-nav__link">
+    Docker build
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-dockercompose-or-the-abcdesktopyaml-file" class="md-nav__link">
+    Update the dockercompose or the abcdesktop.yaml file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1960,6 +2109,27 @@ networks:
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../docker_macvlan/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Bind a specific docker network for an application
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
