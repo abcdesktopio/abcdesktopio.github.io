@@ -714,18 +714,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-installation" class="md-nav__link">
-    Quick installation
+  <a href="#quick-installation-linux-or-macos" class="md-nav__link">
+    Quick installation (Linux or macOS)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#manually-installation-step-by-step" class="md-nav__link">
-    Manually installation step by step
+  <a href="#manually-installation-step-by-step-linux-macos-or-windows" class="md-nav__link">
+    Manually installation step by step (Linux, macOS or Windows)
   </a>
   
-    <nav class="md-nav" aria-label="Manually installation step by step">
+    <nav class="md-nav" aria-label="Manually installation step by step (Linux, macOS or Windows)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1285,6 +1285,19 @@
   </li>
 
         
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../config/authentification-rules/" class="md-nav__link">
+      rules
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1641,18 +1654,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-installation" class="md-nav__link">
-    Quick installation
+  <a href="#quick-installation-linux-or-macos" class="md-nav__link">
+    Quick installation (Linux or macOS)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#manually-installation-step-by-step" class="md-nav__link">
-    Manually installation step by step
+  <a href="#manually-installation-step-by-step-linux-macos-or-windows" class="md-nav__link">
+    Manually installation step by step (Linux, macOS or Windows)
   </a>
   
-    <nav class="md-nav" aria-label="Manually installation step by step">
+    <nav class="md-nav" aria-label="Manually installation step by step (Linux, macOS or Windows)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1755,7 +1768,7 @@
 <th>Container</th>
 <th>Role</th>
 <th>Image</th>
-<th>From</th>
+<th>Repository</th>
 </tr>
 </thead>
 <tbody>
@@ -1763,25 +1776,25 @@
 <td>oc.user</td>
 <td>User container</td>
 <td>abcdesktopio/oc.user.18.04</td>
-<td>abcdesktop.io</td>
+<td>abcdesktopio</td>
 </tr>
 <tr>
 <td>oc.pyos</td>
 <td>API Server</td>
 <td>abcdesktopio/oc.pyos</td>
-<td>abcdesktop.io</td>
+<td>abcdesktopio</td>
 </tr>
 <tr>
 <td>oc.nginx</td>
 <td>Web Service (http proxy and http server)</td>
 <td>abcdesktopio/oc.nginx</td>
-<td><a href="https://www.nginx.com/">nginx</a>  abcdesktop.io</td>
+<td>abcdesktopio</td>
 </tr>
 <tr>
 <td>oc.speedtest</td>
 <td>http benchmarch</td>
 <td>abcdesktopio/oc.speedtest</td>
-<td><a href="https://librespeed.org/">LibreSpeed</a></td>
+<td>from <a href="https://librespeed.org/">LibreSpeed</a> updated abcdesktopio</td>
 </tr>
 <tr>
 <td>mongodb</td>
@@ -1811,7 +1824,12 @@
 <p>On Linux systems, first install the Docker for your OS as described on the <a href="https://docs.docker.com/compose/install/">Get Docker page</a>, then come back here for instructions on installing Compose on Linux systems.</p>
 </li>
 </ul>
-<h2 id="quick-installation">Quick installation</h2>
+<h2 id="quick-installation-linux-or-macos">Quick installation (Linux or macOS)</h2>
+<blockquote>
+<p>Quick installation can be run on Linux or macOS operation system. 
+For Microsoft Windows, please read the following chapter 'Manually installation step by step'
+</p>
+</blockquote>
 <p>You can watch the <a href="https://www.youtube.com/watch?v=_A80Sy9g28I&amp;feature=youtu.be">youtube video sample</a>. This video describes the Quick installation process.</p>
 <iframe width="640" height="480" src="https://www.youtube.com/embed/_A80Sy9g28I" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -1827,15 +1845,15 @@ The quick installation process runs the all commands step by step:</p>
 <li>download the <a href="https://raw.githubusercontent.com/abcdesktopio/conf/main/reference/docker-compose.yml">docker-compose.yml</a> YAML file</li>
 <li>run <code>docker-compose -p abcdesktop up</code></li>
 </ul>
-<h2 id="manually-installation-step-by-step">Manually installation step by step</h2>
+<h2 id="manually-installation-step-by-step-linux-macos-or-windows">Manually installation step by step (Linux, macOS or Windows)</h2>
 <p>The following commands will let you prepare and build abcdesktop plateform on the master node. All applications run on a single server.  </p>
 <h3 id="pull-user-container-image">Pull user container image</h3>
 <p>The user container is named <code>abcdesktopio/oc.user.18.04</code>. The size of the <code>abcdesktopio/oc.user.18.04</code> image is up to 2 GB. Download the user container image, using the docker pull commmand : </p>
-<pre><code>docker pull abcdesktopio/oc.user.18.04
+<pre><code class="language-bash">docker pull abcdesktopio/oc.user.18.04
 </code></pre>
 <h3 id="docker-compose_1">docker-compose</h3>
 <p>Create a docker-compose.yml file, and copy &amp; paste this YAML file into.</p>
-<pre><code>version: '3'
+<pre><code class="language-yaml">version: '3'
 services:
   pyos:
     depends_on:
@@ -1880,9 +1898,9 @@ networks:
 The projet name <code>abcdesktop</code> is use by pyos to reference the network set by default to <code>abcdesktop_netuser</code><br />
 </p>
 </blockquote>
-<pre><code>docker-compose -p abcdesktop up 
+<pre><code class="language-bash">docker-compose -p abcdesktop up 
 </code></pre>
-<p>docker downloads all container images, it could take a while</p>
+<p>dockerd downloads all container images, it could take a while</p>
 <pre><code>Pulling speedtest (abcdesktopio/oc.speedtest:)...
 latest: Pulling from oc.speedtest
 ....
@@ -2081,7 +2099,7 @@ You just need a web browser to reach your web workspace.</p>
 </code></pre>
 <h3 id="list-all-docker-containers">List all docker containers</h3>
 <p>Start a new shell and run the docker ps -a command to list all the containers</p>
-<pre><code>docker ps -a
+<pre><code class="language-bash">docker ps -a
 </code></pre>
 <p>You should read the output</p>
 <pre><code>CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                        PORTS                                                                              NAMES
@@ -2099,22 +2117,22 @@ a466db429025        mongo                           &quot;docker-entrypoint.s…
 <h3 id="add-new-applications-to-your-desktop">Add new applications to your desktop</h3>
 <p>There is only one application on your desktop the File Manager. It's now time to add new application. Each application is a docker container, to install new docker container run the docker pull command :</p>
 <p>Install LibreOffice Suite </p>
-<pre><code>docker pull abcdesktopio/base.d
+<pre><code class="language-bash">docker pull abcdesktopio/base.d
 docker pull abcdesktopio/calc.d
 docker pull abcdesktopio/impress.d
 docker pull abcdesktopio/math.d
 docker pull abcdesktopio/writer.d 
 </code></pre>
 <p>Install Mozilla Suite </p>
-<pre><code>docker pull abcdesktopio/firefox.d
+<pre><code class="language-bash">docker pull abcdesktopio/firefox.d
 docker pull abcdesktopio/thunderbird.d
 </code></pre>
 <p>Install Gnome games </p>
-<pre><code>docker pull abcdesktopio/mines.d
+<pre><code class="language-bash">docker pull abcdesktopio/mines.d
 docker pull abcdesktopio/tetravex.d
 </code></pre>
 <p>Install Gnome tools </p>
-<pre><code>docker pull abcdesktopio/calculator.d
+<pre><code class="language-bash">docker pull abcdesktopio/calculator.d
 docker pull abcdesktopio/terminal.d
 </code></pre>
 <h3 id="update-the-cache-application-list">Update the cache application list</h3>

@@ -1143,6 +1143,19 @@
   </li>
 
         
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../authentification-rules/" class="md-nav__link">
+      rules
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1499,7 +1512,7 @@
                 <h1 id="dock-configuration-in-odconfig">dock configuration in od.config</h1>
 <h1 id="menu-setting">Menu Setting</h1>
 <p>The menu can be changed using the dictionnary object <code>menuconfig</code></p>
-<pre><code>menuconfig : {
+<pre><code class="language-json">menuconfig : {
                     'settings'  : True, 
                     'appstore'  : True, 
                     'screenshot'    : True, 
@@ -1535,7 +1548,7 @@ The <code>dock</code> option is a dictionnary read by the front web as a json ob
 </tbody>
 </table>
 <p>[comment]: |  <code>webshorcut</code>  | Web browser url launch inside the container| </p>
-<pre><code>dock : {        'filemanager':  {       'args': None,
+<pre><code class="language-json">dock : {        'filemanager':  {       'args': None,
                                         'showinview': u'dock',
                                         'name': u'FileManager',
                                         'keyword': u'files,file manager',
@@ -1570,7 +1583,7 @@ The <code>dock</code> option is a dictionnary read by the front web as a json ob
 <h2 id="additional-applications">Additional applications</h2>
 <p>This feature is deprecated.</p>
 <p>To run embeded application inside the oc.user image container, with specific attribut <code>{ 'execmode': 'builtin' }</code> add </p>
-<pre><code>'webshortcut':  {   'name': u'xlogo',
+<pre><code class="language-json">'webshortcut':  {   'name': u'xlogo',
                     'showinview': u'dock',
                     'keyword': u'xlogo',
                     'execmode': u'builtin',
