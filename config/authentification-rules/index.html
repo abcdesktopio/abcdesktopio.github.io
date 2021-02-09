@@ -217,34 +217,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../about/howreadthisdoc/" class="md-nav__link">
-      How to read this documentation
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
     <a href="../../about/howtodolabsexercices/" class="md-nav__link">
       How to do labs and exercices
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../about/version/" class="md-nav__link">
-      Version
     </a>
   </li>
 
@@ -1206,29 +1180,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-a" class="md-nav__link">
-    Example A:
+  <a href="#example-true-and-true-expected-true" class="md-nav__link">
+    Example (TRUE and TRUE) expected TRUE:
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-b" class="md-nav__link">
-    Example B:
+  <a href="#example-true-and-true-expected-false" class="md-nav__link">
+    Example (TRUE and TRUE) expected FALSE:
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-c" class="md-nav__link">
-    Example C:
+  <a href="#example-true-and-false-expected-true" class="md-nav__link">
+    Example (TRUE and FALSE) expected TRUE:
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-d" class="md-nav__link">
-    Example D:
+  <a href="#example-false-and-true-expected-true" class="md-nav__link">
+    Example (FALSE and TRUE) expected TRUE:
   </a>
   
 </li>
@@ -1670,29 +1644,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-a" class="md-nav__link">
-    Example A:
+  <a href="#example-true-and-true-expected-true" class="md-nav__link">
+    Example (TRUE and TRUE) expected TRUE:
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-b" class="md-nav__link">
-    Example B:
+  <a href="#example-true-and-true-expected-false" class="md-nav__link">
+    Example (TRUE and TRUE) expected FALSE:
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-c" class="md-nav__link">
-    Example C:
+  <a href="#example-true-and-false-expected-true" class="md-nav__link">
+    Example (TRUE and FALSE) expected TRUE:
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-d" class="md-nav__link">
-    Example D:
+  <a href="#example-false-and-true-expected-true" class="md-nav__link">
+    Example (FALSE and TRUE) expected TRUE:
   </a>
   
 </li>
@@ -1797,7 +1771,7 @@ For example to set a dedicated network for firefox application ( read the how-to
 <p><code>conditions</code> is a list of condition. All condition are always tested, as a logical <code>AND</code>.
 The result must be equal to the <code>expected</code> value.</p>
 <h4 id="examples">Examples:</h4>
-<h4 id="example-a">Example A:</h4>
+<h4 id="example-true-and-true-expected-true">Example (TRUE and TRUE) expected TRUE:</h4>
 <p>To test if the user source IP address is in the subnet to <code>80.0.0.0/8</code> <code>AND</code> is <code>memberOf</code> ldap group DN 'cn=ship_crew,ou=people,dc=planetexpress,dc=com' </p>
 <pre><code class="language-json"> 'rule-sample': { 'conditions':  [ 
     { 'network': '80.0.0.0/8', 'expected' : True },
@@ -1807,7 +1781,7 @@ The result must be equal to the <code>expected</code> value.</p>
 }
 </code></pre>
 <p>Add the labels 'shipcrewandnet80', if the 'expected' value is <code>True</code></p>
-<h4 id="example-b">Example B:</h4>
+<h4 id="example-true-and-true-expected-false">Example (TRUE and TRUE) expected FALSE:</h4>
 <p>To test if the user source IP address is <code>NOT</code> in the subnet to <code>80.0.0.0/8</code> <code>AND</code> is  <code>NOT</code> a <code>memberOf</code> ldap group DN 'cn=ship_crew,ou=people,dc=planetexpress,dc=com' </p>
 <pre><code class="language-json"> 'rule-sample': { 'conditions':  [ 
     { 'network': '80.0.0.0/8', 'expected' : True },
@@ -1817,7 +1791,7 @@ The result must be equal to the <code>expected</code> value.</p>
 }
 </code></pre>
 <p>Add the labels 'noshipcrewandnonet80', if the 'expected' value is <code>False</code></p>
-<h4 id="example-c">Example C:</h4>
+<h4 id="example-true-and-false-expected-true">Example (TRUE and FALSE) expected TRUE:</h4>
 <p>To test if the user source IP address is in the subnet to <code>80.0.0.0/8</code> <code>AND</code> is  <code>NOT</code> a <code>memberOf</code> ldap group DN 'cn=ship_crew,ou=people,dc=planetexpress,dc=com' </p>
 <pre><code class="language-json"> 'rule-sample': { 'conditions':  [ 
     { 'network': '80.0.0.0/8', 'expected' : True },
@@ -1827,7 +1801,7 @@ The result must be equal to the <code>expected</code> value.</p>
 }
 </code></pre>
 <p>Add the labels 'noshipcrewandnet80', if the 'expected' value is <code>True</code></p>
-<h4 id="example-d">Example D:</h4>
+<h4 id="example-false-and-true-expected-true">Example (FALSE and TRUE) expected TRUE:</h4>
 <p>To test if the user source IP address is <code>NOT</code> in the subnet to <code>80.0.0.0/8</code> <code>AND</code> is   a <code>memberOf</code> ldap group DN 'cn=ship_crew,ou=people,dc=planetexpress,dc=com' </p>
 <pre><code class="language-json"> 'rule-sample': { 'conditions':  [ 
     { 'network': '80.0.0.0/8', 'expected' : False },

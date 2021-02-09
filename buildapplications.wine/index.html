@@ -217,34 +217,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../about/howreadthisdoc/" class="md-nav__link">
-      How to read this documentation
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
     <a href="../about/howtodolabsexercices/" class="md-nav__link">
       How to do labs and exercices
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../about/version/" class="md-nav__link">
-      Version
     </a>
   </li>
 
@@ -1589,7 +1563,7 @@
 <li>Run a daemon <code>sshd</code> on your host</li>
 </ul>
 <h2 id="winehq-embedded-in-octemplategtkwine50">WineHQ embedded in oc.template.gtk.wine.50</h2>
-<p>To run Windows applications abcdesktop use WineHQ. A dedicated image template source is ready to use as source of others Windows applications. This template is named <code>abcdesktopio:oc.template.gtk.wine.50</code></p>
+<p>To run Windows applications abcdesktop use WineHQ. A dedicated image template source is ready to use as source of others Windows applications. This template is named <code>abcdesktopio/oc.template.gtk.wine.50</code></p>
 <p>Start pulling this template image, if you don't have already done in the previous exercice : </p>
 <pre><code>docker pull abcdesktopio:oc.template.gtk.wine.50
 </code></pre>
@@ -1606,8 +1580,8 @@
 <blockquote>
 <p>In this exercice we are going to install and run putty.exe for Windows inside a docker container for abcdesktop.</p>
 </blockquote>
-<p>PuTTY is an SSH and telnet client, developed originally by Simon Tatham for the Windows platform. </p>
-<p>Start an OpenDekstop session. You can use an authenticated session using an authentication provider <code>external</code> or <code>explicit</code>, or you can do this exercice using Anonymous Authentification also know as the authentication provider <code>implicit</code>.</p>
+<p>PuTTY is an SSH and telnet client, developed originally by Simon Tatham for the Microsoft Windows platform. </p>
+<p>Start an abcdesktop session. You can use an authenticated session using an authentication provider <code>external</code> or <code>explicit</code>, or you can do this exercice using Anonymous Authentification also know as the authentication provider <code>implicit</code>.</p>
 <blockquote>
 <p>In this exercice we choose an Anonymous authentification, <strong>DO NOT CLOSE YOUR WEB BROWSER</strong>, you should not be able de reconnect with the same user context, and have to restart this exercice again.</p>
 </blockquote>
@@ -1615,17 +1589,17 @@
 <p>Login using the <code>Anonymous</code> authentification provider.</p>
 <p><img alt="user logged as Anonymous done" src="img/wine-login-auth-done.png" /></p>
 <p>Open a terminal window and run the command </p>
-<pre><code>docker ps --filter ancestor=abcdesktopio:oc.user.18.04
+<pre><code>docker ps --filter ancestor=abcdesktopio/oc.user.18.04
 </code></pre>
-<p>The option <code>--filter ancestor=abcdesktopio:oc.user.18.04</code> ask to filter only container with the image <code>ancestor</code> set to value <code>abcdesktopio:oc.user.18.04</code>.</p>
-<p>You should read the container with the image named abcdesktop/oio:oc.user.18.04 </p>
-<pre><code>docker ps --filter ancestor=abcdesktop/oio:oc.user.18.04
+<p>The option <code>--filter ancestor=abcdesktopio/oc.user.18.04</code> ask to filter only container with the image <code>ancestor</code> set to value <code>abcdesktopio/oc.user.18.04</code>.</p>
+<p>You should read the container with the image named abcdesktopio/oc.user.18.04 </p>
+<pre><code>docker ps --filter ancestor=abcdesktopio/oc.user.18.04
 CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS              PORTS                                                                              NAMES
-5719b77d3f2a        abcdesktop/oio:oc.user.18.04   &quot;/composer/docker-en…&quot;   27 seconds ago      Up 25 seconds       4714/tcp, 6081/tcp, 29780-29781/tcp, 29783-29784/tcp, 29786/tcp, 55556-55557/tcp   57be1e5b-0b14-4c05-ae79-75e9a03c77be
+5719b77d3f2a        abcdesktopio/oc.user.18.04   &quot;/composer/docker-en…&quot;   27 seconds ago      Up 25 seconds       4714/tcp, 6081/tcp, 29780-29781/tcp, 29783-29784/tcp, 29786/tcp, 55556-55557/tcp   57be1e5b-0b14-4c05-ae79-75e9a03c77be
 </code></pre>
 <p>Read the values <code>CONTAINER ID</code> and <code>NAMES</code></p>
 <blockquote>
-<p>Note: If you read more than one entry, stop and remove all the oc.user containers, running the command <code>docker stop</code> and <code>docker rm</code>. Then restart an OpenDekstop session.</p>
+<p>Note: If you read more than one entry, stop and remove all the oc.user containers, running the command <code>docker stop</code> and <code>docker rm</code>. Then restart an abcdesktop session.</p>
 </blockquote>
 <p>Run a <code>docker inspect -f "{{ .HostConfig.Binds }}"</code> and add your <code>CONTAINER ID</code> as parameter.</p>
 <pre><code>docker inspect -f &quot;{{ .HostConfig.Binds }}&quot; CONTAINER_ID
@@ -1671,7 +1645,7 @@ drwxr-xr-x 1 balloon balloon 4096 Mar 23 22:42 .
 drwxr-xr-x 1 root    root    4096 Mar 23 22:42 ..
 drwxr-xr-x 2 root    root    4096 Mar 23 22:42 wine
 </code></pre>
-<p>This data of the <code>/home/balloon/.cache</code> is local to the container's image <code>abcdesktopio:oc.template.gtk.wine.50</code> and does not exist in the oc.user image. This data of the <code>/home/balloon/.cache</code> only exists in your container instance.</p>
+<p>This data of the <code>/home/balloon/.cache</code> is local to the container's image <code>abcdesktopio/oc.template.gtk.wine.50</code> and does not exist in the oc.user image. This data of the <code>/home/balloon/.cache</code> only exists in your container instance.</p>
 <p>Set the <code>DISPLAY</code> environment variable to <code>:0.0</code></p>
 <pre><code>balloon@721263d5dece:~$ export DISPLAY=:0.0
 </code></pre>
@@ -1721,7 +1695,7 @@ wine: configuration in L&quot;/home/balloon/.wine&quot; has been updated.
 0009:fixme:shcore:SetCurrentProcessExplicitAppUserModelID L&quot;SimonTatham.PuTTY&quot;: stub
 0009:err:winediag:SECUR32_initNTLMSP ntlm_auth was not found or is outdated. Make sure that ntlm_auth &gt;= 3.0.25 is in your path. Usually, you can find it in the winbind package of your distribution.
 </code></pre>
-<p>On the abcdesktop display, Wine shows a windows message <code>wine: created the configuration directory '/home/balloon/.wine'</code></p>
+<p>On abcdesktop display, Wine shows a windows message <code>wine: created the configuration directory '/home/balloon/.wine'</code></p>
 <p><img alt="wine is starting" src="img/wine-putty-install.png" /></p>
 <p>After few seconds, Putty is running :</p>
 <p><img alt="Putty is running" src="../img/putty-running.png" /></p>
@@ -1740,13 +1714,13 @@ Wine has created a configuration directory in the default directory <code>.wine<
 <h3 id="build-the-octemplategtkwineputty-image-template">Build the oc.template.gtk.wine.putty image template</h3>
 <p>Create two directory putty on desktop directory, for example in your home directory</p>
 <pre><code class="language-bash">cd
-mkdir opendekstop
-mkdir opendekstop/putty
-mkdir opendekstop/putty/icons
+mkdir abcdesktop
+mkdir abcdesktop/putty
+mkdir abcdesktop/putty/icons
 </code></pre>
 <p>You are going to create your first abcdesktop image template file. This file's content is the .wine directory execution environement.</p>
 <p>Create a file <code>oc.template.gtk.wine.putty</code>, and add the content </p>
-<pre><code class="language-Dockerfile">FROM abcdesktopio:oc.template.gtk.wine.50
+<pre><code class="language-Dockerfile">FROM abcdesktopio/oc.template.gtk.wine.50
 RUN mkdir -p /composer/wineprefix/putty 
 RUN mkdir -p /composer/bin
 RUN chown $BUSER:$BUSER /composer/wineprefix/putty
