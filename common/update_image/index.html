@@ -1559,8 +1559,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#write-you-dockerfile" class="md-nav__link">
-    Write you Dockerfile
+  <a href="#write-your-dockerfile" class="md-nav__link">
+    Write your Dockerfile
   </a>
   
 </li>
@@ -1711,8 +1711,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#write-you-dockerfile" class="md-nav__link">
-    Write you Dockerfile
+  <a href="#write-your-dockerfile" class="md-nav__link">
+    Write your Dockerfile
   </a>
   
 </li>
@@ -1990,7 +1990,7 @@ drwxr-xr-x 273 root root  12288 Feb  1 15:14 node_modules
   &quot;urlcannotopensession&quot;: &quot;/identification/site/&quot;
 }
 </code></pre>
-<h4 id="write-you-dockerfile">Write you Dockerfile</h4>
+<h4 id="write-your-dockerfile">Write your Dockerfile</h4>
 <pre><code class="language-docker">FROM abcdesktopio/oc.nginx
 COPY ui.json /var/webModules/transpile
 RUN cd /var/webModules/ &amp;&amp; make -B prod
@@ -2017,6 +2017,7 @@ RUN cd /var/webModules/ &amp;&amp; make -B prod
 </code></pre>
 <p>Run the docker images command to read the new <code>oc.nginx</code> image</p>
 <pre><code class="language-bash">docker images 
+
 REPOSITORY                   TAG       IMAGE ID       CREATED             SIZE
 oc.nginx                     acme      4de1755b60d7   About an hour ago   746MB
 </code></pre>
@@ -2064,10 +2065,9 @@ networks:
 </code></pre>
 <p>The run the docker-compose up, and start you web browser. You can read the new project name at the home page.</p>
 <p><img alt="abcdesktop acmedesktop" src="../img/acmedesktop.png" /></p>
-<p>The new tertiary color is now <code>#00FCD4</code></p>
-<pre><code>  &quot;name&quot;: &quot;@tertiary&quot; 
-  &quot;value&quot;: &quot;#00FCD4&quot;
-</code></pre>
+<p>We define the new tertiary color as <code>#00FCD4</code> in dict <code>{ "name": "@tertiary",   "value": "#00FCD4" }</code></p>
+<p><img alt="color 00fcd4" src="../img/00fcd4.png" /></p>
+<p>Old tertiary color has been replace by <code>#00FCD4</code>.</p>
 <p><img alt="abcdesktop acmedesktop new ui.json" src="../img/build_image_newui.png" /> </p>
                 
               
