@@ -9,12 +9,14 @@
       
       
       
+        <link rel="canonical" href="http://www.abcdesktop.io/buildapplicationsgnulinux/">
+      
       <link rel="shortcut icon" href="/img/abcdesktop128x128.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>Build your own abcdesktop GNU/Linux Image - abcdesktopio.github.io</title>
+        <title>Build your own abcdesktop GNU/Linux Image - www.abcdesktop.io</title>
       
     
     
@@ -37,6 +39,10 @@
     
     
     
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-189502871-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
@@ -71,7 +77,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="abcdesktopio.github.io" class="md-header-nav__button md-logo" aria-label="abcdesktopio.github.io">
+    <a href="http://www.abcdesktop.io" title="www.abcdesktop.io" class="md-header-nav__button md-logo" aria-label="www.abcdesktop.io">
       
   <img src="/img/abcdesktop.svg" alt="logo">
 
@@ -83,7 +89,7 @@
       <div class="md-header-nav__ellipsis">
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
-            abcdesktopio.github.io
+            www.abcdesktop.io
           </span>
         </div>
         <div class="md-header-nav__topic">
@@ -163,12 +169,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="abcdesktopio.github.io" class="md-nav__button md-logo" aria-label="abcdesktopio.github.io">
+    <a href="http://www.abcdesktop.io" title="www.abcdesktop.io" class="md-nav__button md-logo" aria-label="www.abcdesktop.io">
       
   <img src="/img/abcdesktop.svg" alt="logo">
 
     </a>
-    abcdesktopio.github.io
+    www.abcdesktop.io
   </label>
   
     <div class="md-nav__source">
@@ -258,6 +264,19 @@
   <li class="md-nav__item">
     <a href="../about/related_projets/" class="md-nav__link">
       Related projects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../about/gnu-gpl-v2.0/" class="md-nav__link">
+      Licence
     </a>
   </li>
 
@@ -1030,6 +1049,19 @@
   </li>
 
         
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../buildapplications.wine/" class="md-nav__link">
+      Build your own abcdesktop MsWindows Image
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1543,7 +1575,7 @@
 
   <li class="md-nav__item">
     <a href="../common/update_image/" class="md-nav__link">
-      Update and custom portail front end image
+      Update and custom frontend image
     </a>
   </li>
 
@@ -1670,7 +1702,7 @@
 <li>An access to the docker public registry</li>
 <li>An access to the ubuntu repository</li>
 <li>Nodejs installed on your host.  </li>
-<li>The root password of your the oc.user.18.04 docker image. This value may have been changed.</li>
+<li>The root password of your the oc.user.18.04 docker image. The default password is <code>lmdpocpetit</code>, but this value may have been changed.</li>
 </ul>
 <h2 id="build-your-own-application-image_1">Build your own application image</h2>
 <blockquote>
@@ -1819,8 +1851,8 @@ Building documentation 2048-qt.2048-qt
 </code></pre>
 <p>The new files <code>2048.d</code> and <code>2048.md</code> have been generated :</p>
 <ul>
-<li>2048.d the Dockerfile for your 2048 abcdesktop application</li>
-<li>2048.md the documentation file for your 2048 abcdesktop application</li>
+<li><code>2048.d</code> is the Dockerfile for your 2048 abcdesktop application</li>
+<li><code>2048.md</code> is the documentation file for your 2048 abcdesktop application</li>
 </ul>
 <p>Read the content of the Dockerfile <code>2048.d</code>.
 List all labels, and confirm that the icon file is uuencoded format. Uuencoding is a form of binary-to-text encoding.</p>
@@ -1857,7 +1889,7 @@ List all labels, and confirm that the icon file is uuencoded format. Uuencoding 
 2048.d                               latest                                                  a861af06b7f0   About a minute ago   1.17GB
 </code></pre>
 <p>The total image size of 2048.d is 1.17GB.</p>
-<p>The 2048.d does not use 1.17GB, but only the difference between the 2048 image and the source image abcdesktopio/oc.template.gtk.</p>
+<p>The 2048.d does not use 1.17GB, but only the difference between the 2048 image and the source image <code>abcdesktopio/oc.template.gtk</code>.</p>
 <h2 id="update-the-cache-application-list">Update the cache application list</h2>
 <p>The API server does not know that you have built your new 2048 application.
 You have to send a message to the API server, to update the API Server images cache list.</p>
@@ -1904,7 +1936,7 @@ You have to send a message to the API server, to update the API Server images ca
 <h3 id="get-launch-and-path-values">Get <code>launch</code> and <code>path</code> values</h3>
 <p>To get the X11 class name of the 2048 game, we need to install it on a Linux host. You can use abcdesktop as a Linux host or choose your own.</p>
 <p>If you want to use abcdesktop as a GNU/Linux host </p>
-<p>Open the url http://localhost, in your web browser, to start a simple abcdesktop/io.io container. You will use this container to install the 2048 application and fill the missing values <code>launch</code> and <code>path</code>.</p>
+<p>Open the url http://localhost, in your web browser, to start a simple abcdesktop container. You will use this container to install the 2048 application and fill the missing values <code>launch</code> and <code>path</code>.</p>
 <pre><code>http://localhost
 </code></pre>
 <p>You should see the abcdesktop.io home page.</p>
@@ -2081,13 +2113,13 @@ Gimp is <a href="https://www.gimp.org/">Gnu Image Manipulation Program</a>.</p>
           </a>
         
         
-          <a href="../config/editconfig/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../buildapplications.wine/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Edit your configuration file
+                Build your own abcdesktop MsWindows Image
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

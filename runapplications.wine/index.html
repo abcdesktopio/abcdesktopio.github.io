@@ -9,12 +9,14 @@
       
       
       
+        <link rel="canonical" href="http://www.abcdesktop.io/runapplications.wine/">
+      
       <link rel="shortcut icon" href="/img/abcdesktop128x128.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>Runapplications.wine - abcdesktopio.github.io</title>
+        <title>Runapplications.wine - www.abcdesktop.io</title>
       
     
     
@@ -37,6 +39,10 @@
     
     
     
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-189502871-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
@@ -71,7 +77,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="abcdesktopio.github.io" class="md-header-nav__button md-logo" aria-label="abcdesktopio.github.io">
+    <a href="http://www.abcdesktop.io" title="www.abcdesktop.io" class="md-header-nav__button md-logo" aria-label="www.abcdesktop.io">
       
   <img src="/img/abcdesktop.svg" alt="logo">
 
@@ -83,7 +89,7 @@
       <div class="md-header-nav__ellipsis">
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
-            abcdesktopio.github.io
+            www.abcdesktop.io
           </span>
         </div>
         <div class="md-header-nav__topic">
@@ -163,12 +169,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="abcdesktopio.github.io" class="md-nav__button md-logo" aria-label="abcdesktopio.github.io">
+    <a href="http://www.abcdesktop.io" title="www.abcdesktop.io" class="md-nav__button md-logo" aria-label="www.abcdesktop.io">
       
   <img src="/img/abcdesktop.svg" alt="logo">
 
     </a>
-    abcdesktopio.github.io
+    www.abcdesktop.io
   </label>
   
     <div class="md-nav__source">
@@ -258,6 +264,19 @@
   <li class="md-nav__item">
     <a href="../about/related_projets/" class="md-nav__link">
       Related projects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../about/gnu-gpl-v2.0/" class="md-nav__link">
+      Licence
     </a>
   </li>
 
@@ -929,6 +948,19 @@
   </li>
 
         
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../buildapplications.wine/" class="md-nav__link">
+      Build your own abcdesktop MsWindows Image
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1442,7 +1474,7 @@
 
   <li class="md-nav__item">
     <a href="../common/update_image/" class="md-nav__link">
-      Update and custom portail front end image
+      Update and custom frontend image
     </a>
   </li>
 
@@ -1530,15 +1562,14 @@
 <p><a href="http://www.winehq.org">Wine</a> (originally an acronym for "Wine Is Not an Emulator") is a compatibility layer capable of running Windows applications on several POSIX-compliant operating systems, such as Linux, macOS, &amp; BSD. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows API calls into POSIX calls on-the-fly, eliminating the performance and memory penalties of other methods and allowing you to cleanly integrate Windows applications into your desktop.</p>
 <p>To run Windows applications abcdesktop.io use WineHQ. A dedicated image template source is ready to use as source of others Windows applications. This image template is named <code>abcdesktopio/oc.template.gtk.wine.50</code></p>
 <p>Start pulling this template image :</p>
-<pre><code class="language-bash">docker pull abcdesktopio/oc.template.gtk.wine.50
+<pre><code class="language-bash">docker pull abcdesktopio/oc.template.gtk.wine
 </code></pre>
-<p>Look at the Dockerfile writed to build the <code>abcdesktopio/oc.template.gtk.wine.50</code> on the <code>https://hub.docker.com/</code> web site.</p>
-<p>For a better support, we are using the 32 bits library, as i386 libs on GNU/Linux.  Your can read in the Dockerfile, how the <code>abcdesktopio/oc.template.gtk.wine.50</code> is created.</p>
+<p>Look at the Dockerfile to build the <code>abcdesktopio/oc.template.gtk.wine</code> on the <a href="https://hub.docker.com/">https://hub.docker.com/</a> web site.</p>
+<p>For a better support, we are using the 32 bits library, as i386 libs on GNU/Linux.  Your can read in the Dockerfile, how the <code>abcdesktopio/oc.template.gtk.wine</code> is created.</p>
 <blockquote>
 <p>Dockerfile information :</p>
 <p><code>dpkg --add-architecture i386</code>
-<code>apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'</code>
-<code>aptitude install -y winehq-stable fonts-wine</code></p>
+<code>aptitude install -y wine</code></p>
 </blockquote>
 <h3 id="run-notepadexe-for-windows-in-a-docker-container">Run notepad.exe for Windows in a Docker container</h3>
 <blockquote>
@@ -1548,9 +1579,9 @@
 <blockquote>
 <p>In this chapter we choose an Anonymous, <strong>DO NOT CLOSE YOUR WEB BROWSER</strong>, you should not be able de reconnect with the same user context, and have to restart this exercice at the begining, else you can choose to configure abcdesktop with ldap authentification.</p>
 </blockquote>
-<p><img alt="user loggin as Anonymous " src="img/wine-login-auth.png" /></p>
+<p><img alt="user loggin as Anonymous " src="../img/wine-login-auth.png" /></p>
 <p>Login using the <code>Anonymous</code> authentification provider.</p>
-<p><img alt="user logged as Anonymous done" src="img/wine-login-auth-done.png" /></p>
+<p><img alt="user logged as Anonymous done" src="../img/wine-login-auth-done.png" /></p>
 <p>Keep your web browser open, then on your host, open a terminal shell window and run the command </p>
 <pre><code>docker ps --filter ancestor=abcdesktopio/oc.user.18.04
 </code></pre>
@@ -1577,10 +1608,10 @@ CONTAINER ID   IMAGE                        COMMAND                  CREATED    
 <p>Note: if your are using an LDAP authentification, the name of your container id is the username, for example <code>hermes</code>. The name of the <code>tmp</code> volume is  <code>tmp-hermes</code></p>
 </blockquote>
 <p>Now, start a new docker container with the same HostConfig.Bings as your oc.user container. The <code>-v</code> parameter is the first entry of the result in the previous command <code>docker inspect -f "{{ .HostConfig.Binds }}"</code></p>
-<pre><code>docker run -it -v TMP_VOLUMENAME:/tmp  --user balloon abcdesktopio/oc.template.gtk.wine.50 bash
+<pre><code>docker run -it -v TMP_VOLUMENAME:/tmp  --user balloon abcdesktopio/oc.template.gtk.wine bash
 </code></pre>
 <p>For example with an <code>Anonymous</code> user:</p>
-<pre><code>docker run -it -v  tmp-5f4300d2-7c8e-43c6-89ab-f85bd8b68138:/tmp --user balloon abcdesktopio/oc.template.gtk.wine.50 bash 
+<pre><code>docker run -it -v  tmp-5f4300d2-7c8e-43c6-89ab-f85bd8b68138:/tmp --user balloon abcdesktopio/oc.template.gtk.wine bash 
 </code></pre>
 <p>Great, you have started a new docker container. The oc.user containter and your new container are sharing the same volume mounted as <code>/tmp</code>. You get a prompt inside the new docker container.</p>
 <pre><code>To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.
@@ -1588,33 +1619,27 @@ See &quot;man sudo_root&quot; for details.
 
 balloon@8684ae888f74:~$
 </code></pre>
-<p>Set the <code>DISPLAY</code> environment variable to <code>:0.0</code></p>
-<pre><code>balloon@8684ae888f74:/$ export DISPLAY=:0.0
-</code></pre>
 <p>And now start the <code>notepad.exe</code> with wine</p>
 <pre><code>balloon@8684ae888f74:/$ wine notepad
 </code></pre>
 <p>After few seconds you should read on the standard error</p>
 <pre><code>balloon@8684ae888f74:/$  wine notepad
-wine: created the configuration directory '/home/balloon/.wine'
-0024:err:environ:run_wineboot boot event wait timed out
-002c:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
-002c:err:winediag:nodrv_CreateWindow The explorer process failed to start.
-0048:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
-0048:err:winediag:nodrv_CreateWindow The explorer process failed to start.
-0024:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
-0024:err:winediag:nodrv_CreateWindow The explorer process failed to start.
-balloon@8684ae888f74:/$ 0058:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
-
+0015:err:clipboard:convert_selection Timed out waiting for SelectionNotify event
+0014:err:ole:marshal_object couldn't get IPSFactory buffer for interface {00000131-0000-0000-c000-000000000046}
+0014:err:ole:marshal_object couldn't get IPSFactory buffer for interface {6d5140c1-7436-11ce-8034-00aa006009fa}
+0014:err:ole:StdMarshalImpl_MarshalInterface Failed to create ifstub, hres=0x80004002
+0014:err:ole:CoMarshalInterface Failed to marshal the interface {6d5140c1-7436-11ce-8034-00aa006009fa}, 80004002
+0014:err:ole:get_local_server_stream Failed: 80004002
+0012:err:ole:marshal_object couldn't get IPSFactory buffer for interface {00000131-0000-0000-c000-000000000046}
+0012:err:ole:marshal_object couldn't get IPSFactory buffer for interface {6d5140c1-7436-11ce-8034-00aa006009fa}
+0012:err:ole:StdMarshalImpl_MarshalInterface Failed to create ifstub, hres=0x80004002
+0012:err:ole:CoMarshalInterface Failed to marshal the interface {6d5140c1-7436-11ce-8034-00aa006009fa}, 80004002
+0012:err:ole:get_local_server_stream Failed: 80004002
+Could not find Wine Gecko. HTML rendering will be disabled.
+wine: configuration in L&quot;/composer/.wine&quot; has been updated.
 </code></pre>
-<p>Go back to you web browser with the abcdesktop window, <code>Wine</code> has opened a new window, and ask you to install <code>wine-mono package</code> which is need for .NET applications. </p>
-<p>Do not install the <code>wine-mono package</code>, because we are only use <code>notepad.exe</code> and <code>notepad.exe</code> doesn't need .Net package (it should only use Win32 libs, i hope so).</p>
-<p>Press <code>Cancel</code> button
-<img alt="cancel-install-wine-mono" src="img/cancel-install-wine-mono.png" /></p>
-<p>Do not install the <code>wine-gecko package</code>, we are only use <code>notepad.exe</code> and <code>notepad.exe</code> doesn't need HTML package. Press <code>Cancel</code> button.</p>
-<p><img alt="cancel-install-wine-mono" src="img/cancel-install-wine-gecko.png" /></p>
-<p>And the notepad.exe should appears inside your Web browser</p>
-<p><img alt="notepadrunning" src="img/notepadrunning.png" /></p>
+<p>And the notepad window should be open inside your Web browser</p>
+<p><img alt="notepadrunning" src="../img/notepadrunning.png" /></p>
 <p>This Windows application is running inside a docker container on abcdesktop.io desktop.</p>
 <p>In the Terminal shell press <code>CTRL+C</code> to stop the <code>wine notepad</code> process, then type <code>exit</code> to quit your shell in container.</p>
 <pre><code class="language-bash">^C0032:fixme:console:CONSOLE_DefaultHandler Terminating process 8 on event 0

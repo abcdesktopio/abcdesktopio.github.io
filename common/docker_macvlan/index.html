@@ -9,12 +9,14 @@
       
       
       
+        <link rel="canonical" href="http://www.abcdesktop.io/common/docker_macvlan/">
+      
       <link rel="shortcut icon" href="/img/abcdesktop128x128.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>Bind a specific docker network for an application - abcdesktopio.github.io</title>
+        <title>Bind a specific docker network for an application - www.abcdesktop.io</title>
       
     
     
@@ -37,6 +39,10 @@
     
     
     
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-189502871-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
@@ -71,7 +77,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="abcdesktopio.github.io" class="md-header-nav__button md-logo" aria-label="abcdesktopio.github.io">
+    <a href="http://www.abcdesktop.io" title="www.abcdesktop.io" class="md-header-nav__button md-logo" aria-label="www.abcdesktop.io">
       
   <img src="/img/abcdesktop.svg" alt="logo">
 
@@ -83,7 +89,7 @@
       <div class="md-header-nav__ellipsis">
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
-            abcdesktopio.github.io
+            www.abcdesktop.io
           </span>
         </div>
         <div class="md-header-nav__topic">
@@ -163,12 +169,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="abcdesktopio.github.io" class="md-nav__button md-logo" aria-label="abcdesktopio.github.io">
+    <a href="http://www.abcdesktop.io" title="www.abcdesktop.io" class="md-nav__button md-logo" aria-label="www.abcdesktop.io">
       
   <img src="/img/abcdesktop.svg" alt="logo">
 
     </a>
-    abcdesktopio.github.io
+    www.abcdesktop.io
   </label>
   
     <div class="md-nav__source">
@@ -258,6 +264,19 @@
   <li class="md-nav__item">
     <a href="../../about/related_projets/" class="md-nav__link">
       Related projects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../about/gnu-gpl-v2.0/" class="md-nav__link">
+      Licence
     </a>
   </li>
 
@@ -929,6 +948,19 @@
   </li>
 
         
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../buildapplications.wine/" class="md-nav__link">
+      Build your own abcdesktop MsWindows Image
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1490,8 +1522,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example :
+  <a href="#example-with-macvlan" class="md-nav__link">
+    Example with macvlan :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-with-ipvlan-ipvlan_model2" class="md-nav__link">
+    Example with ipvlan ipvlan_mode=l2 :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-your-new-network-macvlan-or-ipvlan" class="md-nav__link">
+    Test your new network (macvlan or ipvlan):
   </a>
   
 </li>
@@ -1577,7 +1623,7 @@
 
   <li class="md-nav__item">
     <a href="../update_image/" class="md-nav__link">
-      Update and custom portail front end image
+      Update and custom frontend image
     </a>
   </li>
 
@@ -1641,8 +1687,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example :
+  <a href="#example-with-macvlan" class="md-nav__link">
+    Example with macvlan :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-with-ipvlan-ipvlan_model2" class="md-nav__link">
+    Example with ipvlan ipvlan_mode=l2 :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-your-new-network-macvlan-or-ipvlan" class="md-nav__link">
+    Test your new network (macvlan or ipvlan):
   </a>
   
 </li>
@@ -1765,10 +1825,22 @@ This dedicated network can use macvlan, ipvlan or an SRIOV network driver.</li>
 </tbody>
 </table>
 <p>Only the name of the network is used by abcdesktop.</p>
-<h3 id="example">Example :</h3>
+<p>Create a network with <code>macvlan</code> or <code>ipvlan</code> driver </p>
+<p>In these two examples :</p>
+<ul>
+<li>Subnet is <code>192.168.8.0/24</code> </li>
+<li>Gateway is <code>192.168.8.254</code> </li>
+<li>Ip Range is <code>192.168.8.0/27</code></li>
+</ul>
+<h4 id="example-with-macvlan">Example with <code>macvlan</code> :</h4>
 <p>Create a network abcnetfirefox with the driver macvlan and bridge the network interface eno1 with the vlan 123 </p>
-<pre><code class="language-bash">docker network create -d macvlan --subnet=192.168.8.0/24 --gateway=192.168.8.254 --ip-range=192.168.8.64/27 -o parent=eno1.123 abcnetfirefox
+<pre><code class="language-bash">docker network create -d macvlan --subnet=192.168.8.0/24 --gateway=192.168.8.254 --ip-range=192.168.8.0/27 -o parent=eno1.123 abcnetfirefox
 </code></pre>
+<h4 id="example-with-ipvlan-ipvlan_model2">Example with <code>ipvlan</code> ipvlan_mode=l2 :</h4>
+<p>Create a network abcnetfirefox with the driver ipvlan with ipvlan_mode=l2 option and bridge the network interface eno1 with the vlan 123.</p>
+<pre><code class="language-bash">docker network create -d ipvlan  -o ipvlan_mode=l2 --subnet=192.168.8.0/24 --gateway=192.168.8.254 --ip-range=192.168.8.0/27 -o parent=eno1.123 abcnetfirefox
+</code></pre>
+<h4 id="test-your-new-network-macvlan-or-ipvlan">Test your new network (<code>macvlan</code> or <code>ipvlan</code>):</h4>
 <p>Make sure that's you can reach the default gateway and the dns server for container.
 In this example, just start a busybox to :</p>
 <ul>
@@ -2140,7 +2212,7 @@ curl http://$MY_FQDN/API/manager/buildapplist
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Update and custom portail front end image
+                Update and custom frontend image
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
