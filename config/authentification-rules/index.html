@@ -9,7 +9,7 @@
       
       
       
-        <link rel="canonical" href="http://www.abcdesktop.io/config/authentification-rules/">
+        <link rel="canonical" href="https://abcdesktopio.github.io/config/authentification-rules/">
       
       <link rel="shortcut icon" href="/img/abcdesktop128x128.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
@@ -77,7 +77,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="http://www.abcdesktop.io" title="www.abcdesktop.io" class="md-header-nav__button md-logo" aria-label="www.abcdesktop.io">
+    <a href="https://abcdesktopio.github.io" title="www.abcdesktop.io" class="md-header-nav__button md-logo" aria-label="www.abcdesktop.io">
       
   <img src="/img/abcdesktop.svg" alt="logo">
 
@@ -169,7 +169,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="http://www.abcdesktop.io" title="www.abcdesktop.io" class="md-nav__button md-logo" aria-label="www.abcdesktop.io">
+    <a href="https://abcdesktopio.github.io" title="www.abcdesktop.io" class="md-nav__button md-logo" aria-label="www.abcdesktop.io">
       
   <img src="/img/abcdesktop.svg" alt="logo">
 
@@ -1271,6 +1271,19 @@
     condition network
   </a>
   
+    <nav class="md-nav" aria-label="condition network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv4-and-ipv6-subnets-support" class="md-nav__link">
+    IPv4 and IPv6 subnets support
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1735,6 +1748,19 @@
     condition network
   </a>
   
+    <nav class="md-nav" aria-label="condition network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv4-and-ipv6-subnets-support" class="md-nav__link">
+    IPv4 and IPv6 subnets support
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1900,7 +1926,7 @@ The result must be equal to the <code>expected</code> value.</p>
 <p>This condition is test if a HTTP Header value is equal to a string. </p>
 <pre><code>'httpheader': dict
 </code></pre>
-<p>example : if the 'User-Agent' is equal to 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36' then add the label 'chromemaxosx112'</p>
+<p>example : if the 'User-Agent' is equal to <code>'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36' then add the label 'chromemaxosx112'</code></p>
 <pre><code class="language-json">
  'rule-httpheader': { 
         'conditions' : [ 
@@ -1939,9 +1965,22 @@ The result must be equal to the <code>expected</code> value.</p>
                          'expected' : False,
                          'label': 'no192168net' }
 </code></pre>
+<h5 id="ipv4-and-ipv6-subnets-support">IPv4 and IPv6 subnets support</h5>
+<p>This rule example add a tag <code>ipvrfc1918</code> if the user IP address belongs to the <a href="https://tools.ietf.org/html/rfc1918">rfc 1918</a> and 
+<a href="https://tools.ietf.org/html/rfc3927">rfc 3927</a>.
+Both IPv6 and IPv4 addresses are supported. </p>
+<pre><code class="language-json">  'rule-privatenetwork': { 'conditions' : [ 
+      { 'network': '10.0.0.0/8',     'expected' : True },
+      { 'network': '172.16.0.0/12',  'expected' : True },
+      { 'network': '192.168.0.0/16', 'expected' : True },
+      { 'network': '169.254.0.0/16', 'expected' : True },
+      { 'network': 'fe80::/10',      'expected' : True } ],
+    'expected' : True,
+    'label': 'privatenetwork' }
+</code></pre>
 <h4 id="condition-memberof">condition memberof</h4>
 <p>This condition test if the user is a member of a LDAP Distinguished Name. </p>
-<pre><code>'memberOf': string
+<pre><code class="language-json">'memberOf': string
 </code></pre>
 <pre><code class="language-json"> 'rule-sample': { 'conditions':  [ 
     { 'memberOf': 'cn=ship_crew,ou=people,dc=planetexpress,dc=com',  'expected' : True } ], 
@@ -1952,7 +1991,7 @@ The result must be equal to the <code>expected</code> value.</p>
 <h4 id="condition-primarygroupid">condition primarygroupid</h4>
 <p>This test is only used with Microsoft Active Directory.
 primarygroupid test if the user attibute primaryGroupID is equal to a string.</p>
-<pre><code>'primarygroupid': string
+<pre><code class="language-json">'primarygroupid': string
 </code></pre>
 <p>To check is a user is memberof a <code>DOMAIN\USER</code> the primary group id is <code>513</code></p>
 <pre><code class="language-json">'rule-domainuser': {    'conditions':  [ { 'primarygroupid': '513', 'expected' : True } ],

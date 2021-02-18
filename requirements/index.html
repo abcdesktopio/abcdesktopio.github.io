@@ -9,7 +9,7 @@
       
       
       
-        <link rel="canonical" href="http://www.abcdesktop.io/requirements/">
+        <link rel="canonical" href="https://abcdesktopio.github.io/requirements/">
       
       <link rel="shortcut icon" href="/img/abcdesktop128x128.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
@@ -77,7 +77,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="http://www.abcdesktop.io" title="www.abcdesktop.io" class="md-header-nav__button md-logo" aria-label="www.abcdesktop.io">
+    <a href="https://abcdesktopio.github.io" title="www.abcdesktop.io" class="md-header-nav__button md-logo" aria-label="www.abcdesktop.io">
       
   <img src="/img/abcdesktop.svg" alt="logo">
 
@@ -169,7 +169,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="http://www.abcdesktop.io" title="www.abcdesktop.io" class="md-nav__button md-logo" aria-label="www.abcdesktop.io">
+    <a href="https://abcdesktopio.github.io" title="www.abcdesktop.io" class="md-nav__button md-logo" aria-label="www.abcdesktop.io">
       
   <img src="/img/abcdesktop.svg" alt="logo">
 
@@ -1782,30 +1782,12 @@
 <p>At installation time, it creates symlinks in /usr/local/bin for docker and docker-compose, to the commands in the application bundle, in /Applications/Docker.app/Contents/Resources/bin.</p>
 <p>To install dockerd on MacOS/X, use Docker for Desktop. Get Docker for MacOS on the docker website 
 <a href="https://docs.docker.com/docker-for-mac/">docker-for-mac</a></p>
-<p>To get a shell to the <code>LinuxKit docker-desktop</code>, run screen command to the tty <code>~/Library/Containers/com.docker.docker/Data/vms/0/tty</code></p>
-<pre><code>screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
+<p>To get a shell to the <code>LinuxKit docker-desktop</code>, run the docker command </p>
+<pre><code>docker run -it --rm --privileged --pid=host justincormack/nsenter1
 </code></pre>
-<pre><code>Welcome to LinuxKit
-
-                        ##         .
-                  ## ## ##        ==
-               ## ## ## ## ##    ===
-           /&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;__/ ===
-          {                       /  ===-
-           _____ O           __/
-                        __/
-              _________/
-
-docker-desktop login: root (automatic login)
-
-Welcome to LinuxKit!
-
-NOTE: This system is namespaced.
-The namespace you are currently in may not be the root.
-System services are namespaced; to access, use `ctr -n services.linuxkit ...`
-login[45565]: root login on 'ttyS0'
-docker-desktop:~#
-</code></pre>
+<blockquote>
+<p>more info: <a href="https://github.com/justincormack/nsenter1">https://github.com/justincormack/nsenter1</a></p>
+</blockquote>
 <h3 id="microsoft-windows">Microsoft Windows</h3>
 <p>When you install Docker Desktop on Windows, it requires and automatically enables Hyper-V, a hypervisor from Microsoft. Hyper-V replaces your Windows OS as the host on the computer, and your Windows OS becomes a virtual machine. </p>
 <h4 id="system-requirements">System Requirements</h4>
