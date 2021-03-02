@@ -1803,7 +1803,8 @@ This dedicated network can use macvlan, ipvlan or an SRIOV network driver.</li>
 <h2 id="create-a-dedicated-network-for-your-application">Create a dedicated network for your application</h2>
 <p>On your worker nodes :</p>
 <ul>
-<li>create a dedicated network interface to brige the new network interface </li>
+<li>create a dedicated network interface to bridge the new network interface</li>
+<li>add the label <code>abcdesktop=true</code> to the network object</li>
 </ul>
 <p>You have to choose a nework driver for example </p>
 <table>
@@ -1834,11 +1835,11 @@ This dedicated network can use macvlan, ipvlan or an SRIOV network driver.</li>
 </ul>
 <h4 id="example-with-macvlan">Example with <code>macvlan</code> :</h4>
 <p>Create a network abcnetfirefox with the driver macvlan and bridge the network interface eno1 with the vlan 123 </p>
-<pre><code class="language-bash">docker network create -d macvlan --subnet=192.168.8.0/24 --gateway=192.168.8.254 --ip-range=192.168.8.0/27 -o parent=eno1.123 abcnetfirefox
+<pre><code class="language-bash">docker network create --label type=oc.app -d macvlan --subnet=192.168.8.0/24 --gateway=192.168.8.254 --ip-range=192.168.8.0/27 -o parent=eno1.123 abcnetfirefox
 </code></pre>
 <h4 id="example-with-ipvlan-ipvlan_model2">Example with <code>ipvlan</code> ipvlan_mode=l2 :</h4>
 <p>Create a network abcnetfirefox with the driver ipvlan with ipvlan_mode=l2 option and bridge the network interface eno1 with the vlan 123.</p>
-<pre><code class="language-bash">docker network create -d ipvlan  -o ipvlan_mode=l2 --subnet=192.168.8.0/24 --gateway=192.168.8.254 --ip-range=192.168.8.0/27 -o parent=eno1.123 abcnetfirefox
+<pre><code class="language-bash">docker network create --label type=oc.app -d ipvlan  -o ipvlan_mode=l2 --subnet=192.168.8.0/24 --gateway=192.168.8.254 --ip-range=192.168.8.0/27 -o parent=eno1.123 abcnetfirefox
 </code></pre>
 <h4 id="test-your-new-network-macvlan-or-ipvlan">Test your new network (<code>macvlan</code> or <code>ipvlan</code>):</h4>
 <p>Make sure that's you can reach the default gateway and the dns server for container.
@@ -2015,7 +2016,9 @@ docker build -f firefox.d -t firefox.d .
         &quot;Options&quot;: {
             &quot;parent&quot;: &quot;eno1.106&quot;
         },
-        &quot;Labels&quot;: {}
+        &quot;Labels&quot;: {
+            &quot;type&quot;: &quot;oc.app&quot;
+        }
     }
 ]
 </code></pre>
@@ -2063,7 +2066,9 @@ docker build -f firefox.d -t firefox.d .
         &quot;Options&quot;: {
             &quot;parent&quot;: &quot;eno1.106&quot;
         },
-        &quot;Labels&quot;: {}
+        &quot;Labels&quot;: {
+            &quot;type&quot;: &quot;oc.app&quot;
+        }
     }
 ]
 </code></pre>
