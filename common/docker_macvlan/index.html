@@ -1598,8 +1598,48 @@
         
           <li class="md-nav__item">
   <a href="#enable-network-for-hubert-j-farnsworth" class="md-nav__link">
-    Enable network for `Hubert J. Farnsworth
+    Enable network for Hubert J. Farnsworth
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#webhook-events-create-and-destroy-application" class="md-nav__link">
+    Webhook events create and destroy application
+  </a>
+  
+    <nav class="md-nav" aria-label="Webhook events create and destroy application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    Events :
+  </a>
+  
+    <nav class="md-nav" aria-label="Events :">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-event" class="md-nav__link">
+    create event:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destroy-event" class="md-nav__link">
+    destroy event:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1624,6 +1664,19 @@
   <li class="md-nav__item">
     <a href="../update_image/" class="md-nav__link">
       Update and custom frontend image
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../upload_and_download_files/" class="md-nav__link">
+      Upload and from files with your desktop
     </a>
   </li>
 
@@ -1763,8 +1816,48 @@
         
           <li class="md-nav__item">
   <a href="#enable-network-for-hubert-j-farnsworth" class="md-nav__link">
-    Enable network for `Hubert J. Farnsworth
+    Enable network for Hubert J. Farnsworth
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#webhook-events-create-and-destroy-application" class="md-nav__link">
+    Webhook events create and destroy application
+  </a>
+  
+    <nav class="md-nav" aria-label="Webhook events create and destroy application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    Events :
+  </a>
+  
+    <nav class="md-nav" aria-label="Events :">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-event" class="md-nav__link">
+    create event:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destroy-event" class="md-nav__link">
+    destroy event:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2105,7 +2198,7 @@ docker build -f firefox.d -t firefox.d .
                                     &quot;dns&quot;: [ &quot;8.8.8.8&quot; ] } } }
 </code></pre>
 <p>In this case, only users with the label tag <code>internet</code>, can bind the network name <code>abcnetfirefox</code>.</p>
-<h3 id="enable-network-for-hubert-j-farnsworth">Enable network for <code>`Hubert J. Farnsworth</code></h3>
+<h3 id="enable-network-for-hubert-j-farnsworth">Enable network for <code>Hubert J. Farnsworth</code></h3>
 <p>Update the application firefox rules</p>
 <p>Now it's time to permit network access to </p>
 <p>Update the applist.json file :</p>
@@ -2178,6 +2271,118 @@ curl http://$MY_FQDN/API/manager/buildapplist
 <p>You do not need to logoff the <code>Hubert J. Farnsworth</code>, just close Firefox application and start it again. The new firefox container use the default network.</p>
 <p><img alt="enable network by default" src="../img/firefox-withdefault-network.png" /></p>
 <p>Now default user has a network access, and member of <code>cn=ship_crew,ou=people,dc=planetexpress,dc=com</code> use the <code>abcnetfirefox</code> network.</p>
+<h2 id="webhook-events-create-and-destroy-application">Webhook events <code>create</code> and <code>destroy</code> application</h2>
+<p>Rules support a specific webhook url to notify external security equipment like firewalls.</p>
+<pre><code>  &quot;rules&quot;: {    &quot;homedir&quot;: { &quot;default&quot;: false, &quot;ship&quot;: true }, 
+                &quot;network&quot;: { &quot;default&quot;: false, 
+                        &quot;ship&quot;: { &quot;name&quot;: &quot;abcnetfirefox&quot;, &quot;dns&quot;: [ &quot;8.8.8.8&quot; ], 
+                                    &quot;webhook&quot;: { 
+                                        &quot;create&quot;: &quot;http://firewall.domain.local/update?action=create&amp;name={{ name }}&amp;ip={{ container_ip }}&quot;, 
+                                        &quot;destroy&quot;: &quot;http://firewall.domain.local/update?action=destroy&amp;name={{ name }}&amp;ip={{ container_ip }}&quot; } 
+                                    } 
+ }
+</code></pre>
+<ul>
+<li>When a new docker container is created, the control plane <code>pyos</code> call the url  <code>http://firewall.domain.local/update?action=create&amp;name={{ name }}&amp;ip={{ container_ip }}</code></li>
+<li>When a new docker container is destoyed, the control plane <code>pyos</code> call the url  <code>http://firewall.domain.local/update?action=destroy&amp;name={{ name }}&amp;ip={{ container_ip }}</code></li>
+</ul>
+<p>Each <code>{{ $label }}</code> is a mustached value.</p>
+<table>
+<thead>
+<tr>
+<th>Label name</th>
+<th>description</th>
+<th>example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>container_ip</td>
+<td>container ip addr</td>
+<td>192.168.8.130</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>authentification provider name</td>
+<td>planet</td>
+</tr>
+<tr>
+<td>providertype</td>
+<td>authentification provider type</td>
+<td>ldap</td>
+</tr>
+<tr>
+<td>userid</td>
+<td>authentification provider user id</td>
+<td>fry</td>
+</tr>
+<tr>
+<td>name</td>
+<td>username</td>
+<td><code>Philip J. Fry</code></td>
+</tr>
+<tr>
+<td>sha_id</td>
+<td>sha of the container image</td>
+<td>sha256%3A5c754563b357bfde4a3762728c686fe0001d10e43835b9468d5218e663b844e8</td>
+</tr>
+<tr>
+<td>id</td>
+<td>name of the application image</td>
+<td><code>abcdesktopio/firefox-esr.d:dev</code></td>
+</tr>
+<tr>
+<td>launch</td>
+<td>WM_CLASS of the X11 application</td>
+<td>Navigator.Firefox</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>icon file name</td>
+<td>firefox.svg</td>
+</tr>
+<tr>
+<td>keyword</td>
+<td>docker image label keywords</td>
+<td>firefox mozilla web internet</td>
+</tr>
+<tr>
+<td>cat</td>
+<td>docker image label category</td>
+<td>office</td>
+</tr>
+<tr>
+<td>displayname</td>
+<td>docker image label displayname</td>
+<td>Firefox-esr</td>
+</tr>
+<tr>
+<td>path</td>
+<td>binary path of the application</td>
+<td>/usr/bin/firefox-esr</td>
+</tr>
+<tr>
+<td>desktopfile</td>
+<td>desktop filename  of the application</td>
+<td>firefox.desktop</td>
+</tr>
+<tr>
+<td>executablefilename</td>
+<td>binary file name of the application</td>
+<td> firefox-esr</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>user current locale settings</td>
+<td>en_US</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events">Events :</h3>
+<h4 id="create-event">create event:</h4>
+<p>The control plane <code>pyos</code> replace the mustached  url  <code>http://firewall.domain.local/update?action=create&amp;name={{ name }}&amp;ip={{ container_ip }}</code> as <code>http://firewall.domain.local/update?action=create&amp;name=Philip%20J.%20Fry&amp;ip=192.168.8.130</code></p>
+<h4 id="destroy-event">destroy event:</h4>
+<p>The control plane <code>pyos</code> replace the url  <code>http://firewall.domain.local/update?action=destroy&amp;name={{ name }}&amp;ip={{ container_ip }}</code> as <code>http://firewall.domain.local/update?action=destroy&amp;name=Philip%20J.%20Fry&amp;ip=192.168.8.130</code></p>
                 
               
               
