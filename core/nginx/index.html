@@ -510,7 +510,7 @@
         
           <li class="md-nav__item">
   <a href="#web-site" class="md-nav__link">
-    Web site
+    web site
   </a>
   
 </li>
@@ -1567,7 +1567,7 @@
         
           <li class="md-nav__item">
   <a href="#web-site" class="md-nav__link">
-    Web site
+    web site
   </a>
   
 </li>
@@ -1612,21 +1612,7 @@
 <p><img alt="Update oc.nginx" src="https://github.com/abcdesktopio/oc.nginx/workflows/Update%20oc.nginx/badge.svg" /></p>
 <p>Nginx is used as a reverse proxy server for HTTP, HTTPS protocols, as well as a load balancer, HTTP cache, and a web server (origin server). </p>
 <h2 id="nginx-routing">Nginx routing</h2>
-<pre><code>                                     +--------------------+
-                                +---&gt;|       oc.user      |
-                                |    +----------+---------+
-                                |               
-              +-----------+     |               
-              |           |     |    +----------+---------+           +---------------+
-Webuser +----&gt;|   nginx   |-----+---&gt;| od.py (port 8000)  |----------&gt;|    mongodb    |
-              |           |     |    +--------------------+           +---------------+
-              +-----------+     |
-                                |
-                                |    +--------------------+
-                                +---&gt;|   static web site  |
-                                     +--------------------+
-
-</code></pre>
+<p><img alt="nginx routing" src="../../img/architecture-overview.png" /></p>
 <h2 id="nginx-configuration">Nginx Configuration</h2>
 <ul>
 <li>Read the nginx <a href="https://github.com/abcdesktopio/oc.nginx/blob/main/etc/nginx/nginx.conf">nginx.conf</a> configuration file</li>
@@ -1634,8 +1620,8 @@ Webuser +----&gt;|   nginx   |-----+---&gt;| od.py (port 8000)  |----------&gt;|
 <li>Read the <a href="https://github.com/abcdesktopio/oc.nginx/blob/main/etc/nginx/route.conf">route.conf</a> configuration file, use to route HTTP request </li>
 <li>Read the <a href="https://github.com/abcdesktopio/oc.nginx/blob/main/etc/nginx/proxy.conf">proxy.conf</a> configuration file, use to proxy HTTP request </li>
 </ul>
-<h3 id="web-site">Web site</h3>
-<p>The web site source code is stored in the /var/webModules directory.</p>
+<h3 id="web-site">web site</h3>
+<p>The static files (html, css, js) are stored in the local /var/webModules directory.</p>
 <h3 id="main-reverse-proxy">main reverse proxy</h3>
 <ul>
 <li>moauth|fauth|gauth|oauth|autologin|API|status are routed to od.py <code>http://$my_proxy:$api_service_tcp_port;</code></li>
