@@ -325,6 +325,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#supported-architectures" class="md-nav__link">
+    Supported Architectures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docker-engine" class="md-nav__link">
     Docker engine
   </a>
@@ -762,7 +769,19 @@
   
     <li class="md-nav__item">
       <a href="../setup/dockermode/" class="md-nav__link">
-        Setup abcdesktop for Docker
+        Install abcdesktop for Docker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/uninstalldockermode/" class="md-nav__link">
+        Uninstall abcdesktop for Docker
       </a>
     </li>
   
@@ -1606,6 +1625,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#supported-architectures" class="md-nav__link">
+    Supported Architectures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docker-engine" class="md-nav__link">
     Docker engine
   </a>
@@ -1711,9 +1737,24 @@
                 
                 
                 <h1 id="requirements">Requirements</h1>
+<h2 id="supported-architectures">Supported Architectures</h2>
+<p>Our images support only architectures <code>x86-64</code>. The architectures supported by this image is:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Architecture</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">x86-64</td>
+<td>amd64-latest</td>
+</tr>
+</tbody>
+</table>
 <h2 id="docker-engine">Docker engine</h2>
-<p>abcdesktop.io use docker. Docker can run on your desktop, or on a remote server. We recommend to use docker on GNU/Linux for production.</p>
-<p>To install your specific Docker Engine. Read the <a href="https://docs.docker.com/get-started/">Get started guide</a> guide from docker.</p>
+<p>abcdesktop.io uses docker. Docker can run on your desktop, or on a remote server. We recommend to use docker on GNU/Linux for production. To install your specific Docker Engine. Read the <a href="https://docs.docker.com/get-started/">Get started guide</a> guide from docker.</p>
 <p>abcdesktop.io need Docker Engine version 18 and above.</p>
 <table>
 <thead>
@@ -1738,7 +1779,7 @@
 </tbody>
 </table>
 <h3 id="gnulinux">GNU/Linux</h3>
-<p>The recommended distrubution is <a href="http://releases.ubuntu.com/18.04.4/">Ubuntu 18.04.4 LTS (Bionic Beaver)</a>, for production use the <code>Server image</code>, to do the exercice choose <code>Desktop image</code>.</p>
+<p>The recommended distrubution is <a href="http://releases.ubuntu.com/18.04.4/">Ubuntu 18.04.4 LTS (Bionic Beaver)</a>.</p>
 <h4 id="centos">CentOS</h4>
 <p>To install dockerd on CentOS. Read the docker 'Get Docker Engine' documentation for this Linux distribution.
 <a href="https://docs.docker.com/install/linux/docker-ce/centos/">Get Docker Engine - Community for CentOS</a></p>
@@ -1778,8 +1819,8 @@
 </ul>
 <p>To install dockerd on Microsoft windows, use Docker for Desktop. Get Docker for Windows on the docker website 
 <a href="https://docs.docker.com/docker-for-windows/">docker-for-windows</a></p>
-<p>You need to configure your Docker Desktop on Windows to use Linux containers. 
-abcdesktop.io does NOT support Windows container. </p>
+<p>You need to configure your Docker Desktop on Windows to use <strong>Linux containers</strong>. 
+abcdesktop.io <strong>does NOT support Windows container</strong>. </p>
 <p>You can switch the Docker Desktop on Windows to use Linux containers, using  the docker window tray icon. <a href="/img/switchtolinuxcontainer.png">Switch to Linux containers</a></p>
                 
               
