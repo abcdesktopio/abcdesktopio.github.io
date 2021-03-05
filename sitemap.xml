@@ -12,10 +12,6 @@
      <lastmod>2021-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.abcdesktop.io/about/related_projets/</loc>
-     <lastmod>2021-03-05</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://www.abcdesktop.io/about/gnu-gpl-v2.0/</loc>
      <lastmod>2021-03-05</lastmod>
      <changefreq>daily</changefreq>
@@ -41,6 +37,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.abcdesktop.io/setup/novnc/</loc>
+     <lastmod>2021-03-05</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://www.abcdesktop.io/about/play_sound_in_docker/</loc>
      <lastmod>2021-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>

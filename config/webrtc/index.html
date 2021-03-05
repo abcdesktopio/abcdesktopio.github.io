@@ -258,18 +258,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/related_projets/" class="md-nav__link">
-        Related projects
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../about/gnu-gpl-v2.0/" class="md-nav__link">
         Licence
       </a>
@@ -359,7 +347,7 @@
   
     <li class="md-nav__item">
       <a href="../../guiappsoddocker/" class="md-nav__link">
-        Run GUI apps on Docker
+        VDI on Docker, related projets
       </a>
     </li>
   
@@ -384,6 +372,18 @@
     <li class="md-nav__item">
       <a href="../../setup/novnc/" class="md-nav__link">
         Hands-on with no-VNC HTML5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/play_sound_in_docker/" class="md-nav__link">
+        Play sound in docker to a webprojet
       </a>
     </li>
   
@@ -1335,8 +1335,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#webrtc-gateway-disable-default" class="md-nav__link">
-    webrtc gateway disable (default)
+  <a href="#pulseaudio-http-stream-by-default" class="md-nav__link">
+    pulseaudio http stream (by default)
   </a>
   
 </li>
@@ -1597,8 +1597,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#webrtc-gateway-disable-default" class="md-nav__link">
-    webrtc gateway disable (default)
+  <a href="#pulseaudio-http-stream-by-default" class="md-nav__link">
+    pulseaudio http stream (by default)
   </a>
   
 </li>
@@ -1690,7 +1690,9 @@
                 
                 <h1 id="sound-server-configuration">Sound server configuration</h1>
 <p>By default abcdesktop use the <code>module-http-protocol-tcp</code> from pulseaudio sound server to send wav data to the web browser</p>
-<h2 id="webrtc-gateway-disable-default">webrtc gateway disable (default)</h2>
+<h2 id="pulseaudio-http-stream-by-default">pulseaudio http stream (by default)</h2>
+<p>By default, abcdesktop uses the pulseaudio http stream and play wave data (poor sound quality but works in https only)</p>
+<p><img alt="pulseaudio http stream" src="../img/soundmodulehttp.png" /></p>
 <p>In terminal webshell run the command : </p>
 <pre><code class="language-bash">pactl -s /tmp/.pulse.sock list short modules
 </code></pre>
@@ -1706,7 +1708,9 @@
 8 module-always-sink
 </code></pre>
 <h2 id="webrtc-gateway-enable">webrtc gateway enable</h2>
-<p>To get a better sound quality, you can use a webrtc gateway and send a rtp stream to the webrtc gateway. abcdesktop update the pulseaudio configuration, and add <code>module-rtp-send</code>. The <code>module-rtp-send</code> pusleaudio send to the destination_ip (in this example 1.2.3.4) </p>
+<p>To get a better sound quality, you can use a webrtc gateway and send a rtp stream to the webrtc gateway. abcdesktop plays sound using the web browser webrtc stack (good sound quality)</p>
+<p><img alt="pulseaudio rtp stream" src="../img/soundmodulertp.png" /></p>
+<p>abcdesktop update the pulseaudio configuration, and add <code>module-rtp-send</code>. The <code>module-rtp-send</code> pusleaudio send to the destination_ip (in this example 1.2.3.4) </p>
 <pre><code class="language-bash">pactl -s /tmp/.pulse.sock list short modules
 </code></pre>
 <pre><code>balloon@414e3db9-60d8-4f92-a356-a3a74833990c:~$ pactl -s /tmp/.pulse.sock list short modules
@@ -1814,13 +1818,13 @@ webrtc.server : {   'janus.domain.local' : { 'schema' : 'http',
 <h3 id="webrtcserver">webrtc.server</h3>
 <p><code>webrtc.server</code> is a dict. The default value is <code>None</code>. 
 Set all dictionnary values to enable webrtc access for <code>pulseaudio</code> and for the web browser client.</p>
-<p>The <code>hostip</code> value, is used by pluse audio to configure the rtp stream. This value must be an ip address (do not set the fqdn). This can be an internal ip address.</p>
+<p>The <code>hostip</code> value, is used by pluse audio to configure the rtp stream. This value <strong>must be</strong> an ip address (do not set the fqdn). This can be an internal ip address, and is only to configure pulseaudio module and describe how to send stream data to reach the webrtc gateway.</p>
 <pre><code>'hostip': '1.2.3.4'
 </code></pre>
-<p>The <code>host</code> value, is used by the browser to reach the rtp stream. This value must(should) be a fqdn. This fqdn is used by the web browser.</p>
+<p>The <code>host</code> value, is used by the browser to reach the webrtc gateway and get the rtp stream. This value must(should) be a <code>fqdn</code>. This <code>fqdn</code> is used by the web browser.</p>
 <pre><code>webrtc.server : {   'janus.domain.local' : { 'schema' : 'http',
                                           'host': 'janus.domain.local',
-                                          'hostip': '123.123.123.123',
+                                          'hostip': '1.2.3.4',
                                           'port': 8088,
                                           'audiopt': 8,
                                           'audiortpmap': 'PCMA/8000',

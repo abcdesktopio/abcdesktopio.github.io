@@ -16,7 +16,7 @@
     
     
       
-        <title>Run GUI apps on Docker - www.abcdesktop.io</title>
+        <title>VDI on Docker, related projets - www.abcdesktop.io</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gui-applications-in-docker" class="md-skip">
+        <a href="#gui-application-in-docker" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Run GUI apps on Docker
+              VDI on Docker, related projets
             
           </span>
         </div>
@@ -258,18 +258,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/related_projets/" class="md-nav__link">
-        Related projects
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../about/gnu-gpl-v2.0/" class="md-nav__link">
         Licence
       </a>
@@ -369,12 +357,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Run GUI apps on Docker
+          VDI on Docker, related projets
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Run GUI apps on Docker
+        VDI on Docker, related projets
       </a>
       
         
@@ -389,6 +377,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#related-projets-on-vdi-with-docker" class="md-nav__link">
+    Related Projets on VDI with docker
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#x-window-system-architecture" class="md-nav__link">
@@ -420,8 +415,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#abcdesktopio-choice" class="md-nav__link">
-    abcdesktop/io choice
+  <a href="#abcdesktop-choice" class="md-nav__link">
+    abcdesktop choice
   </a>
   
 </li>
@@ -492,6 +487,18 @@
     <li class="md-nav__item">
       <a href="../setup/novnc/" class="md-nav__link">
         Hands-on with no-VNC HTML5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/play_sound_in_docker/" class="md-nav__link">
+        Play sound in docker to a webprojet
       </a>
     </li>
   
@@ -1595,6 +1602,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#related-projets-on-vdi-with-docker" class="md-nav__link">
+    Related Projets on VDI with docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#x-window-system-architecture" class="md-nav__link">
     X window system architecture
   </a>
@@ -1624,8 +1638,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#abcdesktopio-choice" class="md-nav__link">
-    abcdesktop/io choice
+  <a href="#abcdesktop-choice" class="md-nav__link">
+    abcdesktop choice
   </a>
   
 </li>
@@ -1686,11 +1700,29 @@
                   </a>
                 
                 
-                <h1 id="gui-applications-in-docker">GUI Applications in docker</h1>
+                <h1 id="gui-application-in-docker">GUI Application in docker</h1>
+<h2 id="related-projets-on-vdi-with-docker">Related Projets on VDI with docker</h2>
+<p>abcdesktop, or Yet Another VDI docker projet...</p>
+<p>A lot of different projets already exist using docker containers as a VDI. abcdesktop is just another one. I just write list of projets, you can explore them :</p>
+<ul>
+<li>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-remotely-access-gui-applications-using-docker-and-caddy-on-ubuntu-18-04">https://www.digitalocean.com/community/tutorials/how-to-remotely-access-gui-applications-using-docker-and-caddy-on-ubuntu-18-04</a> By using noVNC and TigerVNC, you can run native applications inside a Docker container and access them remotely using a web browser. </p>
+</li>
+<li>
+<p><a href="https://medium.com/@pigiuz/hw-accelerated-gui-apps-on-docker-7fd424fe813e">HW accelerated GUI apps on Docker</a> Describe How to containerizing a GUI app. Really easy to understand, a good article.</p>
+</li>
+<li>
+<p><a href="https://github.com/fcwu/docker-ubuntu-vnc-desktop">https://github.com/fcwu/docker-ubuntu-vnc-desktop</a> docker-ubuntu-vnc-desktop is a Docker image to provide web VNC interface to access Ubuntu LXDE/LxQT desktop environment.</p>
+</li>
+<li>
+<p><a href="https://blog.nediiii.com/dockerize-gui-app/">Dockerize GUI app</a> This project dockerize typical GUI app so that you can visit it in browser. Really good technical solutions.</p>
+</li>
+<li><a href="https://hub.docker.com/r/scottyhardy/docker-wine/">Docker and Wine</a> Docker image that includes Wine and Winetricks for running Windows applications on Linux and macOS </li>
+</ul>
 <h2 id="x-window-system-architecture">X window system architecture</h2>
 <p>In a *nix system a GUI application has the role of “X client”. Each time it redraws its content a sequence of graphics commands is encoded into the X protocol using a library (usually Xlib) and transmitted into the X11 socket.
-At the other end an X server reads such commands from the socket and renders them onto a display. [ source <a href="https://medium.com/@pigiuz/hw-accelerated-gui-apps-on-docker-7fd424fe813e">HW accelerated GUI apps on Docker</a> ]</p>
-<p><img alt="X window system architecture" src="../img/x11windowsystemarchitecture.png" /></p>
+At the other end an X server reads such commands from the socket and renders them onto a display. [ source <a href="https://medium.com/@pigiuz/hw-accelerated-gui-apps-on-docker-7fd424fe813e">HW accelerated GUI apps on Docker</a>]
+<img alt="X window system architecture" src="../img/x11windowsystemarchitecture.png" /></p>
 <h2 id="containerizing-a-gui-app">Containerizing a GUI app</h2>
 <p>Taking a look at the X window system architecture it’s clear that in order to make our containerized GUI apps capable of drawing on a screen we need to give it write access to the X11 socket, and we need an X server to consume and render the graphics commands onto a display.</p>
 <p>We can approach this problem from three angles:</p>
@@ -1708,7 +1740,7 @@ At the other end an X server reads such commands from the socket and renders the
 <p>we can share the X11 server socket with the container using TCP. X11 uses TCP as its transport protocol. Applications and X11 server run in dedicated containers.</p>
 </li>
 </ul>
-<h3 id="abcdesktopio-choice">abcdesktop/io choice</h3>
+<h3 id="abcdesktop-choice">abcdesktop choice</h3>
 <p><img alt="X11 share unix socket" src="../img/x11shareunixsocket.png" /></p>
 <p>To guarantee isolation, abcdesktop/io.io run X11 server and X11 client in separated container. X11 server and X11 client share the socket as unix file socket on a dedicated external shared volume.</p>
 <ul>
