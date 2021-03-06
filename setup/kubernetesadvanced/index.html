@@ -2168,9 +2168,9 @@ kubectl create secret generic abcdesktopjwtdesktopsigning --from-file=abcdesktop
 Kubernetes will attemp to pull them, but you will have no monitoring of pull advance.
 As abcdesktop images are quite heavy, this would result in various errors when trying to access abcdesktop before the end. Minimal image list can be found at top of this link : <a href="../kubernetesmode">kubernetes</a> </p>
 <p>abcdesktop deployment will be done with the following command :</p>
-<pre><code>kubectl create -f http://docs.abcdesktop.io/setup/abcdesktop.yaml
+<pre><code>kubectl create -f https://raw.githubusercontent.com/abcdesktopio/conf/main/kubernetes/abcdesktop.yaml
 </code></pre>
-<pre><code>abcdesktop@k8s-master:~$ kubectl create -f http://docs.abcdesktop.io/setup/abcdesktop.yaml
+<pre><code>abcdesktop@k8s-master:~$ kubectl create -f https://raw.githubusercontent.com/abcdesktopio/conf/main/kubernetes/abcdesktop.yaml
 clusterrole.rbac.authorization.k8s.io/pyos-role created
 clusterrolebinding.rbac.authorization.k8s.io/pyos-rbac created
 serviceaccount/pyos-serviceaccount created
@@ -2191,7 +2191,7 @@ service/nginx created
 service/pyos created
 </code></pre>
 <p>abcdesktop.yaml can be downloaded manually here :
-<a href="/setup/abcdesktop.yaml" download>abcdesktop.yaml</a></p>
+<a href="https://raw.githubusercontent.com/abcdesktopio/conf/main/kubernetes/abcdesktop.yaml">https://raw.githubusercontent.com/abcdesktopio/conf/main/kubernetes/abcdesktop.yaml</a></p>
 <p>abcdesktop deployment can be verified with the following command :</p>
 <pre><code>abcdesktop@k8s-master:~$ kubectl get pods
 NAME                            READY   STATUS    RESTARTS   AGE
