@@ -1520,21 +1520,21 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#configure-mozilla-firefox" class="md-nav__link">
-    Configure Mozilla Firefox
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#use-fully-qualified-domain-name-filter" class="md-nav__link">
+    Use fully qualified domain name filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#run-firefox-clipboard-extension-for-abcdesktop" class="md-nav__link">
-    Run  Firefox clipboard extension for abcdesktop
+    Run firefox clipboard extension for abcdesktop
   </a>
   
 </li>
@@ -1592,21 +1592,21 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#configure-mozilla-firefox" class="md-nav__link">
-    Configure Mozilla Firefox
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#use-fully-qualified-domain-name-filter" class="md-nav__link">
+    Use fully qualified domain name filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#run-firefox-clipboard-extension-for-abcdesktop" class="md-nav__link">
-    Run  Firefox clipboard extension for abcdesktop
+    Run firefox clipboard extension for abcdesktop
   </a>
   
 </li>
@@ -1631,17 +1631,10 @@
                 <h1 id="mozilla-firefox-clipboard-extension">Mozilla Firefox clipboard extension</h1>
 <h2 id="install-firefox-extension-file">Install Firefox Extension file</h2>
 <h3 id="download-the-mozilla-firefox-clipboard-extension-for-abcdesktop">Download the Mozilla Firefox clipboard extension for abcdesktop</h3>
-<p>Download the firefox clipboard extension <a href="https://www.abcdesktop.io/abcdesktop_clipboard_helper-1.0.3-fx.xpi">https://www.abcdesktop.io/abcdesktop_clipboard_helper-1.0.3-fx.xpi</a> and save it to your local directory</p>
-<h3 id="configure-mozilla-firefox">Configure Mozilla Firefox</h3>
-<ul>
-<li>Start the Mozilla Firefox application</li>
-<li>In the <code>about</code> menu, choose <code>Add-ons</code> </li>
-</ul>
-<p><img alt="From file install add ons" src="../img/firefox-about-add-ons.png" /></p>
-<ul>
+<ol>
 <li>
-<p>In the <code>Manage your Extensions</code> menu, choose <code>Install Add-ons From File...</code> , add <code>open</code> the <code>abcdesktop_clipboard_helper-1.0.0-fx.xpi</code> file.
-<img alt="From file install add ons" src="../img/install-firefox-about-add-ons.png" /></p>
+<p>Download the firefox clipboard extension <a href="https://www.abcdesktop.io/abcdesktop_clipboard_helper-1.0.3-fx.xpi">abcdesktop_clipboard_helper.xpi</a> and press <code>Continue to Installation</code> button.
+<img alt="Download and continue" src="../img/allow-install-add-on.png" /></p>
 </li>
 <li>
 <p>Choose <code>Add</code> as a response to the question <code>Add abcdesktop Clipboad Helper ?</code> 
@@ -1651,12 +1644,17 @@
 <p>Press <code>OKay, Got it</code> to confirm the <code>abcdesktop Clipboad helper</code> insallation
 <img alt="OKay confirm install add ons" src="../img/ok-add-install-firefox-about-add-ons.png" /></p>
 </li>
-<li>
-<p>Confirm <code>abcdesktop Clipboad helper</code> status is enabled</p>
-</li>
+</ol>
+<h2 id="use-fully-qualified-domain-name-filter">Use fully qualified domain name filter</h2>
+<p>Firefox clipboard extension runs <strong>ONLY if the hostname contains <code>desktop</code> string</strong>.</p>
+<p>The URL must matches <code>*://*desktop*/*"</code> to run the clipboard extension.</p>
+<ul>
+<li><code>https://demo.abcdesktop.io</code> matches, the firefox clipboard extension is running.</li>
+<li><code>https://desktop.domain.io</code> matches, the firefox clipboard extension is running.</li>
+<li><code>https://abcdesktop.mydomain.local</code> matches, the firefox clipboard extension is running.</li>
+<li><code>https://demo.domain.com</code> does not match, the firefox clipboard extension is not running.</li>
 </ul>
-<p><img alt="enabled install add ons" src="../img/done-install-firefox-about-add-ons.png" /></p>
-<h2 id="run-firefox-clipboard-extension-for-abcdesktop">Run  Firefox clipboard extension for abcdesktop</h2>
+<h2 id="run-firefox-clipboard-extension-for-abcdesktop">Run firefox clipboard extension for abcdesktop</h2>
 <blockquote>
 <p>Firefox clipboard extension syncs <strong>only text data</strong>, binary data like images are not yet supported. </p>
 </blockquote>
