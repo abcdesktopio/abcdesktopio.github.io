@@ -1623,7 +1623,7 @@ cp ~/Download/icaclient_13.10.0.20_amd64.deb icaclient_amd64.deb
 <ul>
 <li>Run docker build command</li>
 </ul>
-<pre><code>docker build  --build-arg TAG=dev -t abcdesktopio/citrix.d:dev -f 
+<pre><code>docker build --build-arg TAG=dev -t abcdesktopio/citrix.d:dev -f citrix.d .
 </code></pre>
 <pre><code>Sending build context to Docker daemon  29.13MB
 Step 1/28 : ARG TAG=dev
