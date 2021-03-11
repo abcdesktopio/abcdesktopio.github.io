@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#firefox" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1515,6 +1520,100 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inherite-from" class="md-nav__link">
+    inherite from
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display-name" class="md-nav__link">
+    Display name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path" class="md-nav__link">
+    path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#showinview" class="md-nav__link">
+    showinview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mime-type" class="md-nav__link">
+    Mime Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-extensions" class="md-nav__link">
+    File extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-file-extensions" class="md-nav__link">
+    Legacy file extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#share-size" class="md-nav__link">
+    Share size
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-size" class="md-nav__link">
+    Memory size
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-run-command" class="md-nav__link">
+    Pre run command
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -1525,9 +1624,30 @@
                   </a>
                 
                 
-                  <h1>Firefox</h1>
-                
-                
+                <h1 id="firefox">Firefox</h1>
+<p><img alt="firefox.svg" src="/applications/icons/firefox.svg" style="height:64px;width:64px" /></p>
+<h2 id="inherite-from">inherite from</h2>
+<p><a href="../abcdesktopio/oc.template.gtk/">abcdesktopio/oc.template.gtk</a></p>
+<h2 id="display-name">Display name</h2>
+<p>"Firefox"</p>
+<h2 id="path">path</h2>
+<p>"/usr/bin/firefox"</p>
+<h2 id="showinview">showinview</h2>
+<p>"dock"</p>
+<h2 id="mime-type">Mime Type</h2>
+<p>"text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;video/webm;application/x-xpinstall;"</p>
+<h2 id="file-extensions">File extensions</h2>
+<p>"htm;html;xml;gif"</p>
+<h2 id="legacy-file-extensions">Legacy file extensions</h2>
+<p>"htm;html;xml"</p>
+<h2 id="share-size">Share size</h2>
+<p>"2gb"</p>
+<h2 id="memory-size">Memory size</h2>
+<p>"16gb"</p>
+<h2 id="pre-run-command">Pre run command</h2>
+<pre><code>
+RUN DEBIAN_FRONTEND=noninteractive echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-xfree86-nonfree &amp;&amp; apt-get clean,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes winbind firefox $(apt-cache search firefox-locale | awk '{print $1 }') &amp;&amp; apt-get clean,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes flashplugin-installer ubuntu-restricted-extras libavc1394-0 &amp;&amp; apt-get clean,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes libasound2-plugins libgail-common libgtk2.0-bin chromium-codecs-ffmpeg-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi libavcodec-extra &amp;&amp; apt-get clean,COPY composer/init.d/init.firefox /composer/init.d/init.firefox,COPY policies.json /usr/lib/firefox/distribution,COPY /ntlm_auth /usr/bin/ntlm_auth.desktop,RUN chown root:root /usr/bin/ntlm_auth.desktop &amp;&amp; chmod 111 /usr/bin/ntlm_auth.desktop,ENV NSS_SDB_USE_CACHE=yes
+</code></pre>
                 
               
               

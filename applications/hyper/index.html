@@ -16,7 +16,7 @@
     
     
       
-        <title>Hyper - www.abcdesktop.io</title>
+        <title>hyper - www.abcdesktop.io</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#hyper" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -90,7 +95,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Hyper
+              hyper
             
           </span>
         </div>
@@ -1515,6 +1520,65 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inherite-from" class="md-nav__link">
+    inherite from
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display-name" class="md-nav__link">
+    Display name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path" class="md-nav__link">
+    path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mime-type" class="md-nav__link">
+    Mime Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-run-command" class="md-nav__link">
+    Pre run command
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -1525,9 +1589,20 @@
                   </a>
                 
                 
-                  <h1>Hyper</h1>
-                
-                
+                <h1 id="hyper">hyper</h1>
+<p><img alt="hyper.svg" src="/applications/icons/hyper.svg" style="height:64px;width:64px" /></p>
+<h2 id="inherite-from">inherite from</h2>
+<p><a href="../abcdesktopio/oc.template.gtk/">abcdesktopio/oc.template.gtk</a></p>
+<h2 id="display-name">Display name</h2>
+<p>"hyper"</p>
+<h2 id="path">path</h2>
+<p>"/opt/Hyper/hyper"</p>
+<h2 id="mime-type">Mime Type</h2>
+<p>"x-scheme-handler/ssh"</p>
+<h2 id="pre-run-command">Pre run command</h2>
+<pre><code>
+RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes wget &amp;&amp; apt-get clean,RUN wget -O /tmp/hyper.deb  https://releases.hyper.is/download/deb &amp;&amp; apt-get install  --no-install-recommends --yes /tmp/hyper.deb &amp;&amp; apt-get clean &amp;&amp; rm -rf /tmp/hyper.deb
+</code></pre>
                 
               
               
