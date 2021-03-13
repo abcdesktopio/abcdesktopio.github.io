@@ -1749,6 +1749,15 @@
 <p>You need to disable swap memory on nodes as Kubernetes does not perform properly on a system that is using swap memory. Run the following command in order to disable swap memory.  </p>
 <pre><code class="language-bash">swapoff -a
 </code></pre>
+<p>If you have some swaps in /etc/fstab, just comment them out.
+<code>swapoff -a</code> will disable all swaps temporarily.</p>
+<ul>
+<li>disable by masking it with sysctl:</li>
+</ul>
+<pre><code class="language-bash">systemctl mask dev-zram1.swap
+
+Created symlink /etc/systemd/system/dev-zram1.swap → /dev/null.
+</code></pre>
 <h4 id="step-2-initialize-kubernetes">Step 2: Initialize Kubernetes</h4>
 <p>Run the following command as sudo on the master node:</p>
 <pre><code class="language-bash">kubeadm init --pod-network-cidr=10.244.0.0/16
