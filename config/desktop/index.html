@@ -1380,6 +1380,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#desktopwebhookdict" class="md-nav__link">
+    desktop.webhookdict
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1928,6 +1935,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#desktopwebhookdict" class="md-nav__link">
+    desktop.webhookdict
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2037,7 +2051,7 @@ Desktop options start with the prefix <code>desktop.</code>, then add the name o
 <tr>
 <td><code>desktop.envlocal</code></td>
 <td>dictionary</td>
-<td><code>{ 'DISPLAY': ':0.0', 'USER': 'balloon', 'LIBOVERLAY_SCROLLBAR': '0','WINEARCH': 'win32','UBUNTU_MENUPROXY': '0','HOME': '/home/balloon','LOGNAME': 'balloon','PULSE_SERVER: 'localhost:4713', 'CUPS_SERVER': 'localhost:631' }</code></td>
+<td><code>{ 'DISPLAY': ':0.0', 'USER': 'balloon', 'LIBOVERLAY_SCROLLBAR': '0', 'UBUNTU_MENUPROXY': '0', 'HOME': '/home/balloon', 'LOGNAME': 'balloon' }</code></td>
 </tr>
 <tr>
 <td><code>desktop.nodeselector</code></td>
@@ -2084,9 +2098,18 @@ Desktop options start with the prefix <code>desktop.</code>, then add the name o
 <td>dictionary</td>
 <td><code>{  'auto_remove'   : True, 'ipc_mode'      : 'shareable', 'pid_mode'      : True, 'network_mode'  : 'container', 'shm_size'      : '512M', 'mem_limit'     : '2G', 'cpu_period'    : 200000, 'cpu_quota'     : 150000, 'security_opt'  : [ 'seccomp=unconfined' ] }</code></td>
 </tr>
+<tr>
+<td><code>desktop.policies</code></td>
+<td>dictionary</td>
+<td><code>{ 'rules':{}, 'max_app_counter':5 }</code></td>
+</tr>
+<tr>
+<td><code>desktop.webhookdict</code></td>
+<td>dictionary</td>
+<td><code>{ 'firewall': '192.168.7.1' }</code></td>
+</tr>
 </tbody>
 </table>
-<p>| <code>desktop.policies</code>                       | dictionary    | <code>{ 'rules':{}, 'max_app_counter':5 }</code>  |</p>
 <h2 id="desktopusex11unixsocket">desktop.usex11unixsocket</h2>
 <p>The <code>desktop.usex11unixsocket</code> force the X11 server to use local unix socket.
 The name of the X11 unix socket is <code>/tmp/.X11-unix/X0</code></p>
@@ -2297,6 +2320,8 @@ If <code>desktop.uselocaltime</code> is True, this add a volume mapping from hos
 <p>Default desktop oc.user host_config dictionary, maps the dictionary as arguments from docker API 
 <a href="https://docker-py.readthedocs.io/en/stable/api.html#docker.api.container.ContainerApiMixin.create_host_config">create_host_config</a></p>
 <p>Define how the oc.user container can be run, read <a href="config/host_config">host_config</a> description page to get more informations</p>
+<h2 id="desktopwebhookdict">desktop.webhookdict</h2>
+<p>desktop.webhookdict is a dictionary to add key/value to the command <code>create</code> and <code>destroy</code> in rules objects.</p>
 <h1 id="experimental-features">Experimental features</h1>
 <h2 id="desktopdesktopuseinternalfqdn">desktop.desktopuseinternalfqdn</h2>
 <p>WARNING <code>desktop.desktopuseinternalfqdn</code> is an <strong>experimental feature</strong>, keep this value to False in production</p>

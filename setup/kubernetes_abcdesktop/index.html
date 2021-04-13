@@ -1868,27 +1868,27 @@
 <tbody>
 <tr>
 <td>oc.user</td>
-<td>User container</td>
+<td>user container</td>
 <td>abcdesktopio/oc.user.18.04</td>
-<td>abcdesktop.io</td>
+<td>abcdesktopio</td>
 </tr>
 <tr>
 <td>oc.cups</td>
-<td>Printing container</td>
+<td>printing container</td>
 <td>abcdesktopio/oc.cupsd.18.04</td>
-<td><a href="https://www.cups.org/">cups</a> abcdesktop.io</td>
+<td>abcdesktopio</td>
 </tr>
 <tr>
 <td>oc.pyos</td>
 <td>API Server</td>
 <td>abcdesktopio/oc.pyos</td>
-<td>abcdesktop.io</td>
+<td>abcdesktopio</td>
 </tr>
 <tr>
 <td>oc.nginx</td>
-<td>Web Service (http proxy and http server)</td>
+<td>web server proxy</td>
 <td>abcdesktopio/oc.nginx</td>
-<td><a href="https://www.nginx.com/">nginx</a>  abcdesktop.io</td>
+<td>abcdesktopio</td>
 </tr>
 <tr>
 <td>oc.speedtest</td>
@@ -1899,7 +1899,7 @@
 <tr>
 <td>oc.mongo</td>
 <td>json database server</td>
-<td>abcdesktopio/oc.mongo</td>
+<td>mongo</td>
 <td><a href="https://www.mongodb.com/">MongoDB</a></td>
 </tr>
 <tr>
@@ -1918,7 +1918,8 @@
 <p>Quick installation can be run on Linux or macOS operation system. 
 For Microsoft Windows, please read the following chapter 'Manually installation step by step'</p>
 </blockquote>
-<p>You can watch the <a href="https://www.youtube.com/watch?v=KpjG4ksoGNI&amp;feature=youtu.be">youtube video sample</a>. This video describes the Quick installation process.</p>
+<p>You can watch the <a href="https://www.youtube.com/watch?v=KpjG4ksoGNI&amp;feature=youtu.be">youtube video sample</a>. </p>
+<p>This video describes the Quick installation process.</p>
 <iframe width="640" height="480" src="https://www.youtube.com/embed/KpjG4ksoGNI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 
@@ -1975,7 +1976,7 @@ Do not publish the public key. This public key must stay private, this is a spec
 <p>The JSON Web Tokens user is signed with the abcdesktop jwt user signing private keys by pyos.</p>
 </li>
 <li>The JSON Web Tokens user is verified with the abcdesktop jwt user signing public keys by pyos<blockquote>
-<p>As multiple pods of pyos can run simultaneously, the same private and public keys value are stored into kurbenetes secret.</p>
+<p>As multiple pods of pyos can run simultaneously, the same private and public keys value are stored into kubernetes secret.</p>
 </blockquote>
 </li>
 </ul>

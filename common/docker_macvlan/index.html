@@ -1627,6 +1627,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#desktopwebhook-options-in-odconfig-file" class="md-nav__link">
+    desktop.webhook options in od.config file
+  </a>
+  
+    <nav class="md-nav" aria-label="desktop.webhook options in od.config file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url-encoding-parameters" class="md-nav__link">
+    url encoding parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-dict-datas" class="md-nav__link">
+    additional dict datas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1848,6 +1875,33 @@
           <li class="md-nav__item">
   <a href="#destroy-event" class="md-nav__link">
     destroy event:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desktopwebhook-options-in-odconfig-file" class="md-nav__link">
+    desktop.webhook options in od.config file
+  </a>
+  
+    <nav class="md-nav" aria-label="desktop.webhook options in od.config file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url-encoding-parameters" class="md-nav__link">
+    url encoding parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-dict-datas" class="md-nav__link">
+    additional dict datas
   </a>
   
 </li>
@@ -2117,7 +2171,7 @@ docker build -f firefox.d -t firefox.d .
 <h3 id="use-the-hubert-j-farnsworth-user-context">Use the <code>`Hubert J. Farnsworth</code> user context.</h3>
 <p>Login as the  <code>Hubert J. Farnsworth</code> user account. </p>
 <blockquote>
-<p>Note: the user <code>Hubert J. Farnsworth</code> is <strong>NOT member of</strong> <code>`cn=ship_crew,ou=people,dc=planetexpress,dc=com</code></p>
+<p>Note: the user <code>Hubert J. Farnsworth</code> is <strong>NOT member of</strong> <code>cn=ship_crew,ou=people,dc=planetexpress,dc=com</code></p>
 </blockquote>
 <p><img alt="login as Hubert J. Farnsworth" src="../img/login-professor-macvlan.png" /></p>
 <p>Start the new application <code>firefox</code>, the docker network for this application do <strong>NOT use</strong> the <code>abcnetfirefox</code> </p>
@@ -2268,20 +2322,29 @@ curl http://$MY_FQDN/API/manager/buildapplist
 <p><img alt="enable network by default" src="../img/firefox-withdefault-network.png" /></p>
 <p>Now default user has a network access, and member of <code>cn=ship_crew,ou=people,dc=planetexpress,dc=com</code> use the <code>abcnetfirefox</code> network.</p>
 <h2 id="webhook-events-create-and-destroy-application">Webhook events <code>create</code> and <code>destroy</code> application</h2>
-<p>Rules support a specific webhook url to notify external security equipment like firewalls.</p>
-<pre><code>  &quot;rules&quot;: {    &quot;homedir&quot;: { &quot;default&quot;: false, &quot;ship&quot;: true }, 
+<p>A rule support a specific bash command to notify external security equipment like firewalls, by sending <code>create</code> and <code>destroy</code> events. </p>
+<pre><code>&quot;rules&quot;: {  &quot;homedir&quot;: { &quot;default&quot;: false, &quot;ship&quot;: true }, 
                 &quot;network&quot;: { &quot;default&quot;: false, 
-                        &quot;ship&quot;: { &quot;name&quot;: &quot;abcnetfirefox&quot;, &quot;dns&quot;: [ &quot;8.8.8.8&quot; ], 
-                                    &quot;webhook&quot;: { 
-                                        &quot;create&quot;: &quot;http://firewall.domain.local/update?action=create&amp;name={{ name }}&amp;ip={{ container_ip }}&quot;, 
-                                        &quot;destroy&quot;: &quot;http://firewall.domain.local/update?action=destroy&amp;name={{ name }}&amp;ip={{ container_ip }}&quot; } 
-                                    } 
- }
+                    &quot;ship&quot;: { &quot;name&quot;: &quot;abcnetfirefox&quot;, 
+                                &quot;dns&quot;: [ &quot;8.8.8.8&quot; ], 
+                                &quot;webhook&quot;: { 
+                                    &quot;create&quot;: &quot;/usr/bin/curl 'http://firewall.domain.local/update?action=create&amp;key={{ key }}&amp;name={{ name }}&amp;ip={{ container_ip }}'&quot;, 
+                                    &quot;destroy&quot;: &quot;/usr/bin/curl 'http://firewall.domain.local/update?action=destroy&amp;key={{ key }}&amp;name={{ name }}&amp;ip={{ container_ip }}'&quot; 
+                                } 
+                    }
+                }
+}
 </code></pre>
 <ul>
-<li>When a new docker container is created, the control plane <code>pyos</code> call the url  <code>http://firewall.domain.local/update?action=create&amp;name={{ name }}&amp;ip={{ container_ip }}</code></li>
-<li>When a new docker container is destoyed, the control plane <code>pyos</code> call the url  <code>http://firewall.domain.local/update?action=destroy&amp;name={{ name }}&amp;ip={{ container_ip }}</code></li>
+<li>When a new docker container is created, the control plane <code>pyos</code> execute the command  </li>
 </ul>
+<pre><code>/usr/bin/curl 'http://firewall.domain.local/update?action=create&amp;key={{ key }}&amp;name={{ name }}&amp;ip={{ container_ip }}
+</code></pre>
+<ul>
+<li>When a new docker container is destoyed, the control plane <code>pyos</code> call the url  </li>
+</ul>
+<pre><code>/usr/bin/curl 'http://firewall.domain.local/update?action=destroy&amp;key={{ key }}&amp;name={{ name }}&amp;ip={{ container_ip }}'
+</code></pre>
 <p>Each <code>{{ $label }}</code> is a mustached value.</p>
 <table>
 <thead>
@@ -2376,9 +2439,26 @@ curl http://$MY_FQDN/API/manager/buildapplist
 </table>
 <h3 id="events">Events :</h3>
 <h4 id="create-event">create event:</h4>
-<p>The control plane <code>pyos</code> replace the mustached  url  <code>http://firewall.domain.local/update?action=create&amp;name={{ name }}&amp;ip={{ container_ip }}</code> as <code>http://firewall.domain.local/update?action=create&amp;name=Philip%20J.%20Fry&amp;ip=192.168.8.130</code></p>
+<p>The control plane <code>pyos</code> replace the mustached url string <code>/usr/bin/curl 'http://firewall.domain.local/update?action=create&amp;name={{ name }}&amp;ip={{ container_ip }}'</code> as <code>/usr/bin/curl 'http://firewall.domain.local/update?action=create&amp;name=Philip%20J.%20Fry&amp;ip=192.168.8.130'</code></p>
 <h4 id="destroy-event">destroy event:</h4>
-<p>The control plane <code>pyos</code> replace the url  <code>http://firewall.domain.local/update?action=destroy&amp;name={{ name }}&amp;ip={{ container_ip }}</code> as <code>http://firewall.domain.local/update?action=destroy&amp;name=Philip%20J.%20Fry&amp;ip=192.168.8.130</code></p>
+<p>The control plane <code>pyos</code> replace the mustached url string  <code>/usr/bin/curl 'http://firewall.domain.local/update?action=destroy&amp;name={{ name }}&amp;ip={{ container_ip }}'</code> as <code>/usr/bin/curl 'http://firewall.domain.local/update?action=destroy&amp;name=Philip%20J.%20Fry&amp;ip=192.168.8.130'</code></p>
+<h3 id="desktopwebhook-options-in-odconfig-file">desktop.webhook options in od.config file</h3>
+<h4 id="url-encoding-parameters">url encoding parameters</h4>
+<p>To encode url parameters use the option <code>desktop.webhookencodeparams</code>. 
+Set <code>desktop.webhookencodeparams</code> to <code>True</code> to encode label name. The default value is <code>False</code></p>
+<h4 id="additional-dict-datas">additional dict datas</h4>
+<p>Additional datas can be set using the <code>desktop.webhookdict</code> option in od.config file</p>
+<pre><code class="language-json">desktop.webhookdict: { 
+        'api_key': 'supersecret', 
+        'firewall_manage_ip': '161.105.208.129'  
+}
+</code></pre>
+<p>The command line </p>
+<pre><code class="language-bash">/usr/bin/curl 'http://{{ firewall_manage_ip }}/update?action=destroy&amp;key={{ api_key }}&amp;name={{ name }}&amp;ip={{ container_ip }}'
+</code></pre>
+<p>becomes</p>
+<pre><code class="language-bash">/usr/bin/curl 'http://161.105.208.129/update?action=destroy&amp;key=supersecret&amp;name={{ name }}&amp;ip={{ container_ip }}'
+</code></pre>
                 
               
               
