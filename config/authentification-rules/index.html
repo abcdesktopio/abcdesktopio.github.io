@@ -1975,17 +1975,28 @@ The result must be equal to the <code>expected</code> value.</p>
                          'label': 'no192168net' }
 </code></pre>
 <h5 id="ipv4-and-ipv6-subnets-support">IPv4 and IPv6 subnets support</h5>
-<p>This rule example add a tag <code>ipvrfc1918</code> if the user IP address belongs to the <a href="https://tools.ietf.org/html/rfc1918">rfc 1918</a> and 
-<a href="https://tools.ietf.org/html/rfc3927">rfc 3927</a>.
-Both IPv6 and IPv4 addresses are supported. </p>
-<pre><code class="language-json">  'rule-privatenetwork': { 'conditions' : [ 
-      { 'network': '10.0.0.0/8',     'expected' : True },
-      { 'network': '172.16.0.0/12',  'expected' : True },
-      { 'network': '192.168.0.0/16', 'expected' : True },
-      { 'network': '169.254.0.0/16', 'expected' : True },
-      { 'network': 'fe80::/10',      'expected' : True } ],
-    'expected' : True,
-    'label': 'privatenetwork' }
+<p>To support private ip addresses subnet in the <a href="https://tools.ietf.org/html/rfc1918">rfc 1918</a> and <a href="https://tools.ietf.org/html/rfc3927">rfc 3927</a>, write separated rules. Both IPv6 and IPv4 addresses are supported. 
+You can share the same label <code>privatenetwork</code> a separated rule. </p>
+<pre><code class="language-json">'policies': {
+    'acl' : {},
+    'rules' : { 
+          'rule-privatenetwork-10': {   'conditions' : [ { 'network': '10.0.0.0/8', 'expected' : True } ], 
+                                            'expected'   : True, 
+                                            'label': 'privatenetwork' },
+          'rule-privatenetwork-172': {'conditions' : [ { 'network': '172.16.0.0/12', 'expected' : True } ], 
+                                            'expected'   : True, 
+                                            'label': 'privatenetwork' },
+          'Rule-privatenetwork-192': {'conditions' : [ { 'network': '192.168.0.0/16',     'expected' : True } ], 
+                                            'expected'   : True, 
+                                            'label': 'privatenetwork' },
+          'Rule-privatenetwork-169': {'conditions' : [ { 'network': '169.254.0.0/16',     'expected' : True } ], 
+                                            'expected'   : True, 
+                                            'label': 'privatenetwork' },
+          'rule-privatenetwork-fe80':{  'conditions' : [ { 'network': 'fe80::/10',     'expected' : True } ], 
+                                                'expected'   : True, 
+                                                'label': 'privatenetwork' }
+    }
+}                       
 </code></pre>
 <h4 id="condition-memberof">condition memberof</h4>
 <p>This condition test if the user is a member of a LDAP Distinguished Name. </p>
