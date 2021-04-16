@@ -1181,9 +1181,58 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Front
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Front
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#menu-setting" class="md-nav__link">
+    Menu Setting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-dock-config" class="md-nav__link">
+    default dock config
+  </a>
+  
+    <nav class="md-nav" aria-label="default dock config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-applications" class="md-nav__link">
+    Additional applications
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1522,6 +1571,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#menu-setting" class="md-nav__link">
+    Menu Setting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-dock-config" class="md-nav__link">
+    default dock config
+  </a>
+  
+    <nav class="md-nav" aria-label="default dock config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-applications" class="md-nav__link">
+    Additional applications
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1538,18 +1622,18 @@
                 
                 
                 <h1 id="dock-configuration-in-odconfig">dock configuration in od.config</h1>
-<h1 id="menu-setting">Menu Setting</h1>
+<h2 id="menu-setting">Menu Setting</h2>
 <p>The menu can be changed using the dictionnary object <code>menuconfig</code></p>
 <pre><code class="language-json">menuconfig : {
-                    'settings'  : True, 
-                    'appstore'  : True, 
-                    'screenshot'    : True, 
-                    'download'  : True, 
-                    'logout'        : True, 
-                    'disconnect'    : True 
+    'settings'  : True, 
+    'appstore'  : True, 
+    'screenshot'    : True, 
+    'download'  : True, 
+    'logout'        : True, 
+    'disconnect'    : True 
 }
 </code></pre>
-<h1 id="default-dock-config">default dock config</h1>
+<h2 id="default-dock-config">default dock config</h2>
 <p>The dock session in od.config file describe the default docker in abcdesktop.io.
 The default dock value contains the default applications.
 The <code>dock</code> option is a dictionnary read by the front web as a json object.</p>
@@ -1573,44 +1657,47 @@ The <code>dock</code> option is a dictionnary read by the front web as a json ob
 <td><code>webshell</code></td>
 <td>HTML 5, terminal application based on xterm.js</td>
 </tr>
+<tr>
+<td><code>webshorcut</code></td>
+<td>Web browser url launch inside the container</td>
+</tr>
 </tbody>
 </table>
-<p>[comment]: |  <code>webshorcut</code>  | Web browser url launch inside the container| </p>
-<pre><code class="language-json">dock : {        'filemanager':  {       'args': None,
-                                        'showinview': u'dock',
-                                        'name': u'FileManager',
-                                        'keyword': u'files,file manager',
-                                        'launch': u'nautilus.Nautilus',
-                                        'displayname': u'FileManager',
-                                        'execmode': u'builtin',
-                                        'cat': u'utilities,office',
-                                        'id': u'filemanager.d',
-                                        'icon': u'pantheon-files-icons.svg' },
+<pre><code class="language-json">dock : {       
+    'filemanager':  {       'args': None,
+                            'showinview': u'dock',
+                            'name': u'FileManager',
+                            'keyword': u'files,file manager',
+                            'launch': u'nautilus.Nautilus',
+                            'displayname': u'FileManager',
+                            'execmode': u'builtin',
+                            'cat': u'utilities,office',
+                            'id': u'filemanager.d',
+                            'icon': u'pantheon-files-icons.svg' },
+    'terminal':     {       'args': '',
+                            'name': u'TerminalBuiltin',
+                            'keyword': u'terminal,shell,bash,builtin,pantheon',
+                            'launch': u'qterminal.qterminal',
+                            'displayname': u'Terminal Builtin',
+                            'execmode': u'builtin',
+                            'cat': u'utilities,development',
+                            'id': u'terminalbuiltin.d',
+                            'hideindock': True,
+                            'icon': u'pantheon-terminal-builtin-icons.svg' },
 
-                'terminal':     {       'args': '',
-                                        'name': u'TerminalBuiltin',
-                                        'keyword': u'terminal,shell,bash,builtin,pantheon',
-                                        'launch': u'qterminal.qterminal',
-                                        'displayname': u'Terminal Builtin',
-                                        'execmode': u'builtin',
-                                        'cat': u'utilities,development',
-                                        'id': u'terminalbuiltin.d',
-                                        'hideindock': True,
-                                        'icon': u'pantheon-terminal-builtin-icons.svg' },
-
-                'webshell':     {       'name': u'WebShell',
-                                        'keyword': u'terminal,shell,webshell,bash',
-                                        'launch': u'frontendjs.webshell',
-                                        'displayname': u'Web Shell',
-                                        'execmode': u'frontendjs',
-                                        'cat': u'utilities,development',
-                                        'id': u'webshell.d',
-                                        'icon': u'webshell.svg' }
+    'webshell':     {       'name': u'WebShell',
+                            'keyword': u'terminal,shell,webshell,bash',
+                            'launch': u'frontendjs.webshell',
+                            'displayname': u'Web Shell',
+                            'execmode': u'frontendjs',
+                            'cat': u'utilities,development',
+                            'id': u'webshell.d',
+                            'icon': u'webshell.svg' }
 }
 </code></pre>
-<h2 id="additional-applications">Additional applications</h2>
-<p>This feature is deprecated.</p>
-<p>To run embeded application inside the oc.user image container, with specific attribut <code>{ 'execmode': 'builtin' }</code> add </p>
+<h3 id="additional-applications">Additional applications</h3>
+<p>This feature is deprecated.
+To run embeded application inside the oc.user image container, with specific attribut <code>{ 'execmode': 'builtin' }</code> add </p>
 <pre><code class="language-json">'webshortcut':  {   'name': u'xlogo',
                     'showinview': u'dock',
                     'keyword': u'xlogo',
