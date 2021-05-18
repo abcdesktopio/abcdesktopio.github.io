@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.abcdesktop.io/services/spawner-service/">
       
       <link rel="icon" href="/img/abcdesktop128x128.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.9299cb39.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
@@ -562,12 +562,241 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
-        
       
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Spawner-service
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Spawner-service
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get__version" class="md-nav__link">
+    get__version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__launch" class="md-nav__link">
+    post__launch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__setaudioquality" class="md-nav__link">
+    post__setAudioQuality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__playaudiosample" class="md-nav__link">
+    post__playAudioSample
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#put__configurepulse" class="md-nav__link">
+    put__configurePulse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__broadcastwindowslist" class="md-nav__link">
+    post__broadcastwindowslist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__clipboardsync" class="md-nav__link">
+    post__clipboardsync
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__setdesktop" class="md-nav__link">
+    post__setDesktop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__getdesktop" class="md-nav__link">
+    get__getDesktop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__getmimeforfile" class="md-nav__link">
+    get__getmimeforfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__filesearch" class="md-nav__link">
+    get__filesearch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__generatedesktopfiles" class="md-nav__link">
+    post__generateDesktopFiles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__getappforfile" class="md-nav__link">
+    get__getappforfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__about" class="md-nav__link">
+    get__about
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__getsettings" class="md-nav__link">
+    get__getSettings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__setbackgroundcolor" class="md-nav__link">
+    post__setBackgroundColor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__setbackgroundimage" class="md-nav__link">
+    post__setBackgroundImage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__setdefaultimage" class="md-nav__link">
+    post__setDefaultImage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__getwindowslist" class="md-nav__link">
+    get__getwindowslist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__activatewindows" class="md-nav__link">
+    post__activatewindows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__closewindows" class="md-nav__link">
+    post__closewindows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__placeallwindows" class="md-nav__link">
+    post__placeAllWindows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schemas" class="md-nav__link">
+    Schemas
+  </a>
+  
+    <nav class="md-nav" aria-label="Schemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_2" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_3" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_4" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_5" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1521,8 +1750,224 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get__version" class="md-nav__link">
+    get__version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__launch" class="md-nav__link">
+    post__launch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__setaudioquality" class="md-nav__link">
+    post__setAudioQuality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__playaudiosample" class="md-nav__link">
+    post__playAudioSample
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#put__configurepulse" class="md-nav__link">
+    put__configurePulse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__broadcastwindowslist" class="md-nav__link">
+    post__broadcastwindowslist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__clipboardsync" class="md-nav__link">
+    post__clipboardsync
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__setdesktop" class="md-nav__link">
+    post__setDesktop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__getdesktop" class="md-nav__link">
+    get__getDesktop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__getmimeforfile" class="md-nav__link">
+    get__getmimeforfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__filesearch" class="md-nav__link">
+    get__filesearch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__generatedesktopfiles" class="md-nav__link">
+    post__generateDesktopFiles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__getappforfile" class="md-nav__link">
+    get__getappforfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__about" class="md-nav__link">
+    get__about
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__getsettings" class="md-nav__link">
+    get__getSettings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__setbackgroundcolor" class="md-nav__link">
+    post__setBackgroundColor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__setbackgroundimage" class="md-nav__link">
+    post__setBackgroundImage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__setdefaultimage" class="md-nav__link">
+    post__setDefaultImage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get__getwindowslist" class="md-nav__link">
+    get__getwindowslist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__activatewindows" class="md-nav__link">
+    post__activatewindows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__closewindows" class="md-nav__link">
+    post__closewindows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post__placeallwindows" class="md-nav__link">
+    post__placeAllWindows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schemas" class="md-nav__link">
+    Schemas
+  </a>
+  
+    <nav class="md-nav" aria-label="Schemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_2" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_3" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_4" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_5" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3833,10 +4278,10 @@ This operation does not require authentication
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.7353b375.min.js"></script>
+      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
       
     
   </body>

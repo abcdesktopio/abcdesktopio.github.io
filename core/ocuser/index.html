@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.abcdesktop.io/core/ocuser/">
       
       <link rel="icon" href="/img/abcdesktop128x128.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.9299cb39.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
@@ -523,6 +523,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -537,6 +538,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -647,25 +649,25 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dockerfile-ocubuntu1804" class="md-nav__link">
-    Dockerfile oc.ubuntu.18.04
+  <a href="#dockerfile-ocubuntuxxyy" class="md-nav__link">
+    Dockerfile oc.ubuntu.XX.YY.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dockerfile-ocsoftware1804" class="md-nav__link">
-    Dockerfile oc.software.18.04
+  <a href="#dockerfile-ocsoftwarexxyy" class="md-nav__link">
+    Dockerfile oc.software.XX.YY
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dockerfile-ocuser1804" class="md-nav__link">
-    Dockerfile oc.user.18.04
+  <a href="#dockerfile-ocuserxxyy" class="md-nav__link">
+    Dockerfile oc.user.XX.YY
   </a>
   
-    <nav class="md-nav" aria-label="Dockerfile oc.user.18.04">
+    <nav class="md-nav" aria-label="Dockerfile oc.user.XX.YY">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1701,6 +1703,7 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
   
@@ -1809,25 +1812,25 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dockerfile-ocubuntu1804" class="md-nav__link">
-    Dockerfile oc.ubuntu.18.04
+  <a href="#dockerfile-ocubuntuxxyy" class="md-nav__link">
+    Dockerfile oc.ubuntu.XX.YY.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dockerfile-ocsoftware1804" class="md-nav__link">
-    Dockerfile oc.software.18.04
+  <a href="#dockerfile-ocsoftwarexxyy" class="md-nav__link">
+    Dockerfile oc.software.XX.YY
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dockerfile-ocuser1804" class="md-nav__link">
-    Dockerfile oc.user.18.04
+  <a href="#dockerfile-ocuserxxyy" class="md-nav__link">
+    Dockerfile oc.user.XX.YY
   </a>
   
-    <nav class="md-nav" aria-label="Dockerfile oc.user.18.04">
+    <nav class="md-nav" aria-label="Dockerfile oc.user.XX.YY">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2014,7 +2017,11 @@ Gtk/ColorPalette &quot;black:white:gray50:red:purple:blue:light blue:green:yello
 <pre><code>command=/usr/bin/xsettingsd -c /home/balloon/.xsettings
 </code></pre>
 <h2 id="build-the-user-container-image">Build the user container image</h2>
-<p>The image oc.user.18.04 is based from the oc.software.18.04 witch came from oc.ubuntu.18.04.</p>
+<p>The image oc.user.XX.YY is based from the oc.software.XX.YY  witch came from oc.ubuntu.XX.YY.
+For example :
+* The image oc.user.18.04 is based from the oc.software.18.04 witch came from oc.ubuntu.18.04.
+* The image oc.user.20.04 is based from the oc.software.20.04 witch came from oc.ubuntu.20.04.
+* The image oc.user.21.04 is based from the oc.software.21.04 witch came from oc.ubuntu.21.04.</p>
 <pre><code>+-------------------+
 | oc.user.18.04     |       (abcdesktop.io custom software component)
 +---------+---------+
@@ -2028,7 +2035,7 @@ Gtk/ColorPalette &quot;black:white:gray50:red:purple:blue:light blue:green:yello
 +-------------------+
           |
 +---------+---------+
-|   ubuntu:18.04    |       (official ubuntu images from dockerhub)
+|   ubuntu:18.04    |   (official ubuntu images from dockerhub)
 +-------------------+
 </code></pre>
 <p>To build the image oc.user container from scratch, you need to build there 3 images. Build oc.ubuntu.18.04 first, next oc.software.18.04, and finish by oc.user.18.04.
@@ -2038,11 +2045,11 @@ docker build -t oc.software.18.04 -f oc.software.18.04 .
 docker build -t oc.user.18.04   -f oc.user.18.04 .
 </code></pre>
 <p>To do it automaticly, clone composer/dockerbuild and run the Makefile</p>
-<pre><code>git clone https://github.com/abcdesktopio/oc.user.18.04.git 
+<pre><code>git clone https://github.com/abcdesktopio/oc.user.git 
 make
 </code></pre>
-<h3 id="dockerfile-ocubuntu1804">Dockerfile oc.ubuntu.18.04</h3>
-<p>oc.ubuntu.18.04 is a Dockerfile, it starts 'FROM ubuntu:18.04' and  installs core services and libs:</p>
+<h3 id="dockerfile-ocubuntuxxyy">Dockerfile oc.ubuntu.XX.YY.</h3>
+<p>oc.ubuntu.XX.YY is a Dockerfile, it starts 'FROM ubuntu:XX.YY' and  installs core services and libs:</p>
 <ul>
 <li>nodejs: use by services</li>
 <li>tiger VNC: X11 server </li>
@@ -2052,23 +2059,23 @@ make
 <li>openbox: the windows manager</li>
 <li>cups and cups-pdf: for printing support</li>
 </ul>
-<h3 id="dockerfile-ocsoftware1804">Dockerfile oc.software.18.04</h3>
-<p>oc.software.18.04 is a Dockerfile, it starts 'FROM oc.ubuntu.18.04' and installs software components:</p>
+<h3 id="dockerfile-ocsoftwarexxyy">Dockerfile oc.software.XX.YY</h3>
+<p>oc.software.XX.YY is a Dockerfile, it starts 'FROM oc.ubuntu.XX.YY' and installs software components:</p>
 <ul>
 <li>gnome-terminal</li>
 <li>xclip</li>
 </ul>
-<h3 id="dockerfile-ocuser1804">Dockerfile oc.user.18.04</h3>
-<p>oc.user.18.04 is a Dockerfile, it starts 'FROM oc.software.18.04' and installs user software components:</p>
+<h3 id="dockerfile-ocuserxxyy">Dockerfile oc.user.XX.YY</h3>
+<p>oc.user.XX.YY is a Dockerfile, it starts 'FROM oc.software.XX.YY' and installs user software components:</p>
 <h4 id="install-nodejs-dev">Install nodejs dev</h4>
 <pre><code># Add nodejs service
-RUN cd /composer/node/broadcast-service         &amp;&amp; npm install  \
-    &amp;&amp; cd /composer/node/file-service              &amp;&amp; npm install  \
-    &amp;&amp; cd /composer/node/printer-service           &amp;&amp; npm install  \
-    &amp;&amp; cd /composer/node/spawner-service           &amp;&amp; npm install  \
-    &amp;&amp; cd /composer/node/spawner-service/node_modules/geoip-lite &amp;&amp; npm run-script updatedb \
-    &amp;&amp; cd /composer/node/angular-filemanager-nodejs-bridge &amp;&amp; npm install 
-RUN cd /composer/node/livesound-service         &amp;&amp; npm install
+RUN cd /composer/node/broadcast-service &amp;&amp; npm install  
+RUN cd /composer/node/file-service      &amp;&amp; npm install
+RUN cd /composer/node/printer-service   &amp;&amp; npm install
+RUN cd /composer/node/spawner-service   &amp;&amp; npm install  \
+RUN cd /composer/node/spawner-service/node_modules/geoip-lite &amp;&amp; npm run-script updatedb
+RUN cd /composer/node/angular-filemanager-nodejs-bridge &amp;&amp; npm install 
+RUN cd /composer/node/livesound-service &amp;&amp; npm install
 </code></pre>
 <h4 id="create-the-balloon-user">Create the balloon user</h4>
 <pre><code>RUN groupadd --gid 4096 $BUSER
@@ -2078,12 +2085,12 @@ RUN useradd --create-home --shell /bin/bash --uid 4096 -g $BUSER --groups lpadmi
 <pre><code># change acces right for printer support
 RUN addgroup $BUSER lpadmin
 RUN mkdir /var/run/cups 
-RUN     chown -R $BUSER:$BUSER /var/spool/cups      &amp;&amp; \
-        chown -R $BUSER:$BUSER /var/spool/cups-pdf  &amp;&amp; \
-    chown -R $BUSER:$BUSER /var/log/cups        &amp;&amp; \
-    chown -R $BUSER:$BUSER /var/cache/cups          &amp;&amp; \
-    chown -R $BUSER:$BUSER /etc/cups/printers.conf  &amp;&amp; \
-    chown -R $BUSER:$BUSER /var/run/cups/
+RUN     chown -R $BUSER:$BUSER /var/spool/cups            &amp;&amp; \
+        chown -R $BUSER:$BUSER /var/spool/cups-pdf      &amp;&amp; \
+        chown -R $BUSER:$BUSER /var/log/cups                &amp;&amp; \
+        chown -R $BUSER:$BUSER /var/cache/cups          &amp;&amp; \
+        chown -R $BUSER:$BUSER /etc/cups/printers.conf  &amp;&amp; \
+        chown -R $BUSER:$BUSER /var/run/cups/
 </code></pre>
 <h4 id="set-the-exposed-tcp-port">Set the exposed tcp port</h4>
 <p>Datas to these tcp ports are routed by <a href="../nginx/">nginx</a></p>
@@ -2164,10 +2171,10 @@ SPAWNER_SERVICE_TCP_PORT            29786
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.7353b375.min.js"></script>
+      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
       
     
   </body>
