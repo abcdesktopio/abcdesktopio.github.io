@@ -39,13 +39,15 @@ jobs:
       
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.x
+          python-version: 3.9
       
       - name : install material
         run: pip install mkdocs-material
       
       - name: Run Makefile
-        run: make docs
+        run: |
+          mkdocs --version
+          make docs
         
       - name: dump sources
         run: |
