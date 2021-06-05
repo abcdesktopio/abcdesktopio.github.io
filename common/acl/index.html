@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://www.abcdesktop.io/applications/citrix/">
+        <link rel="canonical" href="https://www.abcdesktop.io/common/acl/">
       
       <link rel="icon" href="/img/abcdesktop128x128.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
     
     
       
-        <title>citrix - www.abcdesktop.io</title>
+        <title>Define access control for an application - www.abcdesktop.io</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#citrix" class="md-skip">
+        <a href="#define-access-control-list-for-application" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              citrix
+              Define access control for an application
             
           </span>
         </div>
@@ -907,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../list/" class="md-nav__link">
+      <a href="../../applications/list/" class="md-nav__link">
         List of all applications ready to use
       </a>
     </li>
@@ -955,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common/non-free-applications/" class="md-nav__link">
+      <a href="../non-free-applications/" class="md-nav__link">
         Build non free applications
       </a>
     </li>
@@ -1397,12 +1397,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
       
       <label class="md-nav__link" for="__nav_11">
         How-to
@@ -1444,7 +1446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common/docker_macvlan/" class="md-nav__link">
+      <a href="../docker_macvlan/" class="md-nav__link">
         Bind a specific docker network for an application
       </a>
     </li>
@@ -1454,9 +1456,142 @@
             
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Define access control for an application
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Define access control for an application
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-applistjson-file" class="md-nav__link">
+    Update applist.json file
+  </a>
+  
+    <nav class="md-nav" aria-label="Update applist.json file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#to-restrict-access-to-applications-using-authentication-label" class="md-nav__link">
+    To restrict access to applications using authentication label :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-authenticated-label-using-rules" class="md-nav__link">
+    Define authenticated label using rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-the-acl-label-to-the-application" class="md-nav__link">
+    Define the acl label to the application
+  </a>
+  
+    <nav class="md-nav" aria-label="Define the acl label to the application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-xeditjson-file" class="md-nav__link">
+    Create a xedit.json file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-xedit-application-from-your-local-network" class="md-nav__link">
+    Run the xedit application from your local network
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-application-from-another-source-ip-address-or-update-the-acl-application" class="md-nav__link">
+    Run the application from another source IP address or update the acl application
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the application from another source IP address or update the acl application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-acl-of-xedit-application" class="md-nav__link">
+    Update acl of xedit application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
   
     <li class="md-nav__item">
-      <a href="../../common/update_image/" class="md-nav__link">
+      <a href="../update_image/" class="md-nav__link">
         Update and custom frontend image
       </a>
     </li>
@@ -1468,7 +1603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common/upload_and_download_files/" class="md-nav__link">
+      <a href="../upload_and_download_files/" class="md-nav__link">
         Upload and from files with your desktop
       </a>
     </li>
@@ -1480,7 +1615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common/firefox-extension/" class="md-nav__link">
+      <a href="../firefox-extension/" class="md-nav__link">
         Sync clipboard with Mozilla Firefox
       </a>
     </li>
@@ -1519,44 +1654,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inherite-from" class="md-nav__link">
-    inherite from
+  <a href="#goals" class="md-nav__link">
+    Goals
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
-    Arguments
+  <a href="#requirements" class="md-nav__link">
+    Requirements
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#display-name" class="md-nav__link">
-    Display name
+  <a href="#update-applistjson-file" class="md-nav__link">
+    Update applist.json file
+  </a>
+  
+    <nav class="md-nav" aria-label="Update applist.json file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#to-restrict-access-to-applications-using-authentication-label" class="md-nav__link">
+    To restrict access to applications using authentication label :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-authenticated-label-using-rules" class="md-nav__link">
+    Define authenticated label using rules
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#path" class="md-nav__link">
-    path
+  <a href="#define-the-acl-label-to-the-application" class="md-nav__link">
+    Define the acl label to the application
+  </a>
+  
+    <nav class="md-nav" aria-label="Define the acl label to the application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-xeditjson-file" class="md-nav__link">
+    Create a xedit.json file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-xedit-application-from-your-local-network" class="md-nav__link">
+    Run the xedit application from your local network
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mime-type" class="md-nav__link">
-    Mime Type
+  <a href="#run-the-application-from-another-source-ip-address-or-update-the-acl-application" class="md-nav__link">
+    Run the application from another source IP address or update the acl application
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the application from another source IP address or update the acl application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-acl-of-xedit-application" class="md-nav__link">
+    Update acl of xedit application
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#pre-run-command" class="md-nav__link">
-    Pre run command
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1572,27 +1753,251 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/abcdesktopio/edit/master/docs/applications/citrix.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/abcdesktopio/edit/master/docs/common/acl.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="citrix">citrix</h1>
-<p><img alt="icaclient.svg" src="/applications/icons/icaclient.svg" style="height:64px;width:64px" /></p>
-<h2 id="inherite-from">inherite from</h2>
-<p><a href="../abcdesktopio/oc.template.gtk.18.04/">abcdesktopio/oc.template.gtk.18.04</a></p>
-<h2 id="arguments">Arguments</h2>
-<p>"-icaroot /opt/Citrix/ICAClient"</p>
-<h2 id="display-name">Display name</h2>
-<p>"citrix-client"</p>
-<h2 id="path">path</h2>
-<p>"/opt/Citrix/ICAClient/wfica"</p>
-<h2 id="mime-type">Mime Type</h2>
-<p>"application/x-ica;"</p>
-<h2 id="pre-run-command">Pre run command</h2>
-<pre><code>
-COPY icaclient_amd64.deb /tmp/icaclient_amd64.deb,RUN apt-get install  --no-install-recommends --yes /tmp/icaclient_amd64.deb &amp;&amp; apt-get clean &amp;&amp; rm /tmp/icaclient_amd64.deb
+                <h1 id="define-access-control-list-for-application">Define access control list for application</h1>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>restrict access to applications using authentication label </li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>A running dockerd last version </li>
+<li>An access to the docker public registry</li>
+<li>An access to the ubuntu repository</li>
+<li>Nodejs installed on your host.  </li>
+</ul>
+<h2 id="update-applistjson-file">Update applist.json file</h2>
+<p>To restrict access to applications using authentication label, you need to define an <code>acl</code> entry in the application dictionary object.</p>
+<pre><code>    &quot;acl&quot;: { &quot;permit&quot;: [ &quot;tag&quot; ] },
 </code></pre>
+<p>For example using the application <code>xedit</code></p>
+<p><code>all</code> is a special label for everything. The <code>xedit</code> application can be run for all tags.</p>
+<pre><code>{
+    &quot;acl&quot;: { &quot;permit&quot;: [ &quot;all&quot; ] },
+    &quot;cat&quot;: &quot;utilities&quot;,
+    &quot;debpackage&quot;: &quot;x11-apps&quot;,
+    &quot;icon&quot;: &quot;xedit.svg&quot;,
+    &quot;keyword&quot;: &quot;text,notepad,edit,txt,editor,xedit&quot;,
+    &quot;launch&quot;: &quot;xedit.Xedit&quot;,
+    &quot;name&quot;: &quot;xedit&quot;,
+    &quot;displayname&quot;: &quot;Xedit&quot;,
+    &quot;path&quot;: &quot;/usr/bin/xedit&quot;,
+    &quot;template&quot;: &quot;abcdesktopio/oc.template.gtk&quot;,
+    &quot;mimetype&quot;: &quot;application/text;&quot;,
+    &quot;fileextensions&quot;:&quot;txt;log;md&quot;
+}
+</code></pre>
+<h3 id="to-restrict-access-to-applications-using-authentication-label">To restrict access to applications using authentication label :</h3>
+<ol>
+<li>Define label using rules</li>
+<li>Define label to the application</li>
+</ol>
+<h2 id="define-authenticated-label-using-rules">Define authenticated label using rules</h2>
+<p>You can read the chapter <a href="/config/authentification-rules">authentification-rules</a> to define some autenticated labels.</p>
+<p>Update the od.config file, to add a label <code>mylocal</code> if the source ip address is in local network <code>192.168.0.0/16</code></p>
+<pre><code>authmanagers: {
+ 'external': {},
+ 'explicit': {},
+ 'implicit': {
+   'providers': {
+     'anonymous': {
+        'displayname': 'Anonymous',
+        'caption': 'Have a look !',
+        'userid': 'anonymous',
+        'username': 'Anonymous',
+        'policies': { 
+          'acl'   : { 'permit': [ 'all' ] }, 
+            'rules' : 
+                { 'rule-net-home': {  
+                    'conditions' : [ { 'network': '192.168.0.0/16', 'expected' : True } ],
+                    'expected'   : True,
+                    'label'      : 'localnet'
+                   } 
+                } 
+        } 
+     } 
+    } 
+  } 
+} 
+
+</code></pre>
+<p>Restart the pyos service </p>
+<blockquote>
+<p>Using kubernetes run </p>
+<p><code>kubectl rollout restart daemonset daemonset-pyos -n abcdesktop</code></p>
+<p>Using docker only, run </p>
+<p><code>docker-compose restart</code>  </p>
+</blockquote>
+<p>When your services are restarted, launch your web browser</p>
+<p><img alt="login anomymous acl" src="../img/login-anomymous-acl.png" /></p>
+<p>Login to your abcdesktop service and choose anonymous authentication</p>
+<p><img alt="login anomymous acl" src="../img/login-anomymous-acl-desktop.png" /></p>
+<p>Check the label set during the authentication process</p>
+<p>Goto the menu option at the right up corner, choose <code>Settings</code> | <code>User</code> | <code>Session</code> </p>
+<p><img alt="login anomymous label" src="../img/login-anomymous-acl-label.png" /></p>
+<p>You should read the label <code>localnet</code> in the Anonymous user information.</p>
+<h2 id="define-the-acl-label-to-the-application">Define the acl label to the application</h2>
+<p>You can read the chapter <a href="/buildapplicationsgnulinux/">Build your own application image </a>, if your are building user docker abcdsktop application image for the first time.</p>
+<h3 id="create-a-xeditjson-file">Create a xedit.json file</h3>
+<p>Create a edit.json file with the content :</p>
+<pre><code>{
+    &quot;acl&quot;: { &quot;permit&quot;: [ &quot;localhost&quot;, &quot;localnet&quot;  ] },
+    &quot;cat&quot;: &quot;utilities&quot;,
+    &quot;debpackage&quot;: &quot;x11-apps&quot;,
+    &quot;icon&quot;: &quot;xedit.svg&quot;,
+    &quot;keyword&quot;: &quot;text,notepad,edit,txt,editor,xedit&quot;,
+    &quot;launch&quot;: &quot;xedit.Xedit&quot;,
+    &quot;name&quot;: &quot;xedit&quot;,
+    &quot;displayname&quot;: &quot;Xedit&quot;,
+    &quot;path&quot;: &quot;/usr/bin/xedit&quot;,
+    &quot;template&quot;: &quot;abcdesktopio/oc.template.gtk&quot;,
+    &quot;mimetype&quot;: &quot;application/text;&quot;,
+    &quot;fileextensions&quot;:&quot;txt;log;md&quot;
+}
+</code></pre>
+<p>To build your new image, download the <a href="https://raw.githubusercontent.com/abcdesktopio/oc.apps/main/make.js">make.js</a> script file. <code>make.js</code> is located in the <code>oc.apps</code> repository. Look at <a href="https://github.com/abcdesktopio/oc.apps">https://github.com/abcdesktopio/oc.apps</a> if you can't download this file. </p>
+<p>Make sure that you have installed <code>nodejs</code></p>
+<p>To install <code>make.js</code> command </p>
+<pre><code>wget https://raw.githubusercontent.com/abcdesktopio/oc.apps/main/make.js
+</code></pre>
+<p>Create <code>icons</code> directory</p>
+<pre><code>mkdir -p icons
+curl https://raw.githubusercontent.com/abcdesktopio/oc.apps/main/icons/xedit.svg --output icons/xedit.svg 
+</code></pre>
+<p>Run the make command </p>
+<pre><code>node make.js -f xedit.json Dockerfile
+</code></pre>
+<p>You should read on standard output </p>
+<pre><code>myArgs:  [ '-f', 'xedit.json', 'Dockerfile' ]
+opening file xedit.json
+applist.json entries: 1
+myArgs:  [ '-f', 'xedit.json', 'Dockerfile' ]
+Building file Dockerfile as output
+{
+  acl: { permit: [ 'all' ] },
+  cat: 'utilities',
+  debpackage: 'x11-apps',
+  icon: 'xedit.svg',
+  keyword: 'text,notepad,edit,txt,editor,xedit',
+  launch: 'xedit.Xedit',
+  name: 'xedit',
+  displayname: 'Xedit',
+  path: '/usr/bin/xedit',
+  template: 'abcdesktopio/oc.template.gtk',
+  mimetype: 'application/text;',
+  fileextensions: 'txt;log;md'
+}
+Building xedit.Xedit
+</code></pre>
+<p>Look at the new <code>Dockerfile</code>, and build the new docker image for <code>xedit</code> </p>
+<pre><code>docker build -t xedit.d .
+</code></pre>
+<p>You should read on standard output</p>
+<pre><code>[+] Building 13.0s (11/11) FINISHED                                                                                                                                                                     
+ =&gt; [internal] load build definition from Dockerfile                                                                                                                                               0.0s
+ =&gt; =&gt; transferring dockerfile: 2.01kB                                                                                                                                                             0.0s
+ =&gt; [internal] load .dockerignore                                                                                                                                                                  0.0s
+ =&gt; =&gt; transferring context: 2B                                                                                                                                                                    0.0s
+ =&gt; [internal] load metadata for docker.io/abcdesktopio/oc.template.gtk:dev                                                                                                                        2.3s
+ =&gt; [auth] abcdesktopio/oc.template.gtk:pull token for registry-1.docker.io                                                                                                                        0.0s
+ =&gt; [1/6] FROM docker.io/abcdesktopio/oc.template.gtk:dev@sha256:4aac32209c27a3e88906f39aecdfee6833bed022871366356bfd5518e2248b79                                                                  0.4s
+ =&gt; =&gt; resolve docker.io/abcdesktopio/oc.template.gtk:dev@sha256:4aac32209c27a3e88906f39aecdfee6833bed022871366356bfd5518e2248b79                                                                  0.0s
+ =&gt; =&gt; sha256:4aac32209c27a3e88906f39aecdfee6833bed022871366356bfd5518e2248b79 3.88kB / 3.88kB                                                                                                     0.0s
+ =&gt; =&gt; sha256:fe01ec1c214baf8b3e86255ac7dbca3157be4932ae19dfe07bbcf7d8c8839b07 7.80kB / 7.80kB                                                                                                     0.0s
+ =&gt; [2/6] RUN DEBIAN_FRONTEND=noninteractive apt-get update &amp;&amp; apt-get install -y  --no-install-recommends x11-apps &amp;&amp; apt-get clean                                                               8.7s
+ =&gt; [3/6] RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections                                                                                                       0.4s
+ =&gt; [4/6] RUN  if [ -d /usr/share/icons ];   then cd /usr/share/icons;    /composer/safelinks.sh; fi                                                                                               0.3s 
+ =&gt; [5/6] RUN  if [ -d /usr/share/pixmaps ]; then cd /usr/share/pixmaps;  /composer/safelinks.sh; fi                                                                                               0.3s 
+ =&gt; [6/6] WORKDIR /home/balloon                                                                                                                                                                    0.0s 
+ =&gt; exporting to image                                                                                                                                                                             0.3s 
+ =&gt; =&gt; exporting layers                                                                                                                                                                            0.3s 
+ =&gt; =&gt; writing image sha256:0b7cb908c88bf6301eb0555e558e99436e40bd5604e7ffebd12f137e9b5f9878                                                                                                       0.0s
+ =&gt; =&gt; naming to docker.io/library/xedit.d  
+</code></pre>
+<p>Then look at the acl label</p>
+<pre><code>docker inspect xedit.d | grep oc.acl
+                &quot;oc.acl&quot;: &quot;{\&quot;permit\&quot;:[\&quot;localhost\&quot;,\&quot;localnet\&quot;]}&quot;,
+                &quot;oc.acl&quot;: &quot;{\&quot;permit\&quot;:[\&quot;localhost\&quot;,\&quot;localnet\&quot;]}&quot;,
+</code></pre>
+<p>The acl is stringified json object.</p>
+<h2 id="run-the-xedit-application-from-your-local-network">Run the xedit application from your local network</h2>
+<p>The xedit application is listed only if your are connected from a local network matching the previous rules.</p>
+<p>Look for the applications, using the quick launch search text area on the bottom right corner. Insert the first character of xedit :</p>
+<p><img alt="xedit is running" src="../img/login-anomymous-acl-show-xedit.png" /></p>
+<p>Launch the <code>xedit</code> application</p>
+<p><img alt="xedit is running" src="../img/login-anomymous-acl-run-xedit.png" /></p>
+<h2 id="run-the-application-from-another-source-ip-address-or-update-the-acl-application">Run the application from another source IP address or update the acl application</h2>
+<h3 id="update-acl-of-xedit-application">Update acl of xedit application</h3>
+<p>To update the <code>acl</code> of <code>xedit</code> application, edit the edit.json file with the content, and set <code>nowhere</code> tag in <code>acl</code> array :</p>
+<pre><code>{
+    &quot;acl&quot;: { &quot;permit&quot;: [ &quot;nowhere&quot;  ] },
+    &quot;cat&quot;: &quot;utilities&quot;,
+    &quot;debpackage&quot;: &quot;x11-apps&quot;,
+    &quot;icon&quot;: &quot;xedit.svg&quot;,
+    &quot;keyword&quot;: &quot;text,notepad,edit,txt,editor,xedit&quot;,
+    &quot;launch&quot;: &quot;xedit.Xedit&quot;,
+    &quot;name&quot;: &quot;xedit&quot;,
+    &quot;displayname&quot;: &quot;Xedit&quot;,
+    &quot;path&quot;: &quot;/usr/bin/xedit&quot;,
+    &quot;template&quot;: &quot;abcdesktopio/oc.template.gtk&quot;,
+    &quot;mimetype&quot;: &quot;application/text;&quot;,
+    &quot;fileextensions&quot;:&quot;txt;log;md&quot;
+}
+</code></pre>
+<p>Then, rebuild <code>Dockerfile</code> and the <code>docker image</code> of the xedit application</p>
+<pre><code>node make.js -f xedit.json Dockerfile
+docker build -t xedit.d .
+</code></pre>
+<pre><code>% node make.js -f xedit.json Dockerfile
+myArgs:  [ '-f', 'xedit.json', 'Dockerfile' ]
+opening file xedit.json
+applist.json entries: 1
+myArgs:  [ '-f', 'xedit.json', 'Dockerfile' ]
+Building file Dockerfile as output
+{
+  acl: { permit: [ 'nowhere' ] },
+  cat: 'utilities',
+  debpackage: 'x11-apps',
+  icon: 'xedit.svg',
+  keyword: 'text,notepad,edit,txt,editor,xedit',
+  launch: 'xedit.Xedit',
+  name: 'xedit',
+  displayname: 'Xedit',
+  path: '/usr/bin/xedit',
+  template: 'abcdesktopio/oc.template.gtk',
+  mimetype: 'application/text;',
+  fileextensions: 'txt;log;md'
+}
+Building xedit.Xedit
+
+% docker build -t xedit.d .
+[+] Building 1.5s (11/11) FINISHED                                                                                                                                                                      
+ =&gt; [internal] load build definition from Dockerfile                                                                                                                                               0.0s
+ =&gt; =&gt; transferring dockerfile: 4.19kB                                                                                                                                                             0.0s
+ =&gt; [internal] load .dockerignore                                                                                                                                                                  0.0s
+ =&gt; =&gt; transferring context: 2B                                                                                                                                                                    0.0s
+ =&gt; [internal] load metadata for docker.io/abcdesktopio/oc.template.gtk:dev                                                                                                                        1.4s
+ =&gt; [auth] abcdesktopio/oc.template.gtk:pull token for registry-1.docker.io                                                                                                                        0.0s
+ =&gt; [1/6] FROM docker.io/abcdesktopio/oc.template.gtk:dev@sha256:4aac32209c27a3e88906f39aecdfee6833bed022871366356bfd5518e2248b79                                                                  0.0s
+ =&gt; CACHED [2/6] RUN DEBIAN_FRONTEND=noninteractive apt-get update &amp;&amp; apt-get install -y  --no-install-recommends x11-apps &amp;&amp; apt-get clean                                                        0.0s
+ =&gt; CACHED [3/6] RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections                                                                                                0.0s
+ =&gt; CACHED [4/6] RUN  if [ -d /usr/share/icons ];   then cd /usr/share/icons;    /composer/safelinks.sh; fi                                                                                        0.0s
+ =&gt; CACHED [5/6] RUN  if [ -d /usr/share/pixmaps ]; then cd /usr/share/pixmaps;  /composer/safelinks.sh; fi                                                                                        0.0s
+ =&gt; CACHED [6/6] WORKDIR /home/balloon                                                                                                                                                             0.0s
+ =&gt; exporting to image                                                                                                                                                                             0.0s
+ =&gt; =&gt; exporting layers                                                                                                                                                                            0.0s
+ =&gt; =&gt; writing image sha256:640a4dd66b03420c4128e2fcd920dc5749cc5b687abc62b68e52f3c562943903                                                                                                       0.0s
+ =&gt; =&gt; naming to docker.io/library/xedit.d       
+</code></pre>
+<p>Launch your web browser, and log in to your abcdesktop service</p>
+<p>Check that <code>xedit</code> is not found and not listed.</p>
+<p><img alt="xedit is not found" src="../img/login-anomymous-acl-xedit-notfound.png" /></p>
+<p>The new <code>acl</code> does not allow the <code>xedit</code> application to be run and show.
+You can now define your own rules, add set the access control list to your applications.</p>
                 
               
               
@@ -1608,6 +2013,39 @@ COPY icaclient_amd64.deb /tmp/icaclient_amd64.deb,RUN apt-get install  --no-inst
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../docker_macvlan/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Bind a specific docker network for an application
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../update_image/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Update and custom frontend image
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

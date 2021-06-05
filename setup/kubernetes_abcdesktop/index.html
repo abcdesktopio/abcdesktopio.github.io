@@ -933,6 +933,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rollout-daemonset" class="md-nav__link">
+    Rollout daemonset
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1635,6 +1642,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../common/acl/" class="md-nav__link">
+        Define access control for an application
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../common/update_image/" class="md-nav__link">
         Update and custom frontend image
       </a>
@@ -1830,6 +1849,13 @@
           <li class="md-nav__item">
   <a href="#view-pyos-logs" class="md-nav__link">
     View pyos logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollout-daemonset" class="md-nav__link">
+    Rollout daemonset
   </a>
   
 </li>
@@ -2185,6 +2211,24 @@ Subjects:
 <pre><code>kubectl logs daemonset-pyos-tklg8 --follow -n abcdesktop
 </code></pre>
 <p>Note that you also can view logs using docker command</p>
+<h3 id="rollout-daemonset">Rollout daemonset</h3>
+<p>To rollout restart the abcdesktop daemonset</p>
+<pre><code>kubectl rollout restart daemonset -n abcdesktop
+</code></pre>
+<p>You should read on the standard output </p>
+<pre><code>daemonset.apps/daemonset-nginx restarted
+daemonset.apps/daemonset-pyos restarted
+</code></pre>
+<p>Check the pods status  </p>
+<pre><code>kubectl get pods  -n abcdesktop
+NAME                            READY   STATUS    RESTARTS   AGE
+daemonset-nginx-dh2xd           1/1     Running   0          4m22s
+daemonset-pyos-9xn26            1/1     Running   0          3m52s
+memcached-od-5bf65bf745-xpvvr   1/1     Running   3          45h
+mongodb-od-656d85c49f-242jh     1/1     Running   4          45h
+openldap-od-5945946767-qf2hn    1/1     Running   0          45m
+speedtest-od-d94b8cb5c-52wf5    1/1     Running   0          45m
+</code></pre>
                 
               
               

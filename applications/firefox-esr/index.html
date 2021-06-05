@@ -1456,6 +1456,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../common/acl/" class="md-nav__link">
+        Define access control for an application
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../common/update_image/" class="md-nav__link">
         Update and custom frontend image
       </a>
@@ -1526,13 +1538,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
-    Arguments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#display-name" class="md-nav__link">
     Display name
   </a>
@@ -1575,15 +1580,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#share-size" class="md-nav__link">
-    Share size
+  <a href="#share-memory-size" class="md-nav__link">
+    Share Memory size
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pre-run-command" class="md-nav__link">
-    Pre run command
+  <a href="#memory-size" class="md-nav__link">
+    Memory size
   </a>
   
 </li>
@@ -1606,11 +1611,9 @@
                 
                 
                 <h1 id="firefox-esr">firefox-esr</h1>
-<p><img alt="firefox.svg" src="/applications/icons/firefox.svg" style="height:64px;width:64px" /></p>
+<p><img src='/docs/img/app/firefox.svg' height='64px' width='64px'></p>
 <h2 id="inherite-from">inherite from</h2>
 <p><a href="../abcdesktopio/oc.template.gtk/">abcdesktopio/oc.template.gtk</a></p>
-<h2 id="arguments">Arguments</h2>
-<p>"-new-instance -P abcdesktop-firefox-esr --class firefox-esr"</p>
 <h2 id="display-name">Display name</h2>
 <p>"Firefox-esr"</p>
 <h2 id="path">path</h2>
@@ -1623,12 +1626,10 @@
 <p>"htm;html;xml;gif"</p>
 <h2 id="legacy-file-extensions">Legacy file extensions</h2>
 <p>"htm;html;xml"</p>
-<h2 id="share-size">Share size</h2>
+<h2 id="share-memory-size">Share Memory size</h2>
 <p>"2gb"</p>
-<h2 id="pre-run-command">Pre run command</h2>
-<pre><code>
-RUN add-apt-repository -y ppa:mozillateam/ppa,RUN DEBIAN_FRONTEND=noninteractive echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-xfree86-nonfree,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes winbind firefox-esr $(apt-cache search firefox-esr-locale | awk '{print $1 }') &amp;&amp; apt-get clean,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes flashplugin-installer ubuntu-restricted-extras libavc1394-0 &amp;&amp; apt-get clean,RUN apt-get update &amp;&amp; apt-get install  --no-install-recommends --yes libasound2-plugins libgail-common libgtk2.0-bin chromium-codecs-ffmpeg-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi libavcodec-extra &amp;&amp; apt-get clean,COPY composer/init.d/init.firefox-esr /composer/init.d/init.firefox-esr,COPY policies.json /usr/lib/firefox-esr/distribution,COPY /ntlm_auth /usr/bin/ntlm_auth.desktop,RUN chown root:root /usr/bin/ntlm_auth.desktop &amp;&amp; chmod 111 /usr/bin/ntlm_auth.desktop
-</code></pre>
+<h2 id="memory-size">Memory size</h2>
+<p>"16gb"</p>
                 
               
               

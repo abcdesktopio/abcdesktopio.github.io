@@ -1456,6 +1456,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../common/acl/" class="md-nav__link">
+        Define access control for an application
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../common/update_image/" class="md-nav__link">
         Update and custom frontend image
       </a>
@@ -1546,13 +1558,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#pre-run-command" class="md-nav__link">
-    Pre run command
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1573,17 +1578,13 @@
                 <h1 id="putty-wine">putty-wine</h1>
 <p><img alt="putty.svg" src="/applications/icons/putty.svg" style="height:64px;width:64px" /></p>
 <h2 id="inherite-from">inherite from</h2>
-<p><a href="abcdesktopio/oc.template.gtk.wine.md">abcdesktopio/oc.template.gtk.wine</a></p>
+<p><a href="../abcdesktopio/oc.template.gtk.mswindows.putty/">abcdesktopio/oc.template.gtk.mswindows.putty</a></p>
 <h2 id="arguments">Arguments</h2>
 <p>"/composer/bin/putty.exe"</p>
 <h2 id="display-name">Display name</h2>
 <p>"Putty Wine"</p>
 <h2 id="path">path</h2>
 <p>"/usr/bin/wine"</p>
-<h2 id="pre-run-command">Pre run command</h2>
-<pre><code>
-ENV WINEARCH=win64,USER $BUSER,RUN wineboot --init,RUN wget -O /composer/bin/putty.exe https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe,RUN echo disable &gt; $WINEPREFIX/.update-timestamp,COPY --chown=$BUSER:$BUSER user.reg system.reg /composer/.wine/
-</code></pre>
                 
               
               

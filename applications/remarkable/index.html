@@ -1456,6 +1456,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../common/acl/" class="md-nav__link">
+        Define access control for an application
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../common/update_image/" class="md-nav__link">
         Update and custom frontend image
       </a>
@@ -1540,6 +1552,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#showinview" class="md-nav__link">
+    showinview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mime-type" class="md-nav__link">
     Mime Type
   </a>
@@ -1592,6 +1611,8 @@
 <p>"Remarkable"</p>
 <h2 id="path">path</h2>
 <p>"/usr/bin/remarkable"</p>
+<h2 id="showinview">showinview</h2>
+<p>"dock"</p>
 <h2 id="mime-type">Mime Type</h2>
 <p>"text/x-markdown;text/markdown;"</p>
 <h2 id="file-extensions">File extensions</h2>
@@ -1600,7 +1621,7 @@
 <p>"md;markdown"</p>
 <h2 id="pre-run-command">Pre run command</h2>
 <pre><code>
-RUN apt-get update &amp;&amp; apt-get install --no-install-recommends --yes wget python3-gtkspellcheck wkhtmltopdf python3-markdown gir1.2-gtksource-3.0 yelp gir1.2-webkit-3.0 python3-bs4 &amp;&amp; apt-get clean,RUN wget -O /tmp/remarkable_1.87_all.deb https://remarkableapp.github.io/files/remarkable_1.87_all.deb &amp;&amp; apt-get install  --no-install-recommends --yes /tmp/remarkable_1.87_all.deb &amp;&amp; apt-get clean &amp;&amp; rm -rf /tmp/remarkable_1.87_all.deb
+RUN apt-get update &amp;&amp; apt-get install --no-install-recommends --yes wget python3-gtkspellcheck wkhtmltopdf python3-markdown gir1.2-gtksource-3.0 yelp gir1.2-webkit-3.0 python3-bs4 &amp;&amp; apt-get clean,RUN wget -O /tmp/remarkable_1.87_all.deb https://remarkableapp.github.io/files/remarkable_1.87_all.deb &amp;&amp; dpkg -i /tmp/remarkable_1.87_all.deb &amp;&amp; rm -rf /tmp/remarkable_1.87_all.deb
 </code></pre>
                 
               
