@@ -50,9 +50,10 @@ jobs:
       - name: dump sources
         run: |
           ls -la 
+          ls -la opsdocs/site
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages2 # The branch the action should deploy to.
-          folder: abcdesktopio.github.io/opsdocs/site # The folder the action should deploy.
+          folder: opsdocs/site # The folder the action should deploy.
