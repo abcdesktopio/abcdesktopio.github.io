@@ -57,5 +57,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: gh-pages2 # The branch the action should deploy to.
+          branch: gh-pages # The branch the action should deploy to.
           folder: opsdocs/site # The folder the action should deploy.
