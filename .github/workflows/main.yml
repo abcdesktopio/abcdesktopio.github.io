@@ -32,10 +32,6 @@ jobs:
           # Default: ${{ github.repository }}
           repository: 'abcdesktopio/docs'
           submodules: true
-    
-      - name: Clone sources
-        run: |
-          ls -la oc.apps
       
       - uses: actions/setup-python@v2
         with:
@@ -51,7 +47,6 @@ jobs:
         
       - name: dump sources
         run: |
-          ls -la 
           ls -la opsdocs/site
 
       - name: Deploy 🚀
