@@ -36,6 +36,17 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.9
+          
+      - name: install drawio
+        run: |
+          apt-get update
+          wget https://github.com/jgraph/drawio-desktop/releases/download/v16.5.1/drawio-amd64-16.5.1.deb
+          apt-get install --yes ./drawio-amd64-16.5.1.deb
+          
+      - name: convert drawio to svg
+        run: |
+          ls -la docs/opsdocs/docs/common
+          /opt/drawio/drawio -x -f svg -o opsdocs/docs/common/abcdesktop.bastion.svg opsdocs/docs/common/abcdesktop.bastion.drawio 
       
       - name : install material
         run: pip install mkdocs-material
