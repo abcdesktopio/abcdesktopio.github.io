@@ -39,9 +39,9 @@ jobs:
           
       - name: install drawio
         run: |
-          apt-get update
+          sudo apt-get update
           wget https://github.com/jgraph/drawio-desktop/releases/download/v16.5.1/drawio-amd64-16.5.1.deb
-          apt-get install --yes ./drawio-amd64-16.5.1.deb
+          sudo apt-get install --yes ./drawio-amd64-16.5.1.deb
           
       - name: convert drawio to svg
         run: |
