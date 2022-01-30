@@ -37,17 +37,13 @@ jobs:
         with:
           python-version: 3.9
           
-      - name: install drawio
-        run: |
-          sudo apt-get update
-          wget https://github.com/jgraph/drawio-desktop/releases/download/v16.5.1/drawio-amd64-16.5.1.deb
-          sudo apt-get install --yes ./drawio-amd64-16.5.1.deb
-          
-      - name: convert drawio to svg
-        run: |
-          ls -la opsdocs/docs/common
-          /opt/drawio/drawio -x -f svg -o opsdocs/docs/common/abcdesktop.bastion.svg opsdocs/docs/common/abcdesktop.bastion.drawio 
-      
+      - name: Convert digramm to png
+        uses: Burnett01/actions-drawio@1.2
+        with:
+          scale: 1.0
+          src: opsdocs/docs/common/abcdesktop.bastion.drawio
+          dest: opsdocs/docs/common/abcdesktop.bastion.svg    
+                
       - name : install material
         run: pip install mkdocs-material
       
