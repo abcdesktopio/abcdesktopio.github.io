@@ -45,7 +45,7 @@ jobs:
           
       - name: convert drawio to svg
         run: |
-          ls -la docs/opsdocs/docs/common
+          ls -la opsdocs/docs/common
           /opt/drawio/drawio -x -f svg -o opsdocs/docs/common/abcdesktop.bastion.svg opsdocs/docs/common/abcdesktop.bastion.drawio 
       
       - name : install material
