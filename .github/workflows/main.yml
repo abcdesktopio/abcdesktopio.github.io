@@ -42,7 +42,7 @@ jobs:
         with:
           scale: 1.0
           src: opsdocs/docs/common/abcdesktop.bastion.drawio
-          dest: opsdocs/docs/common/abcdesktop.bastion.png    
+          dest: opsdocs/docs/common/abcdesktop.bastion.svg    
                 
       - name : install material
         run: pip install mkdocs-material
