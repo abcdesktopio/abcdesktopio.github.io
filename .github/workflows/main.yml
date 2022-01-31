@@ -37,12 +37,12 @@ jobs:
         with:
           python-version: 3.9
           
-      - name: Convert digramm to svg
+      - name: Convert digramm abcdesktop.bastion.drawio to svg
         uses: Burnett01/actions-drawio@1.2
         with:
           scale: 1.0
           src: opsdocs/docs/common/abcdesktop.bastion.drawio
-          dest: opsdocs/docs/common/abcdesktop.bastion.svg    
+          dest: opsdocs/docs/common/abcdesktop.bastion.drawio.svg    
                 
       - name : install material
         run: pip install mkdocs-material
