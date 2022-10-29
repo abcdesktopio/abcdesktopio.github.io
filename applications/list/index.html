@@ -1092,9 +1092,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install-an-application" class="md-nav__link">
+    Install an application
+  </a>
+  
+    <nav class="md-nav" aria-label="Install an application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-application-2048-release-10" class="md-nav__link">
+    install the application 2048 release 1.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-application-2048-release-20" class="md-nav__link">
+    install the application 2048 release 2.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install-all-applications" class="md-nav__link">
     Install all applications
   </a>
+  
+    <nav class="md-nav" aria-label="Install all applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-abcdesktop-release-1x" class="md-nav__link">
+    For abcdesktop release 1.x
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-abcdesktop-release-2x" class="md-nav__link">
+    For abcdesktop release 2.x
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1890,9 +1937,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install-an-application" class="md-nav__link">
+    Install an application
+  </a>
+  
+    <nav class="md-nav" aria-label="Install an application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-application-2048-release-10" class="md-nav__link">
+    install the application 2048 release 1.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-application-2048-release-20" class="md-nav__link">
+    install the application 2048 release 2.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install-all-applications" class="md-nav__link">
     Install all applications
   </a>
+  
+    <nav class="md-nav" aria-label="Install all applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-abcdesktop-release-1x" class="md-nav__link">
+    For abcdesktop release 1.x
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-abcdesktop-release-2x" class="md-nav__link">
+    For abcdesktop release 2.x
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1924,11 +2018,27 @@
 
 
 <h1 id="application-list">Application list</h1>
+<h2 id="install-an-application">Install an application</h2>
+<p>You need to set the abcdesktop release as a TAG, formated like [APPLICATION.d[:TAG]]</p>
+<p>Example to get the famous application <code>2048</code>, using abcdesktop release <code>2.0</code></p>
+<h3 id="install-the-application-2048-release-10">install the application 2048 release 1.0</h3>
+<pre><code class="language-bash">docker pull abcdesktopio/2048.d:1.0
+</code></pre>
+<h3 id="install-the-application-2048-release-20">install the application 2048 release 2.0</h3>
+<pre><code class="language-bash">docker pull abcdesktopio/2048.d:2.0
+</code></pre>
 <h2 id="install-all-applications">Install all applications</h2>
-<p>To install all applications ready to use, run <code>docker pull</code> command for each image in file <a href="https://raw.githubusercontent.com/abcdesktopio/conf/main/images-list.txt">image-list.txt</a> :</p>
+<p>To install all applications ready to use, run <code>docker pull</code> command for each image in file <a href="https://raw.githubusercontent.com/abcdesktopio/conf/main/images-list.txt">image-list.txt</a></p>
+<h3 id="for-abcdesktop-release-1x">For abcdesktop release 1.x</h3>
 <pre><code class="language-bash">wget -O images-list.txt https://raw.githubusercontent.com/abcdesktopio/conf/main/images-list.txt
 while read i; do
         docker pull abcdesktopio/$i:1.0
+done &lt; images-list.txt
+</code></pre>
+<h3 id="for-abcdesktop-release-2x">For abcdesktop release 2.x</h3>
+<pre><code class="language-bash">wget -O images-list.txt https://raw.githubusercontent.com/abcdesktopio/conf/main/images-list.txt
+while read i; do
+        docker pull abcdesktopio/$i:2.0
 done &lt; images-list.txt
 </code></pre>
 <p>You will find the application's list in next chapter.</p>
